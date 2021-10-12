@@ -9,16 +9,19 @@ interface ProfileInterface {
 
 const profileSchema: ProfileInterface = new mongoose.Schema({
   firstName: {
-    required: true,
+   type: String,
+   required: true,
   },
   lastName: {
-    required: true,
+   type: String,
+   required: true,
   },
   description: {
-    required: true
+   type: String,
+   required: true
   },
   availability: {
-    required: true
+   type: String,
+   required: true
   }
 });
-
