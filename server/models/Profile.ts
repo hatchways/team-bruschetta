@@ -1,0 +1,8 @@
+const mongoose = require("mongoose");
+
+interface ProfileInterface {
+  firstName: string;
+  lastName: string;
+  description: string;
+  availability: string;
+}
