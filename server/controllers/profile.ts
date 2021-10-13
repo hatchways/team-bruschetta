@@ -21,3 +21,14 @@ export const getProfileById = (req: Request, res: Response) => {
   });
 };
 
+export const addProfile = (req: Request, res: Response) => {
+  const profile = new Profile(req.body);
+  profile.save((err: any) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.send(profile);
+    }
+  });
+};
+
