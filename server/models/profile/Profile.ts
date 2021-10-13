@@ -19,14 +19,6 @@ export const ProfileSchema: Schema = new Schema({
   availability: {
    type: String,
    required: true
-  },
-  createdAt: {
-   type: Date,
-   default: new Date(),
-  },
-  lastUpdated: {
-   type: Date,
-   default: new Date(),
   }
 });
 

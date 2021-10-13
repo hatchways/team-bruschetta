@@ -3,6 +3,4 @@ export interface ProfileInterface {
   lastName: string;
   description: string;
   availability: string;
-  createdAt?: Date;
-  lastUpdated?: Date
 }
