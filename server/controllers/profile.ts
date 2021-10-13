@@ -10,3 +10,14 @@ export const allProfiles = (req: Request, res: Response) => {
     }
   });
 };
+
+export const getProfileById = (req: Request, res: Response) => {
+  const profile = Profile.findById(req.params.id, (err: any, profile: any) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.send(profile);
+    }
+  });
+};
+
