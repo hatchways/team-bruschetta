@@ -1,9 +1,7 @@
 import { Document, Schema, model, Model } from 'mongoose';
 import { ProfileInterface } from '../profile/profileInterface';
 
-export interface IProfileModel extends ProfileInterface, Document {
-  fullName(): string;
-}
+export interface IProfileModel extends ProfileInterface, Document {};
 
 export const ProfileSchema: Schema = new Schema({
   firstName: {
@@ -24,6 +22,7 @@ export const ProfileSchema: Schema = new Schema({
   },
   createdAt: {
    type: Date,
+   default: new Date(),
   },
   lastUpdated: {
    type: Date,
@@ -31,15 +30,17 @@ export const ProfileSchema: Schema = new Schema({
   }
 });
 
-ProfileSchema.pre("save", function(next) {
-  let now = new Date();
-  if (!this.createdAt) {
-    this.createdAt = now;
+async function findOneOrCreate(
+  profileId: string
+): Promise<IProfileModel> {
+  const record = await this.findOne({ profileId });
+  if (record) {
+    return record;
+  } else {
+    return this.create({ profileId });
   }
-  next();
-});
-ProfileSchema.methods.fullName = function(): string {
-  return (this.firstName.trim() + " " + this.lastName.trim());
 };
+
+ProfileSchema.statics.findOneOrCreate = findOneOrCreate;
 
 export const Profile: Model<IProfileModel> = model<IProfileModel>("Profile", ProfileSchema);
