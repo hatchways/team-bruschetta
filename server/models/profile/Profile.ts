@@ -1,7 +1,11 @@
-import {Document, Schema, model, Model } from 'mongoose';
-import {ProfileInterface} from '../profile/profileInterface'
+import { Document, Schema, model, Model } from 'mongoose';
+import { ProfileInterface } from '../profile/profileInterface';
 
-const ProfileSchema = new Schema<ProfileInterface>({
+export interface IProfileModel extends ProfileInterface, Document {
+  fullName(): string;
+}
+
+export const ProfileSchema: Schema = new Schema({
   firstName: {
    type: String,
    required: true,
@@ -23,6 +27,19 @@ const ProfileSchema = new Schema<ProfileInterface>({
   },
   lastUpdated: {
    type: Date,
+   default: new Date(),
   }
 });
 
+ProfileSchema.pre("save", function(next) {
+  let now = new Date();
+  if (!this.createdAt) {
+    this.createdAt = now;
+  }
+  next();
+});
+ProfileSchema.methods.fullName = function(): string {
+  return (this.firstName.trim() + " " + this.lastName.trim());
+};
+
+export const Profile: Model<IProfileModel> = model<IProfileModel>("Profile", ProfileSchema);
