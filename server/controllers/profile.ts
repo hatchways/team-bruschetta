@@ -12,7 +12,7 @@ export const allProfiles = (req: Request, res: Response) => {
 };
 
 export const getProfileById = (req: Request, res: Response) => {
-  const profile = Profile.findById(req.params.id, (err: any, profile: any) => {
+  const profile = Profile.findById(req.params.profileID, (err: any, profile: any) => {
     if (err) {
       res.send(err);
     } else {
@@ -34,7 +34,7 @@ export const addProfile = (req: Request, res: Response) => {
 
 export const updateProfile = (req: Request, res: Response) => {
   let profile = Profile.findByIdAndUpdate(
-    req.params.id,
+    req.params.profileID,
     req.body,
     (err: any, profile: any) => {
       if (err) {
