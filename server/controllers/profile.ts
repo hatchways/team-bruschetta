@@ -32,3 +32,16 @@ export const addProfile = (req: Request, res: Response) => {
   });
 };
 
+export const updateProfile = (req: Request, res: Response) => {
+  let profile = Profile.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    (err: any, profile: any) => {
+      if (err) {
+        res.send(err);
+      } else {
+        res.send(profile);
+      }
+    }
+  );
+};
