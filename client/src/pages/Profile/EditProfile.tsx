@@ -6,23 +6,56 @@ import useStyles from './useStyles';
 const EditProfile = () => {
   const classes = useStyles();
   return (
-    <form>
-      <TextField
-        id="firstName"
-        name="firstName"
-        label={<Typography className={classes.label}>First Name</Typography>}
-      />
-      <TextField id="lastName" name="lastName" label={<Typography className={classes.label}>Last Name</Typography>} />
-      <TextField id="gender" name="gender" label={<Typography className={classes.label}>Gender</Typography>} />
-      <TextField id="dob" name="dob" label={<Typography className={classes.label}>Date of Birth</Typography>} />
-      <TextField id="email" name="email" label={<Typography className={classes.label}>Email Address</Typography>} />
-      <TextField id="phone" name="phone" label={<Typography className={classes.label}>Phone Number</Typography>} />
-      <TextField
-        id="address"
-        name="address"
-        label={<Typography className={classes.label}>Where You Live</Typography>}
-      />
-      <TextField id="about" name="about" label={<Typography className={classes.label}>Describe Yourself</Typography>} />
+    <form className={classes.form}>
+      <div>
+        <label className={classes.label}>
+          First Name
+          <input className={classes.inputs} id="firstName" name="firstName" />
+        </label>
+      </div>
+      {/* <TextField id="lastName" name="lastName" label={<Typography className={classes.label}>Last Name</Typography>} /> */}
+      <div>
+        <label className={classes.label}>
+          Last Name
+          <input className={classes.inputs} id="lastName" name="lastName" />
+        </label>
+      </div>
+      <div>
+        <label className={classes.label}>
+          Gender
+          <input className={classes.inputs} id="gender" name="gender" />
+        </label>
+      </div>
+      <div>
+        <label className={classes.label}>
+          Date of Birth
+          <input className={classes.inputs} id="dob" name="dob" />
+        </label>
+      </div>
+      <div>
+        <label className={classes.label}>
+          Email Address
+          <input className={classes.inputs} id="email" name="email" />
+        </label>
+      </div>
+      <div>
+        <label className={classes.label}>
+          Phone Number
+          <input className={classes.inputs} id="phone" name="phone" />
+        </label>
+      </div>
+      <div>
+        <label className={classes.label}>
+          Where You Live
+          <input className={classes.inputs} id="address" name="address" />
+        </label>
+      </div>
+      <div>
+        <label className={classes.label}>
+          Describe Yourself
+          <textarea className={classes.inputs} id="description" name="description" />
+        </label>
+      </div>
       <Button type="submit" className={classes.submit}>
         {' '}
         Save{' '}

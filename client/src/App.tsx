@@ -9,13 +9,14 @@ import { SocketProvider } from './context/useSocketContext';
 import { SnackBarProvider } from './context/useSnackbarContext';
 
 import './App.css';
+import EditProfile from './pages/Profile/EditProfile';
 
 function App(): JSX.Element {
   return (
     <MuiThemeProvider theme={theme}>
       <BrowserRouter>
         <SnackBarProvider>
-          <AuthProvider>
+          {/* <AuthProvider>
             <SocketProvider>
               <Switch>
                 <Route exact path="/login" component={Login} />
@@ -28,7 +29,8 @@ function App(): JSX.Element {
                 </Route>
               </Switch>
             </SocketProvider>
-          </AuthProvider>
+          </AuthProvider> */}
+          <Route path="/editprofile" component={EditProfile} />
         </SnackBarProvider>
       </BrowserRouter>
     </MuiThemeProvider>
