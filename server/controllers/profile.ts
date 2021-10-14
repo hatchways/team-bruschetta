@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import { Profile } from "../models/profile/Profile";
-
 import asyncHandler from "express-async-handler";
 
 export const allProfiles = asyncHandler(async (req: Request, res: Response) => {

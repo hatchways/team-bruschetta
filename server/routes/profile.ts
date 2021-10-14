@@ -3,8 +3,9 @@ const router = express.Router();
 const { allProfiles, 
         getProfileById, 
         addProfile, 
-        updateProfile } 
- = require("../controllers/profile");
+        updateProfile } =
+ require("../controllers/profile.ts");
+ 
 
 router.route("/").get( allProfiles );
 
@@ -14,4 +15,4 @@ router.route("/").post( addProfile );
 
 router.route("/:id").put( updateProfile );
 
-export default router;
+module.exports = router;

@@ -11,7 +11,7 @@ const logger = require("morgan");
 
 const authRouter = require("./routes/auth");
 const userRouter = require("./routes/user");
-const profileRouter = require("./routes/profile");
+const profileRouter = require("./routes/profile.ts");
 
 const { json, urlencoded } = express;
 
@@ -35,7 +35,7 @@ if (process.env.NODE_ENV === "development") {
 app.use(json());
 app.use(urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(join(__dirname, "public")));
+app.use(express.static(join(__dirname, "public")));                                                                                           
 
 app.use((req, res, next) => {
   req.io = io;
