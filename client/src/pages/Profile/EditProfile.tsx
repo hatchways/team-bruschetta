@@ -37,7 +37,7 @@ export default function EditProfile() {
               <TextField
                 fullWidth
                 id="firstName"
-                label="First Name"
+                label="John"
                 name="firstName"
                 autoComplete="firstName"
                 className={classes.textField}
@@ -49,7 +49,7 @@ export default function EditProfile() {
               <TextField
                 fullWidth
                 id="lastName"
-                label="Last Name"
+                label="Doe"
                 name="lastName"
                 autoComplete="lastName"
                 className={classes.textField}
@@ -122,17 +122,16 @@ export default function EditProfile() {
                   variant="outlined"
                 />
               </Grid>
-              <Grid item xs={12} className={classes.field}>
-                <div className={classes.label}>Phone Number</div>
-                <TextField
-                  fullWidth
-                  id="phone"
-                  label="Phone Number"
-                  name="phone"
-                  autoComplete="phone"
-                  className={classes.textField}
-                  variant="outlined"
-                />
+              <Grid container spacing={3} className={classes.field}>
+                <div className={classes.dob}>Phone Number</div>
+                <Grid item xs={8} sm={4}>
+                  No Phone number entered
+                </Grid>
+                <Grid item xs={8} sm={4}>
+                  <Button type="submit" fullWidth variant="outlined" color="secondary" className={classes.phoneButton}>
+                    Add a Phone Number
+                  </Button>
+                </Grid>
               </Grid>
               <Grid item xs={12} className={classes.field}>
                 <div className={classes.label}>Where You Live</div>

@@ -44,6 +44,9 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 'bold',
     marginLeft: '40%',
   },
+  phoneButton: {
+    height: 56,
+  },
   title: {
     marginTop: '4rem',
     display: 'flex',
