@@ -40,6 +40,9 @@ const useStyles = makeStyles((theme) => ({
   dropdown: {
     marginTop: '1rem',
   },
+  select: {
+    marginRight: '3rem',
+  },
   submit: {
     margin: theme.spacing(3, 2, 2),
     padding: 10,

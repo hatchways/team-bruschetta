@@ -1,20 +1,22 @@
 import * as React from 'react';
-// import CssBaseline from '@material-ui/core/CssBaseline';
 // import FormControlLabel from '@material-ui/core/FormControlLabel';
 // import Link from '@material-ui/core/Link';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import {
   Button,
+  CssBaseline,
   TextField,
   TextareaAutosize,
   Grid,
   Box,
   Typography,
   FormControl,
+  FormHelperText,
   InputLabel,
   Container,
 } from '@material-ui/core';
+// import DatePicker from '@material-ui/lab/';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import useStyles from './useStyles';
 
@@ -36,7 +38,7 @@ export default function EditProfile() {
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="md">
-        {/* <CssBaseline /> */}
+        <CssBaseline />
         <Box component="form" onSubmit={handleSubmit} className={classes.form}>
           <Typography component="h1" variant="h5" className={classes.title}>
             Edit Profile
@@ -77,6 +79,7 @@ export default function EditProfile() {
                   label="Gender"
                   // onChange={handleChange}
                   variant="outlined"
+                  className={classes.select}
                 >
                   <MenuItem value={1}>Male</MenuItem>
                   <MenuItem value={2}>Female</MenuItem>
@@ -87,7 +90,7 @@ export default function EditProfile() {
           <Grid container spacing={3} className={classes.field}>
             <div className={classes.dob}>Date of Birth</div>
             <Grid item xs={9} sm={4}>
-              <FormControl fullWidth className={classes.dropdown}>
+              {/* <FormControl fullWidth className={classes.dropdown}>
                 <InputLabel id="month">Month</InputLabel>
                 <Select
                   labelId="month"
@@ -110,7 +113,9 @@ export default function EditProfile() {
                   <MenuItem value={11}>November</MenuItem>
                   <MenuItem value={12}>December</MenuItem>
                 </Select>
-              </FormControl>
+              </FormControl> */}
+              {/* <DatePicker views={['year']} label="Year only" /> */}
+              {/* <FormHelperText>Required</FormHelperText> */}
             </Grid>
             <Grid item xs={9} sm={1}>
               <FormControl fullWidth className={classes.dropdown}>
@@ -159,7 +164,7 @@ export default function EditProfile() {
             <Grid container spacing={3} className={classes.field}>
               <div className={classes.dob}>Phone Number</div>
               <Grid item xs={8} sm={4}>
-                No Phone number entered
+                <em>No Phone number entered</em>
               </Grid>
               <Grid item xs={8} sm={4}>
                 <Button type="submit" fullWidth variant="outlined" color="secondary" className={classes.phoneButton}>
