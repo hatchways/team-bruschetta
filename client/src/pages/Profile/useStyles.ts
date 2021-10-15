@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   form: {
-    marginTop: '3rem',
+    margin: '3rem 0',
     boxShadow: '6px 4px 10px #ddd',
     padding: '3%',
     fontWeight: 'bold',
@@ -33,6 +33,13 @@ const useStyles = makeStyles((theme) => ({
   textField: {
     marginTop: '1rem',
   },
+  textArea: {
+    width: '100%',
+    borderColor: '#ccc',
+  },
+  dropdown: {
+    marginTop: '1rem',
+  },
   submit: {
     margin: theme.spacing(3, 2, 2),
     padding: 10,
@@ -48,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
     height: 56,
   },
   title: {
-    marginTop: '4rem',
+    margin: '4rem 0',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
