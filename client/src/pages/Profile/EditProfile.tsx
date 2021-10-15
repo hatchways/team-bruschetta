@@ -1,6 +1,4 @@
 import * as React from 'react';
-// import FormControlLabel from '@material-ui/core/FormControlLabel';
-// import Link from '@material-ui/core/Link';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import {
@@ -12,17 +10,18 @@ import {
   Box,
   Typography,
   FormControl,
-  FormHelperText,
   InputLabel,
   Container,
 } from '@material-ui/core';
-// import DatePicker from '@material-ui/lab/';
+// import { DatePicker } from '@material-ui/pickers/DatePicker';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import useStyles from './useStyles';
 
 const theme = createMuiTheme();
 
 export default function EditProfile() {
+  const [phoneNumber, setPhoneNumber] = React.useState(false);
+
   const classes = useStyles();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -33,6 +32,10 @@ export default function EditProfile() {
       firstName: data.get('firstName'),
       lastName: data.get('lastName'),
     });
+  };
+
+  const handleToggle = () => {
+    setPhoneNumber(!phoneNumber);
   };
 
   return (
@@ -71,12 +74,12 @@ export default function EditProfile() {
             <Grid item xs={12} sm={6} className={classes.field}>
               <div className={classes.gender}>Gender</div>
               <FormControl fullWidth className={classes.dropdown}>
-                <InputLabel id="gender">Gender</InputLabel>
+                <InputLabel id="gender">Male</InputLabel>
                 <Select
                   labelId="gender"
                   id="gender"
                   // value={age}
-                  label="Gender"
+                  label="gender"
                   // onChange={handleChange}
                   variant="outlined"
                   className={classes.select}
@@ -90,13 +93,13 @@ export default function EditProfile() {
           <Grid container spacing={3} className={classes.field}>
             <div className={classes.dob}>Date of Birth</div>
             <Grid item xs={9} sm={4}>
-              {/* <FormControl fullWidth className={classes.dropdown}>
-                <InputLabel id="month">Month</InputLabel>
+              <FormControl fullWidth className={classes.dropdown}>
+                <InputLabel id="month">June</InputLabel>
                 <Select
                   labelId="month"
                   id="month"
                   // value={age}
-                  label="Month"
+                  label="month"
                   // onChange={handleChange}
                   variant="outlined"
                 >
@@ -113,39 +116,93 @@ export default function EditProfile() {
                   <MenuItem value={11}>November</MenuItem>
                   <MenuItem value={12}>December</MenuItem>
                 </Select>
-              </FormControl> */}
-              {/* <DatePicker views={['year']} label="Year only" /> */}
+                {/* <DatePicker views={['year']} label="Year only" /> */}
+              </FormControl>
+
               {/* <FormHelperText>Required</FormHelperText> */}
             </Grid>
             <Grid item xs={9} sm={1}>
               <FormControl fullWidth className={classes.dropdown}>
-                <InputLabel id="day">Day</InputLabel>
+                <InputLabel id="day">15</InputLabel>
                 <Select
                   labelId="day"
                   id="day"
                   // value={age}
-                  label="Day"
+                  label="day"
                   // onChange={handleChange}
                   variant="outlined"
                 >
                   <MenuItem value={1}>1</MenuItem>
                   <MenuItem value={2}>2</MenuItem>
+                  <MenuItem value={3}>3</MenuItem>
+                  <MenuItem value={4}>4</MenuItem>
+                  <MenuItem value={5}>5</MenuItem>
+                  <MenuItem value={6}>6</MenuItem>
+                  <MenuItem value={7}>7</MenuItem>
+                  <MenuItem value={8}>8</MenuItem>
+                  <MenuItem value={9}>9</MenuItem>
+                  <MenuItem value={10}>10</MenuItem>
+                  <MenuItem value={11}>11</MenuItem>
+                  <MenuItem value={12}>12</MenuItem>
+                  <MenuItem value={13}>13</MenuItem>
+                  <MenuItem value={14}>14</MenuItem>
+                  <MenuItem value={15}>15</MenuItem>
+                  <MenuItem value={16}>16</MenuItem>
+                  <MenuItem value={17}>17</MenuItem>
+                  <MenuItem value={18}>18</MenuItem>
+                  <MenuItem value={19}>19</MenuItem>
+                  <MenuItem value={20}>20</MenuItem>
+                  <MenuItem value={21}>21</MenuItem>
+                  <MenuItem value={22}>22</MenuItem>
+                  <MenuItem value={23}>23</MenuItem>
+                  <MenuItem value={24}>24</MenuItem>
+                  <MenuItem value={25}>25</MenuItem>
+                  <MenuItem value={26}>26</MenuItem>
+                  <MenuItem value={27}>27</MenuItem>
+                  <MenuItem value={28}>28</MenuItem>
+                  <MenuItem value={29}>29</MenuItem>
+                  <MenuItem value={30}>30</MenuItem>
+                  <MenuItem value={31}>31</MenuItem>
                 </Select>
               </FormControl>
             </Grid>
             <Grid item xs={9} sm={4}>
               <FormControl fullWidth className={classes.dropdown}>
-                <InputLabel id="year">Year</InputLabel>
+                <InputLabel id="year">1988</InputLabel>
                 <Select
                   labelId="year"
                   id="year"
                   // value={age}
-                  label="Year"
+                  label="year"
                   // onChange={handleChange}
                   variant="outlined"
                 >
-                  <MenuItem value={1}>1980</MenuItem>
-                  <MenuItem value={2}>1981</MenuItem>
+                  <MenuItem value={1980}>1980</MenuItem>
+                  <MenuItem value={1981}>1981</MenuItem>
+                  <MenuItem value={1982}>1982</MenuItem>
+                  <MenuItem value={1983}>1983</MenuItem>
+                  <MenuItem value={1984}>1984</MenuItem>
+                  <MenuItem value={1985}>1985</MenuItem>
+                  <MenuItem value={1986}>1986</MenuItem>
+                  <MenuItem value={1987}>1987</MenuItem>
+                  <MenuItem value={1988}>1988</MenuItem>
+                  <MenuItem value={1989}>1989</MenuItem>
+                  <MenuItem value={1990}>1990</MenuItem>
+                  <MenuItem value={1991}>1991</MenuItem>
+                  <MenuItem value={1992}>1992</MenuItem>
+                  <MenuItem value={1993}>1993</MenuItem>
+                  <MenuItem value={1994}>1994</MenuItem>
+                  <MenuItem value={1995}>1995</MenuItem>
+                  <MenuItem value={1996}>1996</MenuItem>
+                  <MenuItem value={1997}>1997</MenuItem>
+                  <MenuItem value={1998}>1998</MenuItem>
+                  <MenuItem value={1999}>1999</MenuItem>
+                  <MenuItem value={2000}>2000</MenuItem>
+                  <MenuItem value={2001}>2001</MenuItem>
+                  <MenuItem value={2002}>2002</MenuItem>
+                  <MenuItem value={2003}>2003</MenuItem>
+                  <MenuItem value={2004}>2004</MenuItem>
+                  <MenuItem value={2005}>2005</MenuItem>
                 </Select>
               </FormControl>
             </Grid>
@@ -154,7 +211,7 @@ export default function EditProfile() {
               <TextField
                 fullWidth
                 id="email"
-                label="Email Address"
+                label="john-doe@gmail.com"
                 name="email"
                 autoComplete="email"
                 className={classes.textField}
@@ -167,11 +224,33 @@ export default function EditProfile() {
                 <em>No Phone number entered</em>
               </Grid>
               <Grid item xs={8} sm={4}>
-                <Button type="submit" fullWidth variant="outlined" color="secondary" className={classes.phoneButton}>
-                  Add a Phone Number
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="outlined"
+                  color="secondary"
+                  className={classes.phoneButton}
+                  onClick={handleToggle}
+                >
+                  {phoneNumber ? 'Save Phone Number' : 'Add a Phone Number'}
+                  {/* Add a Phone Number */}
                 </Button>
               </Grid>
             </Grid>
+            {phoneNumber && (
+              <Grid item xs={12} className={classes.field}>
+                <div className={classes.label}>Phone Number</div>
+                <TextField
+                  fullWidth
+                  name="phone"
+                  label="Phone Number"
+                  type="text"
+                  id="phone"
+                  className={classes.textField}
+                  variant="outlined"
+                />
+              </Grid>
+            )}
             <Grid item xs={12} className={classes.field}>
               <div className={classes.label}>Where You Live</div>
               <TextField
@@ -180,18 +259,6 @@ export default function EditProfile() {
                 label="Address"
                 type="text"
                 id="address"
-                className={classes.textField}
-                variant="outlined"
-              />
-            </Grid>
-            <Grid item xs={12} className={classes.field}>
-              <div className={classes.label}>Description</div>
-              <TextField
-                fullWidth
-                name="description"
-                label="About you"
-                type="text"
-                id="description"
                 className={classes.textField}
                 variant="outlined"
               />

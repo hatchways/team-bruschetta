@@ -7,6 +7,13 @@ const useStyles = makeStyles((theme) => ({
     padding: '3%',
     fontWeight: 'bold',
   },
+  title: {
+    margin: '2rem 0',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    fontWeight: 'bold',
+  },
   field: {
     display: 'flex',
     alignItems: 'center',
@@ -21,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     width: '20%',
     textTransform: 'uppercase',
     marginLeft: '17%',
-    marginRight: '11%',
+    marginRight: '12%',
     textAlign: 'right',
   },
   dob: {
@@ -36,6 +43,10 @@ const useStyles = makeStyles((theme) => ({
   textArea: {
     width: '100%',
     borderColor: '#ccc',
+    paddingLeft: '1rem',
+    paddingTop: '1rem',
+    fontFamily: 'Roboto',
+    fontSize: '1rem',
   },
   dropdown: {
     marginTop: '1rem',
@@ -56,13 +67,6 @@ const useStyles = makeStyles((theme) => ({
   },
   phoneButton: {
     height: 56,
-  },
-  title: {
-    margin: '4rem 0',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    fontWeight: 'bold',
   },
 }));
 
