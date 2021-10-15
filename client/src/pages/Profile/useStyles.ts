@@ -2,26 +2,36 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   form: {
-    width: '55%', // Fix IE 11 issue.
-    marginTop: theme.spacing(10),
-    margin: '5% 30%',
-    borderBottom: '1.2px solid rgba(0, 0, 0, 0.2)',
+    marginTop: '3rem',
+    boxShadow: '6px 4px 10px #ddd',
+    padding: '3%',
+    fontWeight: 'bold',
+  },
+  field: {
+    display: 'flex',
+    alignItems: 'center',
   },
   label: {
-    fontSize: 19,
-    color: 'rgb(0,0,0,0.4)',
-    paddingLeft: '5px',
+    width: '20%',
     textTransform: 'uppercase',
+    textAlign: 'right',
+    marginRight: '5%',
   },
-  inputs: {
-    marginTop: '.8rem',
-    height: '2rem',
-    padding: '5px',
-    width: '50%',
+  gender: {
+    width: '20%',
+    textTransform: 'uppercase',
+    marginLeft: '17%',
+    marginRight: '11%',
+    textAlign: 'right',
   },
-  forgot: {
-    paddingRight: 10,
-    color: '#3a8dff',
+  dob: {
+    width: '17%',
+    textTransform: 'uppercase',
+    marginRight: '4%',
+    textAlign: 'right',
+  },
+  textField: {
+    marginTop: '1rem',
   },
   submit: {
     margin: theme.spacing(3, 2, 2),
@@ -31,8 +41,14 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: theme.shape.borderRadius,
     marginTop: 49,
     fontSize: 16,
-    backgroundColor: '#931908',
-    color: '#fff',
+    fontWeight: 'bold',
+    marginLeft: '40%',
+  },
+  title: {
+    marginTop: '4rem',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
     fontWeight: 'bold',
   },
 }));
