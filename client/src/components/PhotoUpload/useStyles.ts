@@ -25,7 +25,6 @@ const useStyles = makeStyles((theme) =>
       transform: 'translate(-50%,-50%)',
       position: 'absolute',
       marginTop: '26%',
-      // top: '80%',
       left: '50%',
       transition: theme.transitions.create('transform'),
       boxShadow: '5px 5px 15px 5px rgba(0,0,0,0.47)',
