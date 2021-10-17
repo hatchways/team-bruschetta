@@ -1,18 +1,19 @@
-const express = require("express");
-const router = express.Router();
-const { allProfiles, 
+import express from "express";
+import { allProfiles, 
         getProfileById, 
         addProfile, 
-        updateProfile } =
- require("../controllers/profile.ts");
+        updateProfile }
+ from "../controllers/profile";
+ import protect from "../middleware/auth";
+
+ const router = express.Router();
  
+router.route("/").get(allProfiles);
 
-router.route("/").get( allProfiles );
+router.route("/:id").get( getProfileById);
 
-router.route("/:id").get( getProfileById );
+router.route("/").post( addProfile);
 
-router.route("/").post( addProfile );
-
-router.route("/:id").put( updateProfile );
+router.route("/:id").put(protect, updateProfile);
 
 module.exports = router;
