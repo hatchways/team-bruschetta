@@ -33,16 +33,22 @@ exports.validateLogin = [
 ];
 
 exports.validateProfile = [
-  check("firstName", "first name must be at least 3 chars long").not().isEmpty().isLength({
+  check("firstName", "first name must be at least 3 chars long").isLength({
     min: 3
-  }),,
-  check("lastName", "last name must be at least 3 chars long").not().isEmpty().isLength({
+  }),
+  check("firstName", "first name is required").not().isEmpty(),
+  check("lastName", "last name must be at least 3 chars long").isLength({
     min: 3
-  }),,
+  }),
+  check("lastName", "last name is required").not().isEmpty(),
   check("gender", "Please enter a gender").not().isEmpty(),
   check("dob", "Please enter a  date of birth").not().isEmpty(),
   check("email", "Please enter a valid email address").isEmail(),
+  check("email", "email is required" ).not().isEmpty(),
   check("phone", "Please enter a phone number").not().isEmpty(),
+  check("phone", "phone number must be at least 10 characters").isLength({
+    min: 10
+  }),
   check("address", "Please enter a address").not().isEmpty(),
   check("description", "Please enter a description").not().isEmpty(),
   (req, res, next) => {
