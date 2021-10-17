@@ -4,16 +4,17 @@ import { allProfiles,
         addProfile, 
         updateProfile }
  from "../controllers/profile";
+ import { validateProfile, validateProfileId } from "../validate"
  import protect from "../middleware/auth";
 
  const router = express.Router();
  
 router.route("/").get(allProfiles);
 
-router.route("/:id").get( getProfileById);
+router.route("/:id").get(validateProfileId, getProfileById);
 
-router.route("/").post( addProfile);
+router.route("/").post(validateProfile, addProfile);
 
-router.route("/:id").put(protect, updateProfile);
+router.route("/:id").put(protect, validateProfileId, updateProfile);
 
 module.exports = router;

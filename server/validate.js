@@ -1,4 +1,5 @@
 const { check, validationResult } = require("express-validator");
+const { Profile } = require("./models/profile/Profile")
 
 exports.validateRegister = [
   check("username", "Please enter a username").not().isEmpty(),
@@ -30,3 +31,42 @@ exports.validateLogin = [
     next();
   }
 ];
+
+exports.validateProfile = [
+  check("firstName", "first name must be at least 3 chars long").not().isEmpty().isLength({
+    min: 3
+  }),,
+  check("lastName", "last name must be at least 3 chars long").not().isEmpty().isLength({
+    min: 3
+  }),,
+  check("gender", "Please enter a gender").not().isEmpty(),
+  check("dob", "Please enter a  date of birth").not().isEmpty(),
+  check("email", "Please enter a valid email address").isEmail(),
+  check("phone", "Please enter a phone number").not().isEmpty(),
+  check("address", "Please enter a address").not().isEmpty(),
+  check("description", "Please enter a description").not().isEmpty(),
+  (req, res, next) => {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty())
+      return res.status(400).json({ errors: errors.array() });
+    next();
+  }
+];
+
+exports.validateProfileId = [(req, res, next) => {
+  Profile.findById(req.params.id)
+    .then(profile => {
+      if (!profile) {
+        res.status(404).json({
+          error: `Profile not found`
+        })
+      } else {
+        req.profile = profile
+        next()
+      }
+    })
+    .catch(err => {
+      next(err)
+    })
+}];
