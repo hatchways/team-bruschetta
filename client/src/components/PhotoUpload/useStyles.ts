@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) =>
         left: '32%',
       },
       [theme.breakpoints.up('md')]: {
-        left: '40%',
+        left: '39%',
       },
       position: 'absolute',
       fontSize: 26,
