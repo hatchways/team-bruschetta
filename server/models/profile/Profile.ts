@@ -12,6 +12,25 @@ export const ProfileSchema: Schema = new Schema({
    type: String,
    required: true,
   },
+  gender: {
+   type: String,
+   required: true,
+  },
+  dob: {
+   required: true,
+  },
+  email: {
+   type: String,
+   required: true,
+  },
+  phone: {
+   type: Number,
+   required: true,
+  },
+  address: {
+   type: String,
+   required: true,
+  },
   description: {
    type: String,
    required: true
