@@ -26,3 +26,5 @@ const RequestSchema = new Schema({
     accepted: Boolean,
     paid: Boolean
 })
+
+module.exports = mongoose.model('Requests', RequestSchema);
