@@ -11,11 +11,15 @@ const logger = require("morgan");
 
 const authRouter = require("./routes/auth");
 const userRouter = require("./routes/user");
+const uploadImageRouter = require("./routes/imageUpload");
 
 const { json, urlencoded } = express;
 
 connectDB();
 const app = express();
+app.use(express.json( {limit: '50mb'}));
+app.use(express.urlencoded({ limit: '50mb', extended: true}))
+
 const server = http.createServer(app);
 
 const io = socketio(server, {
@@ -43,6 +47,7 @@ app.use((req, res, next) => {
 
 app.use("/auth", authRouter);
 app.use("/users", userRouter);
+app.use("/upload", uploadImageRouter);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "/client/build")));
