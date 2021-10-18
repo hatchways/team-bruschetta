@@ -6,6 +6,8 @@ const imgUploadMiddleware = require("../../middleware/imageUpload");
 
 describe("imageUpload controller", () => {
   let req, res;
+  // Sinon stubs are not working as expected - it's something related to
+  // exported functions - will look into it in a future PR
   beforeEach("create sinon sandbox", () => {
     sinon.stub(imgUploadMiddleware, "uploadToCloudinary").returns(
       Promise.resolve({
