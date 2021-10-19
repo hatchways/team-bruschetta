@@ -1,8 +1,8 @@
-import { Profile } from "../models/profile/Profile";
-import asyncHandler from "express-async-handler";
+const Profile = require("../models/profile/Profile");
+const asyncHandler = require("express-async-handler");
 
 export const allProfiles = asyncHandler(async (req, res, next) => {
-  await Profile.find((err: any, profiles: any) => {
+  await Profile.find((err, profiles) => {
     if (err) {
       res.status(500).send(err);
     } else {
@@ -13,7 +13,7 @@ export const allProfiles = asyncHandler(async (req, res, next) => {
 
 export const getProfileById = asyncHandler(async (req, res, next) => {
   const profileId = req.params.id 
-  await Profile.findById(profileId, (err: any, profile: any) => {
+  await Profile.findById(profileId, (err, profile) => {
     if (err) {
       res.status(404).send(err);
     } else {
@@ -24,7 +24,7 @@ export const getProfileById = asyncHandler(async (req, res, next) => {
 
 export const addProfile = asyncHandler(async (req, res, next) => {
   const new_profile = await new Profile({ profileId: req.params.id, ...req.body });
-  new_profile.save((err: any, profile: any) => {
+  new_profile.save((err, profile) => {
     if (err) {
       res.status(400).send(err);
     } else {
@@ -39,7 +39,7 @@ export const updateProfile = asyncHandler(async (req, res, next) => {
     profileId,
     req.body,
     {new: true},
-    (err: any, profile: any) => {
+    (err, profile) => {
       if (err) {
         res.status(400).send(err);
       } else {

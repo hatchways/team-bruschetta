@@ -1,14 +1,13 @@
-import express from "express";
-import { allProfiles, 
+const express = require("express");
+const router = express.Router();
+const { allProfiles, 
         getProfileById, 
         addProfile, 
         updateProfile }
- from "../controllers/profile";
- import { validateProfile, validateProfileId } from "../validate"
- import protect from "../middleware/auth";
+ = require("../controllers/profile");
+ const { validateProfile, validateProfileId } = require("../validate");
+ const protect =  require("../middleware/auth");
 
- const router = express.Router();
- 
 router.route("/").get(allProfiles);
 
 router.route("/:id").get(validateProfileId, getProfileById);
