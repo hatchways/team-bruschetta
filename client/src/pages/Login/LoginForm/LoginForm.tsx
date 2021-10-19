@@ -64,6 +64,7 @@ export default function Login({ handleSubmit }: Props): JSX.Element {
             error={touched.email && Boolean(errors.email)}
             value={values.email}
             onChange={handleChange}
+            variant="outlined"
           />
           <TextField
             id="password"
@@ -83,9 +84,10 @@ export default function Login({ handleSubmit }: Props): JSX.Element {
             error={touched.password && Boolean(errors.password)}
             value={values.password}
             onChange={handleChange}
+            variant="outlined"
           />
           <Box textAlign="center">
-            <Button type="submit" size="large" variant="contained" color="primary" className={classes.submit}>
+            <Button type="submit" size="large" variant="contained" color="secondary" className={classes.submit}>
               {isSubmitting ? <CircularProgress style={{ color: 'white' }} /> : 'Login'}
             </Button>
           </Box>
