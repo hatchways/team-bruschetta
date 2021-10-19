@@ -4,7 +4,6 @@ import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import Login from './pages/Login/Login';
 import Signup from './pages/SignUp/SignUp';
 import Dashboard from './pages/Dashboard/Dashboard';
-import ProfileSettings from './pages/ProfileSettings/ProfileSettings';
 import { AuthProvider } from './context/useAuthContext';
 import { SocketProvider } from './context/useSocketContext';
 import { SnackBarProvider } from './context/useSnackbarContext';
@@ -24,7 +23,6 @@ function App(): JSX.Element {
                 <Route exact path="/dashboard">
                   <Dashboard />
                 </Route>
-                <Route exact path="/settings" component={ProfileSettings}></Route>
                 <Route path="*">
                   <Redirect to="/login" />
                 </Route>
