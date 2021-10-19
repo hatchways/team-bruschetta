@@ -1,9 +1,6 @@
-import { Document, Schema, model, Model } from 'mongoose';
-import { ProfileInterface } from '../profile/profileInterface';
+const mongoose = require('mongoose');
 
-export interface IProfileModel extends ProfileInterface, Document {};
-
-export const ProfileSchema: Schema = new Schema({
+const ProfileSchema = new mongoose.Schema({
   firstName: {
    type: String,
    required: true,
@@ -57,14 +54,11 @@ export const ProfileSchema: Schema = new Schema({
   },
   availability: {
    type: String,
-   required: true,
   },
   user: {type: Schema.Types.ObjectId, ref: "user"},
 });
 
-async function findOneOrCreate(
-  profileId: string
-): Promise<IProfileModel> {
+async function findOneOrCreate(profileId){
   const record = await this.findOne({ profileId });
   if (record) {
     return record;
@@ -75,4 +69,4 @@ async function findOneOrCreate(
 
 ProfileSchema.statics.findOneOrCreate = findOneOrCreate;
 
-export const Profile: Model<IProfileModel> = model<IProfileModel>("Profile", ProfileSchema);
+module.exports = mongoose.model('Profile',ProfileSchema);
