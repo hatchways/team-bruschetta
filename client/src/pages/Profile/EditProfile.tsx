@@ -3,7 +3,6 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import {
   Button,
-  CssBaseline,
   TextField,
   TextareaAutosize,
   Grid,
@@ -11,6 +10,7 @@ import {
   Typography,
   FormControl,
   Container,
+  InputLabel,
 } from '@material-ui/core';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import useStyles from './useStyles';
@@ -44,13 +44,12 @@ export default function EditProfile() {
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="md">
-        <CssBaseline />
         <Box component="form" onSubmit={handleSubmit} className={classes.form}>
           <Typography component="h1" variant="h5" className={classes.title}>
             Edit Profile
           </Typography>
           <Grid item xs={12} className={classes.field}>
-            <div className={classes.label}>First Name</div>
+            <InputLabel className={classes.label}>First Name</InputLabel>
             <TextField
               fullWidth
               id="firstName"
@@ -62,7 +61,7 @@ export default function EditProfile() {
             />
           </Grid>
           <Grid item xs={12} className={classes.field}>
-            <div className={classes.label}>Last Name</div>
+            <InputLabel className={classes.label}>Last Name</InputLabel>
             <TextField
               fullWidth
               id="lastName"
@@ -75,7 +74,7 @@ export default function EditProfile() {
           </Grid>
           <Grid container spacing={1}>
             <Grid item xs={12} sm={6} className={classes.field}>
-              <div className={classes.gender}>Gender</div>
+              <InputLabel className={classes.gender}>Gender</InputLabel>
               <FormControl fullWidth className={classes.dropdown}>
                 <Select
                   labelId="gender"
@@ -85,15 +84,15 @@ export default function EditProfile() {
                   variant="outlined"
                   className={classes.select}
                 >
-                  <MenuItem value={1}>Male</MenuItem>
-                  <MenuItem value={2}>Female</MenuItem>
-                  <MenuItem value={3}>Do not Wish To Answer</MenuItem>
+                  <MenuItem value={'male'}>Male</MenuItem>
+                  <MenuItem value={'female'}>Female</MenuItem>
+                  <MenuItem value={'no answer'}>Do not Wish To Answer</MenuItem>
                 </Select>
               </FormControl>
             </Grid>
           </Grid>
           <Grid container spacing={2} className={classes.field}>
-            <div className={classes.dob}>Date of Birth</div>
+            <InputLabel className={classes.dob}>Date of Birth</InputLabel>
             <Grid item xs={10} sm={4}>
               <FormControl fullWidth className={classes.dropdown}>
                 <Select labelId="month" id="month" name="month" label="June" variant="outlined">
@@ -134,7 +133,7 @@ export default function EditProfile() {
               </FormControl>
             </Grid>
             <Grid item xs={12} className={classes.field}>
-              <div className={classes.label}>Email Address</div>
+              <InputLabel className={classes.label}>Email Address</InputLabel>
               <TextField
                 fullWidth
                 id="email"
@@ -146,9 +145,9 @@ export default function EditProfile() {
               />
             </Grid>
             <Grid container spacing={3} className={classes.field}>
-              <div className={classes.dob}>Phone Number</div>
+              <InputLabel className={classes.dob}>Phone Number</InputLabel>
               <Grid item xs={8} sm={4}>
-                <em>No Phone number entered</em>
+                <Typography>No Phone number entered</Typography>
               </Grid>
               <Grid item xs={8} sm={4}>
                 <Button
@@ -165,7 +164,7 @@ export default function EditProfile() {
             </Grid>
             {phoneNumber && (
               <Grid item xs={12} className={classes.field}>
-                <div className={classes.label}>Phone Number</div>
+                <InputLabel className={classes.label}>Phone Number</InputLabel>
                 <TextField
                   fullWidth
                   name="phone"
@@ -178,7 +177,7 @@ export default function EditProfile() {
               </Grid>
             )}
             <Grid item xs={12} className={classes.field}>
-              <div className={classes.label}>Where You Live</div>
+              <InputLabel className={classes.label}>Where You Live</InputLabel>
               <TextField
                 fullWidth
                 name="address"
@@ -190,7 +189,7 @@ export default function EditProfile() {
               />
             </Grid>
             <Grid item xs={12} className={classes.field}>
-              <div className={classes.label}>Description</div>
+              <InputLabel className={classes.label}>Description</InputLabel>
               <TextareaAutosize
                 name="description"
                 id="description"

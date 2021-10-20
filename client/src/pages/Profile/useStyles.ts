@@ -5,7 +5,6 @@ const useStyles = makeStyles((theme) => ({
     margin: '3rem 0',
     boxShadow: '6px 4px 10px #ddd',
     padding: '3%',
-    fontWeight: 'bold',
   },
   title: {
     margin: '2rem 0',
@@ -23,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
     textTransform: 'uppercase',
     textAlign: 'right',
     marginRight: '5%',
+    fontWeight: 700,
   },
   gender: {
     width: '20%',
@@ -30,12 +30,14 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: '17%',
     marginRight: '12%',
     textAlign: 'right',
+    fontWeight: 700,
   },
   dob: {
     width: '17%',
     textTransform: 'uppercase',
     marginRight: '4%',
     textAlign: 'right',
+    fontWeight: 700,
   },
   textField: {
     marginTop: '1rem',
