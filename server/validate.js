@@ -1,5 +1,4 @@
 const { check, validationResult } = require("express-validator");
-const { Profile } = require("./models/profile/Profile")
 
 exports.validateRegister = [
   check("username", "Please enter a username").not().isEmpty(),
@@ -42,7 +41,7 @@ exports.validateProfile = [
   }),
   check("lastName", "last name is required").not().isEmpty().trim(),
   check("gender", "Please enter a gender").not().isEmpty(),
-  check("dob", "Please enter a  date of birth").not().isEmpty(),
+  check("dateOfBirth", "Please enter a  date of birth").not().isEmpty(),
   check("email", "Please enter a valid email address").isEmail(),
   check("email", "email is required" ).not().isEmpty().trim(),
   check("phone", "Please enter a phone number").not().isEmpty().trim(),

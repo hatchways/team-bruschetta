@@ -1,7 +1,7 @@
-const Profile = require("../models/profile/Profile");
+const Profile = require("../models/Profile");
 const asyncHandler = require("express-async-handler");
 
-export const allProfiles = asyncHandler(async (req, res, next) => {
+exports.allProfiles = asyncHandler(async (req, res, next) => {
   await Profile.find((err, profiles) => {
     if (err) {
       res.status(500).send(err);
@@ -11,20 +11,23 @@ export const allProfiles = asyncHandler(async (req, res, next) => {
   });
 });
 
-export const getProfileById = asyncHandler(async (req, res, next) => {
+exports.getProfileById = asyncHandler(async (req, res, next) => {
   const profileId = req.params.id 
   await Profile.findById(profileId, (err, profile) => {
-    if (err) {
-      res.status(404).send(err);
-    } else {
+    if (!mongoose.Types.ObjectId.isValid(profileId)) {
+    return res.status(404).send("Bad Request");
+    }  else {
       res.status(200).json(profile);
     }
   });
 });
 
-export const addProfile = asyncHandler(async (req, res, next) => {
-  const new_profile = await new Profile({ profileId: req.params.id, ...req.body });
-  new_profile.save((err, profile) => {
+exports.addProfile = asyncHandler(async (req, res, next) => {
+  const { firstName, lastName, gender, dateOfBirth, phone, address, 
+    description } = req.body
+  const newProfile = await new Profile({ firstName, lastName, gender, 
+    dateOfBirth, phone, address, description });
+  newProfile.save((err, profile) => {
     if (err) {
       res.status(400).send(err);
     } else {
@@ -33,18 +36,21 @@ export const addProfile = asyncHandler(async (req, res, next) => {
   });
 });
 
-export const updateProfile = asyncHandler(async (req, res, next) => {
-  const profileId = req.params.id 
+exports.updateProfile = asyncHandler(async (req, res, next) => {
+  const { firstName, lastName, gender, dateOfBirth, phone, address, 
+    description } = req.body
+  const profileId = req.params.id
   await Profile.findByIdAndUpdate(
     profileId,
-    req.body,
+    { firstName, lastName, gender, dateOfBirth, phone, address, 
+      description },
     {new: true},
     (err, profile) => {
-      if (err) {
-        res.status(400).send(err);
-      } else {
+    if (!mongoose.Types.ObjectId.isValid(profileId)) {
+    return res.status(500).send("Internal Server Error");
+    } else {
         res.status(200).json(profile);
       }
-    }
+    } 
   );
 });
