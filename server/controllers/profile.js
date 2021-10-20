@@ -1,3 +1,4 @@
+const mongoose = require("mongoose")
 const Profile = require("../models/Profile");
 const asyncHandler = require("express-async-handler");
 
@@ -13,9 +14,9 @@ exports.allProfiles = asyncHandler(async (req, res, next) => {
 
 exports.getProfileById = asyncHandler(async (req, res, next) => {
   const profileId = req.params.id 
-  await Profile.findById(profileId, (err, profile) => {
+  await Profile.findById(profileId, (profile) => {
     if (!mongoose.Types.ObjectId.isValid(profileId)) {
-    return res.status(404).send("Bad Request");
+    return res.status(404).send("Profile not found");
     }  else {
       res.status(200).json(profile);
     }
@@ -45,9 +46,9 @@ exports.updateProfile = asyncHandler(async (req, res, next) => {
     { firstName, lastName, gender, dateOfBirth, phone, address, 
       description },
     {new: true},
-    (err, profile) => {
+    (profile) => {
     if (!mongoose.Types.ObjectId.isValid(profileId)) {
-    return res.status(500).send("Internal Server Error");
+    return res.status(400).send("Bad Request");
     } else {
         res.status(200).json(profile);
       }
