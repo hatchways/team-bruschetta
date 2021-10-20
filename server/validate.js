@@ -59,20 +59,3 @@ exports.validateProfile = [
     next();
   }
 ];
-
-exports.validateProfileId = [(req, res, next) => {
-  Profile.findById(req.params.id)
-    .then(profile => {
-      if (!profile) {
-        res.status(404).json({
-          error: `Profile not found`
-        })
-      } else {
-        req.profile = profile
-        next()
-      }
-    })
-    .catch(err => {
-      next(err)
-    })
-}];
