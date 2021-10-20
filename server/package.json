@@ -6,11 +6,12 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha './test/**/*.test.js'",
     "dev": "nodemon ./bin/www"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "cloudinary": "^1.27.1",
     "colors": "^1.4.0",
     "cookie-parser": "^1.4.5",
     "dotenv": "^8.2.0",
@@ -27,7 +28,8 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
-    "mocha": "^8.2.1"
+    "mocha": "^8.2.1",
+    "sinon": "^11.1.2"
   },
   "author": "",
   "license": "ISC"
