@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   form: {
     margin: '3rem 0',
-    boxShadow: '6px 4px 10px #ddd',
+    boxShadow: '5px 5px 5px 5px #ddd',
     padding: '3%',
   },
   title: {
@@ -65,7 +65,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 49,
     fontSize: 16,
     fontWeight: 'bold',
-    marginLeft: '40%',
+    marginLeft: '20%',
   },
   phoneButton: {
     height: 56,
