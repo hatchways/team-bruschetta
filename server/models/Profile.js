@@ -2,8 +2,11 @@ const { Schema } = require('mongoose');
 
 const profileSchema = new mongoose.Schema({
 
-  user: {type: Schema.Types.ObjectId,
-    ref: "user"},
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: "user",
+    required: true,
+  },
   firstName: {
     type: String,
     required: true,
@@ -24,8 +27,6 @@ const profileSchema = new mongoose.Schema({
     type: Date,
     required: true,
   },
-  email: {type: Schema.Types.ObjectId, 
-    ref: "user"},
   phone: {
     type: Number,
     required: true,
@@ -43,8 +44,42 @@ const profileSchema = new mongoose.Schema({
     trim : true,
   },
   availability: {
-    type: String,
+    monday: {
+     type: Boolean,
+     required: true,
+     default: false,
+  },
+   tuesday: {
+     type: Boolean,
+     required: true,
+     default: false,
+  },
+    wednesday: {
+     type: Boolean,
+     required: true,
+     default: false,
+  },
+   thursday: {
+     type: Boolean,
+     required: true,
+     default: false,
+  },
+    friday: {
+     type: Boolean,
+     required: true,
+     default: false,
+  },
+   saturday: {
+     type: Boolean,
+     required: true,
+     default: false,
+  },
+    sunday: {
+     type: Boolean,
+     required: true,
+     default: false,
+  }
   },
 });
 
-module.exports = mongoose.model('profile', profileSchema);
+module.exports = mongoose.model('Profile', profileSchema);
