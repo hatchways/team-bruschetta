@@ -37,7 +37,7 @@ exports.addProfile = asyncHandler(async (req, res, next) => {
     dateOfBirth, phone, address, description });
     await newProfile.save((err, profile) => {
     if (err) {
-      res.status(400).send(err);
+      res.status(500).send(err);
     } else {
       res.status(201).json(profile);
     }
