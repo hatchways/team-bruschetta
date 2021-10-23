@@ -15,12 +15,12 @@ const RequestSchema = new Schema({
     /*thinking about setting dates to strings and converting to Date format
     **in the middleware once request is made, but for now this is fine.*/
     start_date:{
-        type: Date,
-        require: true
+        type: String,
+        require: true,
+        default: Date.now()
     },
     end_date:{
-        type: Date,
-        require: true
+        type: Date
     },
     //if false longer than 3 days, then is has been declined by default
     accepted: Boolean,
