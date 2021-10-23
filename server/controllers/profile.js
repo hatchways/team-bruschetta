@@ -15,7 +15,7 @@ exports.allProfiles = asyncHandler(async (req, res, next) => {
 exports.getProfileById = asyncHandler(async (req, res, next) => {
   const profileId = req.params.id
   if (!mongoose.Types.ObjectId.isValid(profileId)) {
-    return res.status(404).send("Profile not found");
+    return res.status(400).send("Bad Request");
   } 
   const profile = await Profile.findById(profileId, (err, profile) => {
     if (err) {
