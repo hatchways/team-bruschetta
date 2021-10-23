@@ -41,7 +41,7 @@ router.post('/new', async (req, res, next) => {
 // @Desc search and update requests with approved or declined
 // @Access private
 
-router.put('/:sitter_id', async(req, res, next) =>{
+router.put('/:sitterId', async(req, res, next) =>{
     const { sitter_id } = req.params;
     const request = await Requests.findByIdAndUpdate(sitter_id, {...req.body.request});
 
