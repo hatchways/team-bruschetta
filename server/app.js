@@ -1,4 +1,3 @@
-const colors = require("colors");
 const path = require("path");
 const http = require("http");
 const express = require("express");
@@ -40,7 +39,6 @@ app.use((req, res, next) => {
   next();
 });
 
-//Express routers
 app.use("/requests", requestsRouter);
 
 if (process.env.NODE_ENV === "production") {

@@ -1,28 +1,25 @@
 const mongoose = require('mongoose')
+const User = require('./User');
 const Schema = mongoose.Schema;
 
 const RequestSchema = new Schema({
-    user_id:{
-        type: Number,
-        require: true,
-        unique: true
+    userId:{
+        type: Schema.Types.ObjectId,
+        ref: 'User'
     },
-    sitter_id:{
-        type: Number,
-        require: true,
-        unique: true
+    sitterId:{
+        type: Schema.Types.ObjectId,
+        ref: 'User'
     },
-    /*thinking about setting dates to strings and converting to Date format
-    **in the middleware once request is made, but for now this is fine.*/
-    start_date:{
+    start:{
         type: String,
-        require: true,
+        required: true,
         default: Date.now()
     },
-    end_date:{
-        type: Date
+    end:{
+        type: Date,
+        required: true
     },
-    //if false longer than 3 days, then is has been declined by default
     accepted: Boolean,
     paid: Boolean
 })
