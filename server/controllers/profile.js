@@ -33,9 +33,9 @@ exports.addProfile = asyncHandler(async (req, res, next) => {
       || !address || !description) {
     return res.status(400).send("missing required fields");
   }
-  const newProfile = await new Profile({ firstName, lastName, gender, 
+  const newProfile = new Profile({ firstName, lastName, gender, 
     dateOfBirth, phone, address, description });
-  newProfile.save((err, profile) => {
+    await newProfile.save((err, profile) => {
     if (err) {
       res.status(400).send(err);
     } else {
@@ -50,6 +50,10 @@ exports.updateProfile = asyncHandler(async (req, res, next) => {
   const profileId = req.params.id
   if (!mongoose.Types.ObjectId.isValid(profileId)) {
     return res.status(400).send("Bad Request");
+  }
+  if (!firstName || !lastName || !gender || !dateOfBirth || !phone 
+      || !address || !description) {
+    return res.status(400).send("missing required fields");
   }
   const profile = await Profile.findByIdAndUpdate(
     profileId,
