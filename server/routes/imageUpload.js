@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const protect = require("../middleware/auth");
-const { searchUsers } = require("../controllers/user");
+const { uploadProfilePic } = require("../controllers/imageUpload");
 
-router.route("/").get(protect, searchUsers);
+router.route("/profile-pic").post(protect, uploadProfilePic);
 
 module.exports = router;
