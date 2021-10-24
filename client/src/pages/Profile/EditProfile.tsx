@@ -4,13 +4,13 @@ import Grid from '@material-ui/core/Grid';
 import { FormikHelpers } from 'formik';
 import useStyles from './useStyles';
 import editProfile from '../../helpers/APICalls/editProfile';
-import { useAuth } from '../../context/useAuthContext';
+import { useProfile } from '../../context/useProfileContext';
 import { useSnackBar } from '../../context/useSnackbarContext';
 import EditProfileForm from './EditProfileForm/EditProfileForm';
 
 export default function EditProfile(): JSX.Element {
   const classes = useStyles();
-  const { updateLoginContext } = useAuth();
+  const { updateProfileContext } = useProfile();
   const { updateSnackBarMessage } = useSnackBar();
 
   const handleSubmit = (
@@ -54,7 +54,7 @@ export default function EditProfile(): JSX.Element {
         setSubmitting(false);
         updateSnackBarMessage(data.error.message);
       } else if (data.success) {
-        updateLoginContext(data.success);
+        updateProfileContext(data.success);
       } else {
         setSubmitting(false);
         updateSnackBarMessage('An unexpected error occurred. Please try again');

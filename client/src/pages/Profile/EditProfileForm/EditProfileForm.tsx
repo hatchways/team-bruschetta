@@ -17,10 +17,9 @@ import { Formik, FormikHelpers } from 'formik';
 import * as Yup from 'yup';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
+import DateFnsUtils from '@date-io/date-fns';
 import { CircularProgress } from '@material-ui/core';
 import useStyles from './useStyles';
-
-import DateFnsUtils from '@date-io/date-fns';
 
 interface Props {
   handleSubmit: (

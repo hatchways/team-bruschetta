@@ -20,11 +20,8 @@ const editProfile = async (
   };
   return await fetch(`/profiles/${_id}`, fetchOptions)
     .then((res) => res.json())
-    // .then((firstName, lastName, gender, dateOfBirth, email, phone, address, description) => {
-    //   editProfile;
-    // })
     .catch(() => ({
-      error: { message: 'Unable to connect to server. Please try again' },
+      error: { message: 'Unable to edit profile. Please try again' },
     }));
 };
 

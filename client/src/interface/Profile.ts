@@ -1,4 +1,5 @@
 export interface Profile {
+  _id: string;
   firstName: string;
   lastName: string;
   gender: string;
@@ -7,9 +8,4 @@ export interface Profile {
   phone: number;
   address: string;
   description: string;
-}
-
-export interface SearchProfileApiData {
-  profiles?: Profile[];
-  error?: { message: string };
 }
