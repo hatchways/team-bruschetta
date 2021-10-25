@@ -12,7 +12,11 @@ const logger = require("morgan");
 const requestsRouter = require('./controllers/requestsController');
 const authRouter = require("./routes/auth");
 const userRouter = require("./routes/user");
+
+const profileRouter = require("./routes/profile");
+
 const uploadImageRouter = require("./routes/imageUpload");
+
 
 const { json, urlencoded } = express;
 
@@ -36,7 +40,7 @@ if (process.env.NODE_ENV === "development") {
 app.use(json());
 app.use(urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(join(__dirname, "public")));
+app.use(express.static(join(__dirname, "public")));                                                                                           
 
 app.use((req, res, next) => {
   req.io = io;
@@ -47,7 +51,11 @@ app.use((req, res, next) => {
 app.use("/requests", requestsRouter);
 app.use("/auth", authRouter);
 app.use("/users", userRouter);
+
+app.use("/profiles", profileRouter);
+
 app.use("/upload", uploadImageRouter);
+
 
 
 if (process.env.NODE_ENV === "production") {
