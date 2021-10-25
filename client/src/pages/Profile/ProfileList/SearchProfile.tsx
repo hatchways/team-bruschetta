@@ -8,28 +8,28 @@ export default function SearchProfile(): JSX.Element {
   const classes = useStyles();
 
   return (
-    <Grid container>
-      <Grid item xs={12} sm={6}>
+    <Grid container className={classes.search}>
+      <Grid item xs={6} sm={3}>
         <TextField
-          id="search"
-          label="Search By Location"
-          name="address"
-          type="search"
           InputProps={{
             endAdornment: (
               <InputAdornment position="start">
                 <IconButton>
-                  <SearchIcon />
+                  <SearchIcon style={{ color: 'Red' }} />
                 </IconButton>
               </InputAdornment>
             ),
           }}
+          id="search"
+          label="Search By Location"
+          name="address"
+          type="search"
           autoComplete="address"
           className={classes.textField}
           variant="outlined"
         />
       </Grid>
-      <Grid item xs={12} sm={6}>
+      <Grid item xs={6} sm={3}>
         <TextField
           id="search"
           label="Search By Availability"

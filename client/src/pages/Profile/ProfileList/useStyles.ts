@@ -2,12 +2,14 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   title: {
-    margin: '2rem 30rem',
-    fontWeight: 'bold',
+    margin: '1rem 30rem',
+    fontWeight: 'bolder',
+    fontSize: '2rem',
+    width: '40%',
   },
   card: {
     width: '20%',
-    height: '35vh',
+    height: '38vh',
     margin: '2rem 0',
     boxShadow: '5px 5px 5px 5px #ddd',
     padding: '2%',
@@ -17,9 +19,16 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '1rem',
     width: '100%',
   },
+  search: {
+    marginLeft: '18rem',
+  },
   name: {
     marginLeft: '2.7rem',
     fontWeight: 'bolder',
+  },
+  status: {
+    fontSize: '0.7rem',
+    color: '#bbb',
   },
   avatar: {
     width: '45%',
@@ -28,10 +37,14 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: '3rem',
   },
   description: {
-    marginTop: '2rem',
-    marginBottom: '1.5rem',
+    marginTop: '0.3rem',
+    marginBottom: '0.7rem',
     textAlign: 'center',
     fontSize: '0.7rem',
+  },
+  rating: {
+    marginLeft: '1.8rem',
+    borderColor: 'transparent',
   },
   footer: {
     display: 'flex',
