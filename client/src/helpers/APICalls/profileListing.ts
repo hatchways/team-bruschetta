@@ -17,7 +17,7 @@ const profileListing = async (
   return await fetch(`/profiles/`, fetchOptions)
     .then((res) => res.json())
     .catch(() => ({
-      error: { message: 'Unable to edit profile. Please try again' },
+      error: { message: 'Unable to fetch profiles. Please try again' },
     }));
 };
 
