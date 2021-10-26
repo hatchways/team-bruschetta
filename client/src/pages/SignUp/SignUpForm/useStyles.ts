@@ -31,13 +31,12 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 2, 2),
     padding: 10,
-    width: 160,
+    width: 180,
     height: 56,
     borderRadius: theme.shape.borderRadius,
     marginTop: 29,
     fontSize: 16,
     fontWeight: 'bold',
-    textTransform: 'uppercase',
   },
 }));
 
