@@ -1,4 +1,3 @@
-const colors = require("colors");
 const path = require("path");
 const http = require("http");
 const express = require("express");
@@ -9,9 +8,15 @@ const { join } = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 
+
+const requestsRouter = require('./controllers/requestsController');
 const authRouter = require("./routes/auth");
 const userRouter = require("./routes/user");
+
 const profileRouter = require("./routes/profile");
+
+const uploadImageRouter = require("./routes/imageUpload");
+
 
 const { json, urlencoded } = express;
 
@@ -42,9 +47,16 @@ app.use((req, res, next) => {
   next();
 });
 
+
+app.use("/requests", requestsRouter);
 app.use("/auth", authRouter);
 app.use("/users", userRouter);
+
 app.use("/profiles", profileRouter);
+
+app.use("/upload", uploadImageRouter);
+
+
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "/client/build")));
