@@ -43,6 +43,10 @@ const profileSchema = new Schema({
     required: true,
     trim : true,
   },
+  role: {
+    type: String,
+    required: true,
+  },
   availability: {
     monday: {
      type: Boolean,
