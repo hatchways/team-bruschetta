@@ -1,54 +1,97 @@
 import * as React from 'react';
-import { TextField, Grid, IconButton, InputAdornment } from '@material-ui/core';
+import { TextField, Grid, IconButton, InputAdornment, Container, Typography } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import DateRangeIcon from '@material-ui/icons/DateRange';
 import useStyles from './useStyles';
+import ProfileList from './ProfileList';
+
+interface Props {
+  firstName: string;
+  lastName: string;
+  address: string;
+  description: string;
+  availability: `{}`;
+}
 
 export default function SearchProfile(): JSX.Element {
+  const [profiles, setProfiles] = React.useState<any[]>([]);
+  const [searchProfile, setSearchProfile] = React.useState('');
   const classes = useStyles();
 
+  React.useEffect(() => {
+    fetch('/profiles')
+      .then((response) => response.json())
+      .then((data) => setProfiles(data.message))
+      .catch((err) => {
+        {
+          err;
+        }
+      });
+  });
+
+  const filteredProfile = profiles.filter((profile) => {
+    return (
+      profile.address.toLowerCase().includes(searchProfile.toLowerCase()) ||
+      profile.availability.toLowerCase().includes(searchProfile.toLowerCase())
+    );
+  });
+
+  const handleProfileSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchProfile(e.target.value);
+  };
+
   return (
-    <Grid container className={classes.search}>
-      <Grid item xs={6} sm={3}>
-        <TextField
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="start">
-                <IconButton>
-                  <SearchIcon style={{ color: 'Red' }} />
-                </IconButton>
-              </InputAdornment>
-            ),
-          }}
-          id="search"
-          label="Search By Location"
-          name="address"
-          type="search"
-          autoComplete="address"
-          className={classes.textField}
-          variant="outlined"
-        />
+    <Container component="main" maxWidth="lg">
+      <Typography component="h1" variant="h3" className={classes.title}>
+        Your search results
+      </Typography>
+      <Grid container className={classes.search}>
+        <Grid item xs={6} sm={3}>
+          <TextField
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="start">
+                  <IconButton>
+                    <SearchIcon style={{ color: 'Red' }} />
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+            id="search"
+            label="Search By Location"
+            name="address"
+            type="search"
+            autoComplete="address"
+            className={classes.textField}
+            variant="outlined"
+            onChange={handleProfileSearch}
+          />
+        </Grid>
+        <Grid item xs={6} sm={3}>
+          <TextField
+            id="search"
+            label="Search By Availability"
+            name="availability"
+            type="search"
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="start">
+                  <IconButton>
+                    <DateRangeIcon />
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+            autoComplete="availability"
+            className={classes.textField}
+            variant="outlined"
+            onChange={handleProfileSearch}
+          />
+        </Grid>
       </Grid>
-      <Grid item xs={6} sm={3}>
-        <TextField
-          id="search"
-          label="Search By Availability"
-          name="availability"
-          type="search"
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="start">
-                <IconButton>
-                  <DateRangeIcon />
-                </IconButton>
-              </InputAdornment>
-            ),
-          }}
-          autoComplete="availability"
-          className={classes.textField}
-          variant="outlined"
-        />
-      </Grid>
-    </Grid>
+      {filteredProfile.map((profile, i) => (
+        <ProfileList key={i} profile={profile} />
+      ))}
+    </Container>
   );
 }
