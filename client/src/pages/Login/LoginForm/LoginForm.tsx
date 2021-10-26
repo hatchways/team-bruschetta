@@ -5,8 +5,9 @@ import { Formik, FormikHelpers } from 'formik';
 import * as Yup from 'yup';
 import Typography from '@material-ui/core/Typography';
 import InputLabel from '@material-ui/core/InputLabel';
-import useStyles from './useStyles';
 import { CircularProgress } from '@material-ui/core';
+
+import useStyles from './useStyles';
 
 interface Props {
   handleSubmit: (
@@ -51,7 +52,7 @@ export default function Login({ handleSubmit }: Props): JSX.Element {
             <InputLabel className={classes.inputLabel}> Email Address </InputLabel>
             <TextField
               id="email"
-              label={<Typography className={classes.label}>E-mail address</Typography>}
+              label={<Typography className={classes.label}>Your email address</Typography>}
               fullWidth
               margin="normal"
               InputLabelProps={{
@@ -74,7 +75,7 @@ export default function Login({ handleSubmit }: Props): JSX.Element {
             <InputLabel className={classes.inputLabel}> Password</InputLabel>
             <TextField
               id="password"
-              label={<Typography className={classes.label}>Password</Typography>}
+              label={<Typography className={classes.label}>Your password</Typography>}
               fullWidth
               margin="normal"
               InputLabelProps={{

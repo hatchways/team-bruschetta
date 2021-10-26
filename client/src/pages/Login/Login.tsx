@@ -9,6 +9,7 @@ import login from '../../helpers/APICalls/login';
 import LoginForm from './LoginForm/LoginForm';
 import { useAuth } from '../../context/useAuthContext';
 import { useSnackBar } from '../../context/useSnackbarContext';
+import AuthHeader from '../../components/AuthHeader/AuthHeader';
 
 export default function Login(): JSX.Element {
   const classes = useStyles();
@@ -33,20 +34,23 @@ export default function Login(): JSX.Element {
   };
 
   return (
-    <Grid container component="main" className={classes.root}>
-      <CssBaseline />
-      <Grid item xs={12} sm={8} md={7} elevation={6} component={Paper} square>
-        <Box width="100%" maxWidth={650} p={3} alignSelf="center">
-          <Grid container>
-            <Grid item xs>
-              <Typography className={classes.welcome} component="h1" variant="h5">
-                Welcome back!
-              </Typography>
+    <Grid>
+      <AuthHeader />
+      <Grid container component="main" className={classes.root}>
+        <CssBaseline />
+        <Grid item xs={12} sm={8} md={7} elevation={6} component={Paper} square>
+          <Box width="100%" maxWidth={650} p={3} alignSelf="center">
+            <Grid container>
+              <Grid item xs>
+                <Typography className={classes.welcome} component="h1" variant="h5" align="center">
+                  Welcome back!
+                </Typography>
+              </Grid>
             </Grid>
-          </Grid>
-          <LoginForm handleSubmit={handleSubmit} />
-        </Box>
-        <Box p={1} alignSelf="center" />
+            <LoginForm handleSubmit={handleSubmit} />
+          </Box>
+          <Box p={1} alignSelf="center" />
+        </Grid>
       </Grid>
     </Grid>
   );
