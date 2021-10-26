@@ -3,6 +3,12 @@ export interface User {
   username: string;
 }
 
+export interface DemoUser {
+  email: 'bruschetta@gmail.com';
+  username: 'bruschetta';
+  password: 'password';
+}
+
 export interface SearchUsersApiData {
   users?: User[];
   error?: { message: string };
