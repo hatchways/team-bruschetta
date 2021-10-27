@@ -41,48 +41,42 @@ export default function ProfileList(): JSX.Element {
   };
 
   return (
-    <Container component="main" maxWidth="lg">
-      <Typography component="h1" variant="h3" className={classes.title}>
-        Your search results
-      </Typography>
-      <SearchProfile />
-      <Box display="flex" justifyContent="space-between" flexWrap="wrap">
-        <Card className={classes.card}>
-          <CardActionArea>
-            <CardMedia component="img" alt="Seye Onigbinde" src={avatar} style={styles.media} />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div" className={classes.name}>
-                {initialValues.firstName} {initialValues.lastName}
-                <Typography component="h6" className={classes.status}>
-                  {initialValues.status}
-                </Typography>
+    <Box display="flex" justifyContent="space-between" flexWrap="wrap">
+      <Card className={classes.card}>
+        <CardActionArea>
+          <CardMedia component="img" alt="Seye Onigbinde" src={avatar} style={styles.media} />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div" className={classes.name}>
+              {initialValues.firstName} {initialValues.lastName}
+              <Typography component="h6" className={classes.status}>
+                {initialValues.status}
               </Typography>
-              <Box component="fieldset" mb={1} className={classes.rating}>
-                <Rating name="read-only" value={value} readOnly />
-              </Box>
-              <Typography variant="body2" color="textSecondary">
-                {initialValues.description}
-              </Typography>
-            </CardContent>
-            <Divider />
-          </CardActionArea>
-          <CardActions>
-            <Box className={classes.footer}>
-              <Box>
-                <Typography component="h6" className={classes.footerText}>
-                  <LocationOnIcon className={classes.locationLogo} />
-                  {initialValues.address}
-                </Typography>
-              </Box>
-              <Box>
-                <Typography component="h6" className={classes.footerText2}>
-                  {initialValues.price}
-                </Typography>
-              </Box>
+            </Typography>
+            <Box component="fieldset" mb={1} className={classes.rating}>
+              <Rating name="read-only" value={value} readOnly />
             </Box>
-          </CardActions>
-        </Card>
-      </Box>
-    </Container>
+            <Typography variant="body2" color="textSecondary">
+              {initialValues.description}
+            </Typography>
+          </CardContent>
+          <Divider />
+        </CardActionArea>
+        <CardActions>
+          <Box className={classes.footer}>
+            <Box>
+              <Typography component="h6" className={classes.footerText}>
+                <LocationOnIcon className={classes.locationLogo} />
+                {initialValues.address}
+              </Typography>
+            </Box>
+            <Box>
+              <Typography component="h6" className={classes.footerText2}>
+                {initialValues.price}
+              </Typography>
+            </Box>
+          </Box>
+        </CardActions>
+      </Card>
+    </Box>
   );
 }
