@@ -1,6 +1,20 @@
 import * as React from 'react';
-import { Grid, Box, Typography, Avatar, Divider, Container } from '@material-ui/core';
+import {
+  Grid,
+  Box,
+  Typography,
+  Avatar,
+  Divider,
+  Container,
+  Card,
+  CardActionArea,
+  CardMedia,
+  CardContent,
+  CardActions,
+} from '@material-ui/core';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
+import Rating from '@material-ui/lab/Rating';
+import avatar from '../../../Images/68f55f7799df6c8078a874cfe0a61a5e6e9e1687.png';
 
 import SearchProfile from './SearchProfile';
 import StarRating from './StarRating';
@@ -14,7 +28,27 @@ interface Props {
 }
 
 export default function ProfileList(): JSX.Element {
+  const [value, setValue] = React.useState(2);
   const classes = useStyles();
+
+  const styles = {
+    media: {
+      width: '40%',
+      height: '12vh',
+      marginBottom: '0.5rem',
+      marginLeft: '5rem',
+      borderRadius: '50%',
+    },
+  };
+
+  const initialValues = {
+    firstName: 'Seye',
+    lastName: 'Onigbinde',
+    status: 'Lovely Dog Sitter',
+    description: 'Lorem ipsum dolor sit, amet consectetur',
+    address: 'Toronto Ontario',
+    price: '$14/hr',
+  };
 
   return (
     <Container component="main" maxWidth="lg">
@@ -22,35 +56,41 @@ export default function ProfileList(): JSX.Element {
         Your search results
       </Typography>
       <SearchProfile />
-      <Grid item xs={12} sm={3} spacing={2} className={classes.card}>
-        <Avatar alt="Seye Onigbinde" src="/static/images/avatar/1.jpg" className={classes.avatar} />
-        <Typography component="h3" variant="h6" className={classes.name}>
-          Seye Onigbinde
-          <Typography component="h6" className={classes.status}>
-            Lovely Dog Sitter
-          </Typography>
-        </Typography>
-        <Box>
-          <StarRating />
-        </Box>
-        <Typography component="h6" className={classes.description}>
-          Lorem ipsum dolor sit, amet consectetur
-        </Typography>
-        <Divider />
-        <Box className={classes.footer}>
-          <Box>
-            <Typography component="h6" className={classes.footerText}>
-              <LocationOnIcon className={classes.locationLogo} />
-              Toronto Ontario
+      <Card className={classes.card}>
+        <CardActionArea>
+          <CardMedia component="img" alt="Seye Onigbinde" src={avatar} style={styles.media} />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div" className={classes.name}>
+              {initialValues.firstName} {initialValues.lastName}
+              <Typography component="h6" className={classes.status}>
+                {initialValues.status}
+              </Typography>
             </Typography>
-          </Box>
-          <Box>
-            <Typography component="h6" className={classes.footerText2}>
-              $14/hr
+            <Box component="fieldset" mb={1} className={classes.rating}>
+              <Rating name="read-only" value={value} readOnly />
+            </Box>
+            <Typography variant="body2" color="textSecondary">
+              {initialValues.description}
             </Typography>
+          </CardContent>
+          <Divider />
+        </CardActionArea>
+        <CardActions>
+          <Box className={classes.footer}>
+            <Box>
+              <Typography component="h6" className={classes.footerText}>
+                <LocationOnIcon className={classes.locationLogo} />
+                {initialValues.address}
+              </Typography>
+            </Box>
+            <Box>
+              <Typography component="h6" className={classes.footerText2}>
+                {initialValues.price}
+              </Typography>
+            </Box>
           </Box>
-        </Box>
-      </Grid>
+        </CardActions>
+      </Card>
     </Container>
   );
 }

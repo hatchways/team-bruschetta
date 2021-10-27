@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { TextField, Grid, IconButton, InputAdornment } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
-import DateRangeIcon from '@material-ui/icons/DateRange';
 import useStyles from './useStyles';
 
 export default function SearchProfile(): JSX.Element {
@@ -32,18 +31,8 @@ export default function SearchProfile(): JSX.Element {
       <Grid item xs={6} sm={3}>
         <TextField
           id="search"
-          label="Search By Availability"
           name="availability"
-          type="search"
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="start">
-                <IconButton>
-                  <DateRangeIcon />
-                </IconButton>
-              </InputAdornment>
-            ),
-          }}
+          type="date"
           autoComplete="availability"
           className={classes.textField}
           variant="outlined"
