@@ -1,17 +1,8 @@
 import * as React from 'react';
 import { TextField, Grid, IconButton, InputAdornment, Container, Typography } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
-import DateRangeIcon from '@material-ui/icons/DateRange';
 import useStyles from './useStyles';
 import ProfileList from './ProfileList';
-
-interface Props {
-  firstName: string;
-  lastName: string;
-  address: string;
-  description: string;
-  availability: `{}`;
-}
 
 export default function SearchProfile(): JSX.Element {
   const [profiles, setProfiles] = React.useState<any[]>([]);
@@ -72,16 +63,7 @@ export default function SearchProfile(): JSX.Element {
             id="search"
             label="Search By Availability"
             name="availability"
-            type="search"
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="start">
-                  <IconButton>
-                    <DateRangeIcon />
-                  </IconButton>
-                </InputAdornment>
-              ),
-            }}
+            type="date"
             autoComplete="availability"
             className={classes.textField}
             variant="outlined"
