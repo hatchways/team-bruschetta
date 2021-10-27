@@ -17,7 +17,7 @@ function App(): JSX.Element {
     <MuiThemeProvider theme={theme}>
       <BrowserRouter>
         <SnackBarProvider>
-          {/* <AuthProvider>
+          <AuthProvider>
             <SocketProvider>
               <Switch>
                 <Route exact path="/login" component={Login} />
@@ -32,8 +32,7 @@ function App(): JSX.Element {
                 </Route>
               </Switch>
             </SocketProvider>
-          </AuthProvider> */}
-          <Route exact path="/profile-list" component={ProfileList} />
+          </AuthProvider>
         </SnackBarProvider>
       </BrowserRouter>
     </MuiThemeProvider>
