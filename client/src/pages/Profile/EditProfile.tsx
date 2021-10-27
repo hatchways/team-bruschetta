@@ -1,4 +1,3 @@
-import CssBaseline from '@material-ui/core/CssBaseline';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import { FormikHelpers } from 'formik';
@@ -7,6 +6,7 @@ import editProfile from '../../helpers/APICalls/editProfile';
 import { useProfile } from '../../context/useProfileContext';
 import { useSnackBar } from '../../context/useSnackbarContext';
 import EditProfileForm from './EditProfileForm/EditProfileForm';
+import { Profile } from '../../interface/Profile';
 
 export default function EditProfile(): JSX.Element {
   const classes = useStyles();
@@ -14,40 +14,8 @@ export default function EditProfile(): JSX.Element {
   const { updateSnackBarMessage } = useSnackBar();
 
   const handleSubmit = (
-    {
-      _id,
-      firstName,
-      lastName,
-      gender,
-      dateOfBirth,
-      email,
-      phone,
-      address,
-      description,
-    }: {
-      _id: string;
-      firstName: string;
-      lastName: string;
-      gender: string;
-      dateOfBirth: Date;
-      email: string;
-      phone: number;
-      address: string;
-      description: string;
-    },
-    {
-      setSubmitting,
-    }: FormikHelpers<{
-      _id: string;
-      firstName: string;
-      lastName: string;
-      gender: string;
-      dateOfBirth: Date;
-      email: string;
-      phone: number;
-      address: string;
-      description: string;
-    }>,
+    { _id, firstName, lastName, gender, dateOfBirth, email, phone, address, description }: Profile,
+    { setSubmitting }: FormikHelpers<Profile>,
   ) => {
     editProfile(_id, firstName, lastName, gender, dateOfBirth, email, phone, address, description).then((data) => {
       if (data.error) {
@@ -64,7 +32,6 @@ export default function EditProfile(): JSX.Element {
 
   return (
     <Grid container component="main" className={classes.root}>
-      <CssBaseline />
       <Box width="100%" maxWidth={1250} p={3} alignSelf="center">
         <Grid container>
           <Grid item xs></Grid>
