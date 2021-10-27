@@ -34,8 +34,8 @@ export default function Login({ handleSubmit }: Props): JSX.Element {
   return (
     <Formik
       initialValues={{
-        email: '',
-        password: '',
+        email: 'bruschetta@gmail.com',
+        password: 'password',
       }}
       validationSchema={Yup.object().shape({
         email: Yup.string().required('Email is required').email('Email is not valid'),
