@@ -1,20 +1,9 @@
 import * as React from 'react';
-import {
-  Box,
-  Typography,
-  Divider,
-  Container,
-  Card,
-  CardActionArea,
-  CardMedia,
-  CardContent,
-  CardActions,
-} from '@material-ui/core';
+import { Box, Typography, Divider, Card, CardActionArea, CardMedia, CardContent, CardActions } from '@material-ui/core';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import Rating from '@material-ui/lab/Rating';
 import avatar from '../../../Images/68f55f7799df6c8078a874cfe0a61a5e6e9e1687.png';
 
-import SearchProfile from './SearchProfile';
 import useStyles from './useStyles';
 
 const initialValues = {
