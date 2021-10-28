@@ -12,16 +12,20 @@ const editProfile = async (
   address: string,
   description: string,
 ): Promise<ProfileApiData> => {
+  const body = {
+    data: { firstName, lastName, gender, dateOfBirth, phone, address, description },
+    user: { _id, email },
+  };
   const fetchOptions: FetchOptions = {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ _id, firstName, lastName, gender, dateOfBirth, email, phone, address, description }),
+    body: JSON.stringify(body),
     credentials: 'include',
   };
   return await fetch(`/profiles/${_id}`, fetchOptions)
     .then((res) => res.json())
     .catch(() => ({
-      error: { message: 'Unable to edit profile. Please try again' },
+      error: { message: 'Unable to connect to server. Please try again' },
     }));
 };
 

@@ -19,45 +19,14 @@ import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
 import { CircularProgress } from '@material-ui/core';
+import { Profile } from '../../../interface/Profile';
+import { useAuth } from '../../../context/useAuthContext';
 import useStyles from './useStyles';
 
 interface Props {
   handleSubmit: (
-    {
-      _id,
-      firstName,
-      lastName,
-      gender,
-      dateOfBirth,
-      email,
-      phone,
-      address,
-      description,
-    }: {
-      _id: string;
-      firstName: string;
-      lastName: string;
-      gender: string;
-      dateOfBirth: Date;
-      email: string;
-      phone: number;
-      address: string;
-      description: string;
-    },
-    {
-      setStatus,
-      setSubmitting,
-    }: FormikHelpers<{
-      _id: string;
-      firstName: string;
-      lastName: string;
-      gender: string;
-      dateOfBirth: Date;
-      email: string;
-      phone: number;
-      address: string;
-      description: string;
-    }>,
+    { _id, firstName, lastName, gender, dateOfBirth, email, phone, address, description }: Profile,
+    { setStatus, setSubmitting }: FormikHelpers<Profile>,
   ) => void;
 }
 
@@ -65,7 +34,7 @@ const theme = createMuiTheme();
 
 export default function EditProfile({ handleSubmit }: Props): JSX.Element {
   const [phoneNumber, setPhoneNumber] = React.useState(false);
-
+  const { loggedInUser } = useAuth();
   const classes = useStyles();
 
   const handleToggle = () => {

@@ -1,8 +1,7 @@
-import { useState, useContext, useEffect, useCallback, createContext, FunctionComponent } from 'react';
+import { useState, useContext, useCallback, createContext, FunctionComponent } from 'react';
 import { useHistory } from 'react-router-dom';
-import { ProfileApiData, ProfileApiDataSuccess } from '../interface/ProfileApiData';
+import { ProfileApiDataSuccess } from '../interface/ProfileApiData';
 import { Profile } from '../interface/Profile';
-import editProfile from '../helpers/APICalls/editProfile';
 
 interface IProfileContext {
   profileEdit: Profile | undefined;

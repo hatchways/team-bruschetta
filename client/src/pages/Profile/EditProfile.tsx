@@ -7,9 +7,11 @@ import { useProfile } from '../../context/useProfileContext';
 import { useSnackBar } from '../../context/useSnackbarContext';
 import EditProfileForm from './EditProfileForm/EditProfileForm';
 import { Profile } from '../../interface/Profile';
+import { useAuth } from '../../context/useAuthContext';
 
 export default function EditProfile(): JSX.Element {
   const classes = useStyles();
+  const { loggedInUser } = useAuth();
   const { updateProfileContext } = useProfile();
   const { updateSnackBarMessage } = useSnackBar();
 
@@ -33,12 +35,8 @@ export default function EditProfile(): JSX.Element {
   return (
     <Grid container component="main" className={classes.root}>
       <Box width="100%" maxWidth={1250} p={3} alignSelf="center">
-        <Grid container>
-          <Grid item xs></Grid>
-        </Grid>
         <EditProfileForm handleSubmit={handleSubmit} />
       </Box>
-      <Box p={1} alignSelf="center" />
     </Grid>
   );
 }
