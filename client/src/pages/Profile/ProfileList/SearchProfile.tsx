@@ -3,22 +3,23 @@ import { TextField, Grid, IconButton, InputAdornment, Container, Typography } fr
 import SearchIcon from '@material-ui/icons/Search';
 import useStyles from './useStyles';
 import ProfileList from './ProfileList';
+import profileListing from '../../../helpers/APICalls/profileListing';
+import { ProfileLists } from '../../../interface/Profile';
 
 export default function SearchProfile(): JSX.Element {
   const [profiles, setProfiles] = React.useState<any[]>([]);
   const [searchProfile, setSearchProfile] = React.useState('');
   const classes = useStyles();
 
-  React.useEffect(() => {
-    fetch('/profiles')
-      .then((response) => response.json())
-      .then((data) => setProfiles(data.message))
-      .catch((err) => {
-        {
-          err;
-        }
-      });
-  });
+  const profileList = async (
+    firstName: string,
+    lastName: string,
+    address: string,
+    description: string,
+    availability: string,
+    role: string,
+    price: number,
+  ) => await profileListing(firstName, lastName, address, description, availability, role, price);
 
   const filteredProfile = profiles.filter((profile) => {
     return (

@@ -1,5 +1,5 @@
 import { FetchOptions } from '../../interface/FetchOptions';
-import { ProfileApiData } from '../../interface/ProfileApiData';
+import { ProfileListApiData } from '../../interface/ProfileApiData';
 
 const profileListing = async (
   firstName: string,
@@ -7,11 +7,13 @@ const profileListing = async (
   address: string,
   description: string,
   availability: string,
-): Promise<ProfileApiData> => {
+  role: string,
+  price: number,
+): Promise<ProfileListApiData> => {
   const fetchOptions: FetchOptions = {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ firstName, lastName, address, description, availability }),
+    body: JSON.stringify({ firstName, lastName, address, description, availability, role, price }),
     credentials: 'include',
   };
   return await fetch(`/profiles/`, fetchOptions)

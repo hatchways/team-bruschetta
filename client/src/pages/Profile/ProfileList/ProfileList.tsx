@@ -13,12 +13,13 @@ interface Props {
     address: string;
     description: string;
     availability: `{}`;
+    price: string;
+    role: string;
   };
 }
 
 const initialValues = {
   status: 'Lovely Dog Sitter',
-  price: '$14/hr',
 };
 export default function ProfileList({ profile }: Props): JSX.Element {
   const [value, setValue] = React.useState(3);
@@ -65,7 +66,7 @@ export default function ProfileList({ profile }: Props): JSX.Element {
             </Box>
             <Box>
               <Typography component="h6" className={classes.footerText2}>
-                {initialValues.price}
+                {profile.price}
               </Typography>
             </Box>
           </Box>
