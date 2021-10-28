@@ -10,7 +10,7 @@ import { useAuth } from '../../context/useAuthContext';
 
 export default function EditProfile(): JSX.Element {
   const classes = useStyles();
-  const { loggedInUser, updateProfileContext } = useAuth();
+  const { updateProfileContext } = useAuth();
   const { updateSnackBarMessage } = useSnackBar();
 
   const handleSubmit = (

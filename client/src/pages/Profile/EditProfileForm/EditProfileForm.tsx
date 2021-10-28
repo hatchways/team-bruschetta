@@ -44,12 +44,12 @@ export default function EditProfile({ handleSubmit }: Props): JSX.Element {
   return (
     <Formik
       initialValues={{
-        _id: '',
+        _id: `${loggedInUser}`,
         firstName: '',
         lastName: '',
         gender: '',
         dateOfBirth: new Date(),
-        email: '',
+        email: `${loggedInUser}`,
         phone: 0,
         address: '',
         description: '',
