@@ -46,6 +46,8 @@ const profileSchema = new Schema({
   },
   role: {
     type: String,
+    enum: ["owner", "sitter"],
+    lowercase: true,
     required: true,
   },
     price: {
