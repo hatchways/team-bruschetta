@@ -1,4 +1,4 @@
-import { MuiThemeProvider } from '@material-ui/core';
+import { MuiThemeProvider } from '@material-ui/core/';
 import { theme } from './themes/theme';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import Login from './pages/Login/Login';
