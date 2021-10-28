@@ -3,7 +3,6 @@ import Grid from '@material-ui/core/Grid';
 import { FormikHelpers } from 'formik';
 import useStyles from './useStyles';
 import editProfile from '../../helpers/APICalls/editProfile';
-import { useProfile } from '../../context/useProfileContext';
 import { useSnackBar } from '../../context/useSnackbarContext';
 import EditProfileForm from './EditProfileForm/EditProfileForm';
 import { Profile } from '../../interface/Profile';
@@ -11,8 +10,7 @@ import { useAuth } from '../../context/useAuthContext';
 
 export default function EditProfile(): JSX.Element {
   const classes = useStyles();
-  const { loggedInUser } = useAuth();
-  const { updateProfileContext } = useProfile();
+  const { loggedInUser, updateProfileContext } = useAuth();
   const { updateSnackBarMessage } = useSnackBar();
 
   const handleSubmit = (
