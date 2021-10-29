@@ -16,6 +16,6 @@ export interface ProfileLists {
   address: string;
   description: string;
   availability: string;
-  role: string;
+  role: 'sitter';
   price: number;
 }

@@ -1,5 +1,5 @@
 import { FetchOptions } from '../../interface/FetchOptions';
-import { ProfileListApiData } from '../../interface/ProfileApiData';
+import { ProfileListApiData } from '../../interface/AuthApiData';
 
 const profileListing = async (
   firstName: string,
