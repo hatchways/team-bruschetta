@@ -50,21 +50,19 @@ export default function ProfileList(): JSX.Element {
           </CardContent>
           <Divider />
         </CardActionArea>
-        <CardActions>
-          <Box className={classes.footer}>
-            <Box>
-              <Typography component="h6" className={classes.footerText}>
-                <LocationOnIcon className={classes.locationLogo} />
-                {initialValues.address}
-              </Typography>
-            </Box>
-            <Box>
-              <Typography component="h6" className={classes.footerText2}>
-                {initialValues.price}
-              </Typography>
-            </Box>
+        <Box className={classes.footer}>
+          <Box>
+            <Typography component="h6" className={classes.footerText}>
+              <LocationOnIcon className={classes.locationLogo} />
+              {initialValues.address}
+            </Typography>
           </Box>
-        </CardActions>
+          <Box>
+            <Typography component="h6" className={classes.footerText2}>
+              {initialValues.price}
+            </Typography>
+          </Box>
+        </Box>
       </Card>
     </Box>
   );

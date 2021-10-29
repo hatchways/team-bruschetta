@@ -12,7 +12,6 @@ export default function SearchProfile(): JSX.Element {
       <Typography component="h1" variant="h3" className={classes.title}>
         Your search results
       </Typography>
-      <SearchProfile />
       <Grid container className={classes.search}>
         <Grid item xs={8} sm={4}>
           <TextField
