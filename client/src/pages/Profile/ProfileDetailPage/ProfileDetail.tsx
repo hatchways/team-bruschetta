@@ -1,7 +1,7 @@
 import * as React from 'react';
 import 'date-fns';
 import Paper from '@material-ui/core/Paper';
-import { Button, TextField, Grid, Box, Typography, Container, Avatar, InputLabel } from '@material-ui/core';
+import { Button, Grid, Box, Typography, Container, Avatar, InputLabel } from '@material-ui/core';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import { DateTimePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
@@ -85,7 +85,6 @@ export default function ProfileDetail(): JSX.Element {
               className={classes.datePicker}
             />
           </MuiPickersUtilsProvider>
-          {/* <TextField id="search" name="availability" type="date" autoComplete="availability" variant="outlined" /> */}
           <InputLabel className={classes.label}>Drop Off</InputLabel>
           <MuiPickersUtilsProvider utils={DateFnsUtils}>
             <DateTimePicker
