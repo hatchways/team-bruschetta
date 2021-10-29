@@ -1,5 +1,4 @@
 import { makeStyles } from '@material-ui/core/styles';
-import { Height } from '@material-ui/icons';
 import profileDetailImage from '../../../Images/profile_detail_bg.jpeg';
 
 const useStyles = makeStyles((theme) => ({
@@ -35,13 +34,13 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: '20rem',
   },
   name: {
-    marginLeft: '1.2rem',
+    marginLeft: '1rem',
     fontWeight: 'bolder',
     fontSize: '2rem',
   },
   status: {
     fontSize: '0.8rem',
-    color: '#aaa',
+    color: 'grey',
     marginLeft: '4rem',
   },
   locationLogo: {
@@ -70,11 +69,38 @@ const useStyles = makeStyles((theme) => ({
   },
   petItems: {
     paddingRight: '2rem',
+    borderRadius: '10px',
     width: '20%',
     Height: '15vh',
   },
   request: {
     width: '20%',
+    height: '55vh',
+    padding: '3rem',
+  },
+  price: {
+    paddingLeft: '3.8rem',
+    paddingBottom: '1rem',
+    fontWeight: 'bold',
+    fontSize: '1.2rem',
+  },
+  rating: {
+    marginLeft: '1.8rem',
+    borderColor: 'transparent',
+  },
+  label: {
+    paddingTop: '1rem',
+    paddingBottom: '0.2rem',
+    textTransform: 'uppercase',
+    color: '#000',
+    fontSize: '0.6rem',
+    fontWeight: 'bold',
+  },
+  datePicker: {
+    width: '100%',
+  },
+  button: {
+    margin: '1.5rem 1rem',
   },
 }));
 
