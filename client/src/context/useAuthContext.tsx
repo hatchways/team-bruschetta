@@ -80,7 +80,6 @@ export const AuthProvider: FunctionComponent = ({ children }): JSX.Element => {
         },
       );
     };
-    allProfileList();
   }, [getProfileContext, history]);
 
   const logout = useCallback(async () => {
