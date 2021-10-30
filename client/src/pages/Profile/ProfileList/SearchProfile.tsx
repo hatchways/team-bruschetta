@@ -3,18 +3,15 @@ import { TextField, Grid, IconButton, InputAdornment, Container, Typography } fr
 import SearchIcon from '@material-ui/icons/Search';
 import useStyles from './useStyles';
 import ProfileList from './ProfileList';
-import { ProfileLists } from '../../../interface/Profile';
 import { useAuth } from '../../../context/useAuthContext';
-import profileListing from '../../../helpers/APICalls/profileListing';
 
 export default function SearchProfile(): JSX.Element {
   const [searchProfile, setSearchProfile] = React.useState('');
 
   const classes = useStyles();
   const { profileList } = useAuth();
-  console.log(profileList);
 
-  const filteredProfile = profileList.filter((profile) => {
+  const filteredProfile = profileList.filter((profile: any) => {
     return (
       profile.address.toLowerCase().includes(searchProfile.toLowerCase()) ||
       profile.availability.toLowerCase().includes(searchProfile.toLowerCase())
@@ -65,8 +62,8 @@ export default function SearchProfile(): JSX.Element {
           />
         </Grid>
       </Grid>
-      {filteredProfile.map((profile, i) => (
-        <ProfileList key={i} profile={profile} />
+      {filteredProfile.map((profiles: any, i: any) => (
+        <ProfileList key={i} profiles={profiles} />
       ))}
     </Container>
   );

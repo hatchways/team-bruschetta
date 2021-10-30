@@ -7,7 +7,7 @@ const profileListing = async (
   address: string,
   description: string,
   availability: string,
-  role: string,
+  role: 'sitter',
   price: number,
 ): Promise<ProfileListApiData> => {
   const fetchOptions: FetchOptions = {

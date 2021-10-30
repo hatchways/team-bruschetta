@@ -7,12 +7,12 @@ import avatar from '../../../Images/68f55f7799df6c8078a874cfe0a61a5e6e9e1687.png
 import useStyles from './useStyles';
 
 interface Props {
-  profile: {
+  profiles: {
     firstName: string;
     lastName: string;
     address: string;
     description: string;
-    availability: `{}`;
+    availability: string;
     price: string;
     role: string;
   };
@@ -21,7 +21,7 @@ interface Props {
 const initialValues = {
   status: 'Lovely Dog Sitter',
 };
-export default function ProfileList({ profile }: Props): JSX.Element {
+export default function ProfileList({ profiles }: Props): JSX.Element {
   const [value, setValue] = React.useState(3);
   const classes = useStyles();
 
@@ -42,7 +42,7 @@ export default function ProfileList({ profile }: Props): JSX.Element {
           <CardMedia component="img" alt="Seye Onigbinde" src={avatar} style={styles.media} />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div" className={classes.name}>
-              {profile.firstName} {profile.lastName}
+              {profiles.firstName} {profiles.lastName}
               <Typography component="h6" className={classes.status}>
                 {initialValues.status}
               </Typography>
@@ -51,7 +51,7 @@ export default function ProfileList({ profile }: Props): JSX.Element {
               <Rating name="read-only" value={value} readOnly />
             </Box>
             <Typography variant="body2" color="textSecondary">
-              {profile.description}
+              {profiles.description}
             </Typography>
           </CardContent>
           <Divider />
@@ -61,12 +61,12 @@ export default function ProfileList({ profile }: Props): JSX.Element {
             <Box>
               <Typography component="h6" className={classes.footerText}>
                 <LocationOnIcon className={classes.locationLogo} />
-                {profile.address}
+                {profiles.address}
               </Typography>
             </Box>
             <Box>
               <Typography component="h6" className={classes.footerText2}>
-                {profile.price}
+                {profiles.price}
               </Typography>
             </Box>
           </Box>

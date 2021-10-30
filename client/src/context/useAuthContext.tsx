@@ -51,20 +51,36 @@ export const AuthProvider: FunctionComponent = ({ children }): JSX.Element => {
   );
 
   useEffect(() => {
-    const allProfileList = async (firstName, lastName, address, description, availability, role, price) => {
+    const allProfileList = async ({
+      firstName,
+      lastName,
+      address,
+      description,
+      availability,
+      role,
+      price,
+    }: {
+      firstName: string;
+      lastName: string;
+      address: string;
+      description: string;
+      availability: string;
+      role: 'sitter';
+      price: number;
+    }) => {
       await profileListAPI(firstName, lastName, address, description, availability, role, price).then(
         (data: ProfileListApiData) => {
           if (data.success) {
             getProfileContext(data.success);
             history.push('/profile-list');
           } else {
-            setProfileList(null);
+            setProfileList(undefined);
             history.push('/dashboard');
           }
         },
       );
     };
-    allProfileList(firstName, lastName, address, description, availability, role, price);
+    allProfileList();
   }, [getProfileContext, history]);
 
   const logout = useCallback(async () => {
