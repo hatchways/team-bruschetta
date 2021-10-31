@@ -13,7 +13,7 @@ interface Props {
     address: string;
     description: string;
     availability: string;
-    price: string;
+    price: number;
     role: string;
   };
 }

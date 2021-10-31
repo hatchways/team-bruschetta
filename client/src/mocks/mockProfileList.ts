@@ -1,6 +1,6 @@
-import { ProfileLists } from '../interface/Profile';
+import { SitterProfile } from '../interface/Profile';
 
-const mockProfileLists: ProfileLists = {
+const mockProfileLists: SitterProfile = {
   firstName: 'Seye',
   lastName: 'Onigbinde',
   address: 'Lagos, Nigeria',

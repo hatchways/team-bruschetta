@@ -7,7 +7,7 @@ import {
   ProfileListApiDataSuccess,
 } from '../interface/AuthApiData';
 import { User } from '../interface/User';
-import { ProfileLists } from '../interface/Profile';
+import { SitterProfile } from '../interface/Profile';
 import loginWithCookies from '../helpers/APICalls/loginWithCookies';
 import logoutAPI from '../helpers/APICalls/logout';
 import profileListAPI from '../helpers/APICalls/profileListing';
@@ -15,7 +15,7 @@ import profileListAPI from '../helpers/APICalls/profileListing';
 interface IAuthContext {
   loggedInUser: User | null | undefined;
   updateLoginContext: (data: AuthApiDataSuccess) => void;
-  profileList: ProfileLists | null | undefined;
+  profileList: SitterProfile | null | undefined;
   updateProfileContext: (data: ProfileListApiDataSuccess) => void;
   logout: () => void;
 }
@@ -30,7 +30,7 @@ export const AuthContext = createContext<IAuthContext>({
 
 export const AuthProvider: FunctionComponent = ({ children }): JSX.Element => {
   const [loggedInUser, setLoggedInUser] = useState<User | null | undefined>();
-  const [profileList, setProfileList] = useState<ProfileLists | null | undefined>();
+  const [profileList, setProfileList] = useState<SitterProfile | null | undefined>();
 
   const history = useHistory();
 
@@ -75,7 +75,6 @@ export const AuthProvider: FunctionComponent = ({ children }): JSX.Element => {
             history.push('/profile-list');
           } else {
             setProfileList(undefined);
-            history.push('/dashboard');
           }
         },
       );

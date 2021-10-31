@@ -4,23 +4,11 @@ import SearchIcon from '@material-ui/icons/Search';
 import useStyles from './useStyles';
 import ProfileList from './ProfileList';
 import { useAuth } from '../../../context/useAuthContext';
+import { SitterProfile } from '../../../interface/Profile';
 
 export default function SearchProfile(): JSX.Element {
-  const [searchProfile, setSearchProfile] = React.useState('');
-
   const classes = useStyles();
   const { profileList } = useAuth();
-
-  const filteredProfile = profileList.filter((profile: any) => {
-    return (
-      profile.address.toLowerCase().includes(searchProfile.toLowerCase()) ||
-      profile.availability.toLowerCase().includes(searchProfile.toLowerCase())
-    );
-  });
-
-  const handleProfileSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchProfile(e.target.value);
-  };
 
   return (
     <Container component="main" maxWidth="lg">
@@ -46,7 +34,6 @@ export default function SearchProfile(): JSX.Element {
             autoComplete="address"
             className={classes.textField}
             variant="outlined"
-            onChange={handleProfileSearch}
           />
         </Grid>
         <Grid item xs={6} sm={3}>
@@ -58,12 +45,11 @@ export default function SearchProfile(): JSX.Element {
             autoComplete="availability"
             className={classes.textField}
             variant="outlined"
-            onChange={handleProfileSearch}
           />
         </Grid>
       </Grid>
-      {filteredProfile.map((profiles: any, i: any) => (
-        <ProfileList key={i} profiles={profiles} />
+      {profileList.map((profiles: SitterProfile, _id: number) => (
+        <ProfileList key={_id} profiles={profiles} />
       ))}
     </Container>
   );

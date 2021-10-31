@@ -1,5 +1,5 @@
 import { User } from './User';
-import { ProfileLists } from './Profile';
+import { SitterProfile } from './Profile';
 
 export interface AuthApiDataSuccess {
   message: string;
@@ -13,7 +13,7 @@ export interface AuthApiData {
 }
 
 export interface ProfileListApiDataSuccess {
-  profiles: ProfileLists;
+  profiles: SitterProfile;
 }
 
 export interface ProfileListApiData {
