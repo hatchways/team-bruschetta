@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { TextField, Grid, IconButton, InputAdornment, Container, Typography } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
@@ -7,18 +7,18 @@ import ProfileCard from './ProfileCard';
 import { SitterProfile } from '../../../interface/Profile';
 
 export default function SearchProfile(): JSX.Element {
-  const [profileList, setProfileList] = React.useState<SitterProfile[] | null | undefined>([]);
+  const [profileList, setProfileList] = useState<SitterProfile[] | null | undefined>([]);
   const classes = useStyles();
 
   const history = useHistory();
 
-  React.useEffect(() => {
+  useEffect(() => {
     const url = '/profiles';
 
     const fetchData = async () => {
       try {
-        const response = await fetch(url);
-        const json = await response.json();
+        const res = await fetch(url);
+        const json = await res.json();
         setProfileList(json);
         history.push('/profile-card');
       } catch (error) {
