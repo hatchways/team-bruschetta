@@ -39,7 +39,6 @@ export default function SearchProfile(): JSX.Element {
         <Grid item xs={6} sm={3}>
           <TextField
             id="search"
-            label="Search By Availability"
             name="availability"
             type="date"
             autoComplete="availability"

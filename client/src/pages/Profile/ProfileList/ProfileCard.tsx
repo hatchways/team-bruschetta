@@ -25,21 +25,11 @@ export default function ProfileList({ profiles }: Props): JSX.Element {
   const [value, setValue] = React.useState(3);
   const classes = useStyles();
 
-  const styles = {
-    media: {
-      width: '40%',
-      height: '12vh',
-      marginBottom: '0.5rem',
-      marginLeft: '5rem',
-      borderRadius: '50%',
-    },
-  };
-
   return (
     <Box display="flex" justifyContent="space-between" flexWrap="wrap">
       <Card className={classes.card}>
         <CardActionArea>
-          <CardMedia component="img" alt="Seye Onigbinde" src={avatar} style={styles.media} />
+          <CardMedia component="img" alt="Seye Onigbinde" src={avatar} className={classes.media} />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div" className={classes.name}>
               {profiles.firstName} {profiles.lastName}
@@ -66,7 +56,7 @@ export default function ProfileList({ profiles }: Props): JSX.Element {
             </Box>
             <Box>
               <Typography component="h6" className={classes.footerText2}>
-                {profiles.price}
+                ${profiles.price}/hr
               </Typography>
             </Box>
           </Box>
