@@ -42,7 +42,7 @@ export const AuthProvider: FunctionComponent = ({ children }): JSX.Element => {
     [history],
   );
 
-  const getProfileContext = useCallback(
+  const updateProfileContext = useCallback(
     (data: ProfileListApiDataSuccess) => {
       setProfileList(data.profiles);
       history.push('/profile-list');
