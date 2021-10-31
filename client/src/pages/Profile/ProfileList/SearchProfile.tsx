@@ -2,7 +2,7 @@ import * as React from 'react';
 import { TextField, Grid, IconButton, InputAdornment, Container, Typography } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import useStyles from './useStyles';
-import ProfileList from './ProfileList';
+import ProfileCard from './ProfileCard';
 import { useAuth } from '../../../context/useAuthContext';
 import { SitterProfile } from '../../../interface/Profile';
 
@@ -49,7 +49,7 @@ export default function SearchProfile(): JSX.Element {
         </Grid>
       </Grid>
       {profileList.map((profiles: SitterProfile, _id: number) => (
-        <ProfileList key={_id} profiles={profiles} />
+        <ProfileCard key={_id} profiles={profiles} />
       ))}
     </Container>
   );
