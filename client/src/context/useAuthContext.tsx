@@ -16,7 +16,7 @@ interface IAuthContext {
   loggedInUser: User | null | undefined;
   updateLoginContext: (data: AuthApiDataSuccess) => void;
   profileList: ProfileLists | null | undefined;
-  getProfileContext: (data: ProfileListApiDataSuccess) => void;
+  updateProfileContext: (data: ProfileListApiDataSuccess) => void;
   logout: () => void;
 }
 
@@ -24,7 +24,7 @@ export const AuthContext = createContext<IAuthContext>({
   loggedInUser: undefined,
   updateLoginContext: () => null,
   profileList: undefined,
-  getProfileContext: () => null,
+  updateProfileContext: () => null,
   logout: () => null,
 });
 
@@ -71,7 +71,7 @@ export const AuthProvider: FunctionComponent = ({ children }): JSX.Element => {
       await profileListAPI(firstName, lastName, address, description, availability, role, price).then(
         (data: ProfileListApiData) => {
           if (data.success) {
-            getProfileContext(data.success);
+            updateProfileContext(data.success);
             history.push('/profile-list');
           } else {
             setProfileList(undefined);
@@ -80,7 +80,7 @@ export const AuthProvider: FunctionComponent = ({ children }): JSX.Element => {
         },
       );
     };
-  }, [getProfileContext, history]);
+  }, [updateProfileContext, history]);
 
   const logout = useCallback(async () => {
     await logoutAPI()
@@ -107,7 +107,7 @@ export const AuthProvider: FunctionComponent = ({ children }): JSX.Element => {
   }, [updateLoginContext, history]);
 
   return (
-    <AuthContext.Provider value={{ loggedInUser, updateLoginContext, logout, profileList, getProfileContext }}>
+    <AuthContext.Provider value={{ loggedInUser, updateLoginContext, logout, profileList, updateProfileContext }}>
       {children}
     </AuthContext.Provider>
   );
