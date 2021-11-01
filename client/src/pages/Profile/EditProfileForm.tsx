@@ -17,7 +17,7 @@ import useStyles from './useStyles';
 
 const theme = createMuiTheme();
 
-export default function EditProfile() {
+export default function EditProfileForm() {
   const [phoneNumber, setPhoneNumber] = React.useState(false);
 
   const classes = useStyles();
