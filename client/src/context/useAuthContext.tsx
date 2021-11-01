@@ -19,6 +19,7 @@ export const AuthContext = createContext<IAuthContext>({
 
 export const AuthProvider: FunctionComponent = ({ children }): JSX.Element => {
   const [loggedInUser, setLoggedInUser] = useState<User | null | undefined>();
+
   const history = useHistory();
 
   const updateLoginContext = useCallback(

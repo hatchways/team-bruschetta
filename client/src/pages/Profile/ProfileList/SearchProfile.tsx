@@ -1,36 +1,33 @@
-import * as React from 'react';
+import { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { TextField, Grid, IconButton, InputAdornment, Container, Typography } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import useStyles from './useStyles';
-import ProfileList from './ProfileList';
-import profileListing from '../../../helpers/APICalls/profileListing';
-import { ProfileLists } from '../../../interface/Profile';
+import ProfileCard from './ProfileCard';
+import { SitterProfile } from '../../../interface/Profile';
 
 export default function SearchProfile(): JSX.Element {
-  const [profiles, setProfiles] = React.useState<any[]>([]);
-  const [searchProfile, setSearchProfile] = React.useState('');
+  const [profileList, setProfileList] = useState<SitterProfile[] | null | undefined>([]);
   const classes = useStyles();
 
-  const profileList = async (
-    firstName: string,
-    lastName: string,
-    address: string,
-    description: string,
-    availability: string,
-    role: string,
-    price: number,
-  ) => await profileListing(firstName, lastName, address, description, availability, role, price);
+  const history = useHistory();
 
-  const filteredProfile = profiles.filter((profile) => {
-    return (
-      profile.address.toLowerCase().includes(searchProfile.toLowerCase()) ||
-      profile.availability.toLowerCase().includes(searchProfile.toLowerCase())
-    );
-  });
+  useEffect(() => {
+    const url = '/profiles';
 
-  const handleProfileSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchProfile(e.target.value);
-  };
+    const fetchData = async () => {
+      try {
+        const res = await fetch(url);
+        const json = await res.json();
+        setProfileList(json);
+        history.push('/profile-card');
+      } catch (error) {
+        setProfileList(undefined);
+      }
+    };
+
+    fetchData();
+  }, [history]);
 
   return (
     <Container component="main" maxWidth="lg">
@@ -56,24 +53,21 @@ export default function SearchProfile(): JSX.Element {
             autoComplete="address"
             className={classes.textField}
             variant="outlined"
-            onChange={handleProfileSearch}
           />
         </Grid>
         <Grid item xs={6} sm={3}>
           <TextField
             id="search"
-            label="Search By Availability"
             name="availability"
             type="date"
             autoComplete="availability"
             className={classes.textField}
             variant="outlined"
-            onChange={handleProfileSearch}
           />
         </Grid>
       </Grid>
-      {filteredProfile.map((profile, i) => (
-        <ProfileList key={i} profile={profile} />
+      {profileList.map((profiles: SitterProfile, _id: number) => (
+        <ProfileCard key={_id} profiles={profiles} />
       ))}
     </Container>
   );

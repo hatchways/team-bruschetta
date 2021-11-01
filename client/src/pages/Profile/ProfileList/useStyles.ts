@@ -1,6 +1,13 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
+  media: {
+    width: '40%',
+    height: '12vh',
+    marginBottom: '0.5rem',
+    marginLeft: '5rem',
+    borderRadius: '50%',
+  },
   title: {
     margin: '1rem 30rem',
     fontWeight: 'bolder',

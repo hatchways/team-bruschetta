@@ -10,12 +10,12 @@ export interface Profile {
   description: string;
 }
 
-export interface ProfileLists {
+export interface SitterProfile {
   firstName: string;
   lastName: string;
   address: string;
   description: string;
   availability: string;
-  role: string;
+  role: 'sitter';
   price: number;
 }
