@@ -9,11 +9,13 @@ import login from '../../helpers/APICalls/login';
 import LoginForm from './LoginForm/LoginForm';
 import { useAuth } from '../../context/useAuthContext';
 import { useSnackBar } from '../../context/useSnackbarContext';
+import { useHistory } from 'react-router-dom';
 
 export default function Login(): JSX.Element {
   const classes = useStyles();
   const { updateLoginContext } = useAuth();
   const { updateSnackBarMessage } = useSnackBar();
+  const history = useHistory();
 
   const handleSubmit = (
     { email, password }: { email: string; password: string },
@@ -25,6 +27,7 @@ export default function Login(): JSX.Element {
         updateSnackBarMessage(data.error.message);
       } else if (data.success) {
         updateLoginContext(data.success);
+        history.push('/dashboard');
       } else {
         setSubmitting(false);
         updateSnackBarMessage('An unexpected error occurred. Please try again');

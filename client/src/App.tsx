@@ -7,6 +7,7 @@ import Dashboard from './pages/Dashboard/Dashboard';
 import EditProfile from './pages/Profile/EditProfile';
 import SearchProfile from './pages/Profile/ProfileList/SearchProfile';
 import ProfileDetail from './pages/Profile/ProfileDetailPage/ProfileDetail';
+import ProfileSettings from './pages/ProfileSettings/ProfileSettings';
 import { AuthProvider } from './context/useAuthContext';
 import { SocketProvider } from './context/useSocketContext';
 import { SnackBarProvider } from './context/useSnackbarContext';
@@ -29,6 +30,7 @@ function App(): JSX.Element {
                 <Route exact path="/dashboard">
                   <Dashboard />
                 </Route>
+                <Route exact path="/settings" component={ProfileSettings}></Route>
                 <Route path="*">
                   <Redirect to="/login" />
                 </Route>
