@@ -20,7 +20,7 @@ export interface ProfileLists {
   price: number;
 }
 
-export interface ProfileDetail {
+export interface ProfileDetails {
   firstName: string;
   lastName: string;
   address: string;

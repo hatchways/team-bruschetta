@@ -7,7 +7,7 @@ import { DateTimePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
 import Rating from '@material-ui/lab/Rating';
 import avatar from '../../../Images/68f55f7799df6c8078a874cfe0a61a5e6e9e1687.png';
-import { ProfileDetail } from '../../../interface/Profile';
+import { ProfileDetails } from '../../../interface/Profile';
 
 import useStyles from './useStyles';
 
@@ -36,12 +36,21 @@ const initialValues = {
 };
 
 export default function ProfileDetail(): JSX.Element {
-  const [profileDetails, setProfileDetails] = React.useState<ProfileDetail[]>([]);
+  const [profileDetails, setProfileDetails] = React.useState<ProfileDetails[]>([]);
   const [value, setValue] = React.useState(3);
   const [dropIn, handleDropIn] = React.useState<any>(new Date());
   const [dropOff, handleDropOff] = React.useState<any>(new Date());
   const classes = useStyles();
 
+  React.useEffect(() => {
+    const fetchData = () => {
+      const profileDataAPI = '/profiles';
+      const profileImgApi = '/upload/profile-pic';
+
+      // const getProfileData = fetch.get(profileDataAPI);
+      // const getProfilePic = fetch.get(profileImgApi);
+    };
+  }, []);
   return (
     <Container component="main" maxWidth="lg" className={classes.root}>
       <Grid item xs={12} sm={8} elevation={6} component={Paper} spacing={3} square className={classes.profile}>
