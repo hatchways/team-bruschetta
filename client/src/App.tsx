@@ -8,6 +8,7 @@ import ProfileSettings from './pages/ProfileSettings/ProfileSettings';
 import { AuthProvider } from './context/useAuthContext';
 import { SocketProvider } from './context/useSocketContext';
 import { SnackBarProvider } from './context/useSnackbarContext';
+import EditProfileForm from './pages/Profile/EditProfileForm';
 
 import './App.css';
 
@@ -25,6 +26,7 @@ function App(): JSX.Element {
                   <Dashboard />
                 </Route>
                 <Route exact path="/settings" component={ProfileSettings}></Route>
+                <Route exact path="/edit-profile" component={EditProfileForm}></Route>
                 <Route path="*">
                   <Redirect to="/login" />
                 </Route>
