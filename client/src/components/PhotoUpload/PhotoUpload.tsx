@@ -30,7 +30,6 @@ const PhotoUpload = (): JSX.Element => {
   const readAndSetImageString = (e: Event) => {
     e.preventDefault();
     const reader = new FileReader();
-    // grab one file
     const file: File = inputFileRef.current.files[0];
 
     if (file) reader.readAsDataURL(file);
