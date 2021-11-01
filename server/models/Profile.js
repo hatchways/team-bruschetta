@@ -1,4 +1,5 @@
-const { Schema, model } = require('mongoose');
+const mongoose = require('mongoose')
+const { Schema } = require('mongoose');
 
 const profileSchema = new Schema({
 
@@ -42,6 +43,16 @@ const profileSchema = new Schema({
     type: String,
     required: true,
     trim : true,
+  },
+  role: {
+    type: String,
+    enum: ["owner", "sitter"],
+    lowercase: true,
+    required: true,
+  },
+    price: {
+    type: Number,
+    required: true,
   },
   availability: {
     monday: {
