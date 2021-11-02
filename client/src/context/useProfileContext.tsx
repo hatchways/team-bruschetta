@@ -26,20 +26,20 @@ export const ProfileProvider: FunctionComponent = ({ children }): JSX.Element =>
     [history],
   );
 
-  // useEffect(() => {
-  //   const checkEditProfile = async () => {
-  //     await editProfile().then((data: ProfileApiData) => {
-  //       if (data.success) {
-  //         updateProfileContext(data.success);
-  //         history.push('/dashboard');
-  //       } else {
-  //         setProfileEdit(undefined);
-  //         history.push('/dashboard');
-  //       }
-  //     });
-  //   };
-  //   checkEditProfile();
-  // }, [updateProfileContext, history]);
+  useEffect(() => {
+    const checkEditProfile = async () => {
+      await editProfile().then((data: ProfileApiData) => {
+        if (data.success) {
+          updateProfileContext(data.success);
+          history.push('/dashboard');
+        } else {
+          setProfileEdit(undefined);
+          history.push('/dashboard');
+        }
+      });
+    };
+    checkEditProfile();
+  }, [updateProfileContext, history]);
 
   return <ProfileContext.Provider value={{ profileEdit, updateProfileContext }}>{children}</ProfileContext.Provider>;
 };
