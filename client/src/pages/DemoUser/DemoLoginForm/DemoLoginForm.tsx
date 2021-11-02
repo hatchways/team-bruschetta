@@ -15,15 +15,15 @@ interface Props {
       email,
       password,
     }: {
-      email: string;
-      password: string;
+      email: 'bruschetta@gmail.com';
+      password: 'password';
     },
     {
       setStatus,
       setSubmitting,
     }: FormikHelpers<{
-      email: string;
-      password: string;
+      email: 'bruschetta@gmail.com';
+      password: 'password';
     }>,
   ) => void;
 }

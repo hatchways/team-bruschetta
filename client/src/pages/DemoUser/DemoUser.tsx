@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import { FormikHelpers } from 'formik';
 import Typography from '@material-ui/core/Typography';
 import useStyles from './useStyles';
-import login from '../../helpers/APICalls/login';
+import demoLogin from '../../helpers/APICalls/demoLogin';
 import { useAuth } from '../../context/useAuthContext';
 import { useSnackBar } from '../../context/useSnackbarContext';
 import AuthHeader from '../../components/AuthHeader/AuthHeader';
@@ -17,10 +17,10 @@ export default function DemoUser(): JSX.Element {
   const { updateSnackBarMessage } = useSnackBar();
 
   const handleSubmit = (
-    { email, password }: { email: string; password: string },
-    { setSubmitting }: FormikHelpers<{ email: string; password: string }>,
+    { email, password }: { email: 'bruschetta@gmail.com'; password: 'password' },
+    { setSubmitting }: FormikHelpers<{ email: 'bruschetta@gmail.com'; password: 'password' }>,
   ) => {
-    login(email, password).then((data) => {
+    demoLogin(email, password).then((data) => {
       if (data.error) {
         setSubmitting(false);
         updateSnackBarMessage(data.error.message);

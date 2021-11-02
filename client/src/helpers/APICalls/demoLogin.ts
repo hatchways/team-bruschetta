@@ -1,7 +1,7 @@
 import { AuthApiData } from '../../interface/AuthApiData';
 import { FetchOptions } from '../../interface/FetchOptions';
 
-const login = async (email: string, password: string): Promise<AuthApiData> => {
+const demoLogin = async (email: 'bruschetta@gmail.com', password: 'password'): Promise<AuthApiData> => {
   const fetchOptions: FetchOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -15,4 +15,4 @@ const login = async (email: string, password: string): Promise<AuthApiData> => {
     }));
 };
 
-export default login;
+export default demoLogin;
