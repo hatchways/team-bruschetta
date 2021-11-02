@@ -1,27 +1,41 @@
 const mongoose = require('mongoose')
-const User = require('./User');
 const Schema = mongoose.Schema;
 
 const RequestSchema = new Schema({
     userId:{
         type: Schema.Types.ObjectId,
-        ref: 'User'
+        ref: "user",
+        required: true,
     },
     sitterId:{
         type: Schema.Types.ObjectId,
-        ref: 'User'
+        ref: "user",
+        required: true,
     },
-    start:{
-        type: String,
+    startDate:{
+        type: Date,
         required: true,
         default: Date.now()
     },
-    end:{
+    endDate:{
         type: Date,
-        required: true
+        required: true,
     },
-    accepted: Boolean,
-    paid: Boolean
+    accepted: {
+        type: Boolean,
+        required: true,
+        default: false,
+    },
+    declined: {
+        type: Boolean,
+        required: true,
+        default: false,
+    },
+    paid: {
+        type: Boolean,
+        required: true,
+        default: false,
+    },
 })
 
 module.exports = mongoose.model('Requests', RequestSchema);
