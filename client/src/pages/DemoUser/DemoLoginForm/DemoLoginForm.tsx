@@ -1,7 +1,6 @@
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Box from '@material-ui/core/Box';
-import { Link } from 'react-router-dom';
 import { Formik, FormikHelpers } from 'formik';
 import * as Yup from 'yup';
 import Typography from '@material-ui/core/Typography';
@@ -35,8 +34,8 @@ export default function Login({ handleSubmit }: Props): JSX.Element {
   return (
     <Formik
       initialValues={{
-        email: '',
-        password: '',
+        email: 'bruschetta@gmail.com',
+        password: 'password',
       }}
       validationSchema={Yup.object().shape({
         email: Yup.string().required('Email is required').email('Email is not valid'),
@@ -99,15 +98,7 @@ export default function Login({ handleSubmit }: Props): JSX.Element {
             <Button type="submit" size="large" variant="contained" color="secondary" className={classes.submit}>
               {isSubmitting ? <CircularProgress style={{ color: 'white' }} /> : 'Login'}
             </Button>
-            <Button
-              component={Link}
-              to="/demo-login"
-              type="submit"
-              size="large"
-              variant="contained"
-              color="secondary"
-              className={classes.submit}
-            >
+            <Button type="submit" size="large" variant="contained" color="secondary" className={classes.submit}>
               {isSubmitting ? <CircularProgress style={{ color: 'white' }} /> : 'Demo User Login'}
             </Button>
           </Box>
