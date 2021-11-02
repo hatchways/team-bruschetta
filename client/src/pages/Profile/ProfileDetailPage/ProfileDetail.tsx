@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useHistory } from 'react-router-dom';
 import 'date-fns';
 import Paper from '@material-ui/core/Paper';
 import { Button, Grid, Box, Typography, Container, Avatar, InputLabel } from '@material-ui/core';
@@ -8,9 +9,8 @@ import DateFnsUtils from '@date-io/date-fns';
 import Rating from '@material-ui/lab/Rating';
 import avatar from '../../../Images/68f55f7799df6c8078a874cfe0a61a5e6e9e1687.png';
 import { ProfileDetails } from '../../../interface/Profile';
-import { ProfileDetailApiDataSuccess } from '../../../interface/AuthApiData';
-import { ProfileDetailData } from '../../../helpers/APICalls/profileDetail';
-import { useSnackBar } from '../../../context/useSnackbarContext';
+import { ProfileDetailApiData, ProfileDetailApiDataSuccess } from '../../../interface/AuthApiData';
+import profileDetailData from '../../../helpers/APICalls/profileDetail';
 
 import useStyles from './useStyles';
 
@@ -37,42 +37,27 @@ export default function ProfileDetail(): JSX.Element {
   const [value, setValue] = React.useState(3);
   const [dropIn, handleDropIn] = React.useState<any>(new Date());
   const [dropOff, handleDropOff] = React.useState<any>(new Date());
+
   const classes = useStyles();
-  const { updateSnackBarMessage } = useSnackBar();
+  const history = useHistory();
 
   const updateProfileDetail = React.useCallback((data: ProfileDetailApiDataSuccess) => {
     setProfileDetails(data.profile);
   }, []);
 
   React.useEffect(() => {
-    const profile = new ProfileDetailData();
-    const getProfileDetail = ({
-      firstName,
-      lastName,
-      address,
-      description,
-      price,
-      imgUrl,
-    }: {
-      firstName: string;
-      lastName: string;
-      address: string;
-      description: string;
-      price: number;
-      imgUrl: string;
-    }) => {
-      (profile.details(firstName, lastName, address, description, price), profile.image(imgUrl)).then((data) => {
-        if (data.error) {
-          updateSnackBarMessage(data.error.message);
-        } else if (data.success) {
+    const getProfileDetail = async () => {
+      await profileDetailData().then((data: ProfileDetailApiData) => {
+        if (data.success) {
           updateProfileDetail(data.success);
         } else {
-          updateSnackBarMessage('An unexpected error occurred. Please try again');
+          setProfileDetails(null);
+          history.push('/dashboard');
         }
       });
     };
-    // getProfileDetail();
-  }, [updateSnackBarMessage, updateProfileDetail]);
+    getProfileDetail();
+  }, [updateProfileDetail, history]);
 
   return (
     <Container component="main" maxWidth="lg" className={classes.root}>
