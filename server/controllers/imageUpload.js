@@ -3,7 +3,7 @@ const {
   saveProfilePicUrlToDb,
 } = require("../middleware/imageUpload");
 
-// @route POST upload/profilepic
+// @route POST upload/profile-pic
 // @desc Upload an Image
 // @access Private
 exports.uploadProfilePic = async (req, res) => {
