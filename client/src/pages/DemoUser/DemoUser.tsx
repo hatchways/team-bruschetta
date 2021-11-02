@@ -6,12 +6,12 @@ import { FormikHelpers } from 'formik';
 import Typography from '@material-ui/core/Typography';
 import useStyles from './useStyles';
 import login from '../../helpers/APICalls/login';
-import LoginForm from './LoginForm/LoginForm';
 import { useAuth } from '../../context/useAuthContext';
 import { useSnackBar } from '../../context/useSnackbarContext';
 import AuthHeader from '../../components/AuthHeader/AuthHeader';
+import DemoLoginForm from './DemoLoginForm/DemoLoginForm';
 
-export default function Login(): JSX.Element {
+export default function DemoUser(): JSX.Element {
   const classes = useStyles();
   const { updateLoginContext } = useAuth();
   const { updateSnackBarMessage } = useSnackBar();
@@ -47,7 +47,7 @@ export default function Login(): JSX.Element {
                 </Typography>
               </Grid>
             </Grid>
-            <LoginForm handleSubmit={handleSubmit} />
+            <DemoLoginForm handleSubmit={handleSubmit} />
           </Box>
           <Box p={1} alignSelf="center" />
         </Grid>

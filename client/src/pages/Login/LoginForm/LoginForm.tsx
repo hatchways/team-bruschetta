@@ -102,7 +102,6 @@ export default function Login({ handleSubmit }: Props): JSX.Element {
             <Button
               component={Link}
               to="/demo-login"
-              type="submit"
               size="large"
               variant="contained"
               color="secondary"

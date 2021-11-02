@@ -1,12 +1,12 @@
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Box from '@material-ui/core/Box';
+import { Link } from 'react-router-dom';
 import { Formik, FormikHelpers } from 'formik';
 import * as Yup from 'yup';
 import Typography from '@material-ui/core/Typography';
 import InputLabel from '@material-ui/core/InputLabel';
 import { CircularProgress } from '@material-ui/core';
-import { Link } from 'react-router-dom';
 
 import useStyles from './useStyles';
 
@@ -125,7 +125,14 @@ const SignUpForm = ({ handleSubmit }: Props): JSX.Element => {
             <Button type="submit" size="large" variant="contained" color="secondary" className={classes.submit}>
               {isSubmitting ? <CircularProgress style={{ color: 'white' }} /> : 'Sign up'}
             </Button>
-            <Button type="submit" size="large" variant="contained" color="secondary" className={classes.submit}>
+            <Button
+              component={Link}
+              to="/demo-login"
+              size="large"
+              variant="contained"
+              color="secondary"
+              className={classes.submit}
+            >
               {isSubmitting ? <CircularProgress style={{ color: 'white' }} /> : 'Demo User Login'}
             </Button>
           </Box>
