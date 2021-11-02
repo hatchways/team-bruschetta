@@ -15,13 +15,7 @@ import { useSnackBar } from '../../../context/useSnackbarContext';
 import useStyles from './useStyles';
 
 const initialValues = {
-  firstName: 'Andela',
-  lastName: 'Morales',
   status: 'Lovely pet sitter',
-  location: 'Toronto Ontario',
-  description:
-    'Lorem ipsum dolor sit amet consectetur adipisicing elit Minima esse maxime voluptatibus veniam offici laboriosam asperiores repellendus quasi Corporis molestias dignissimos Ipsa aut et Debitis aut recusandae exercitationem quia voluptas Provident porro expedita aperiam aspernatur non enim eius ipsum',
-  price: 14,
   dogs: [
     {
       img: 'https://images.unsplash.com/photo-1596797882870-8c33deeac224',
