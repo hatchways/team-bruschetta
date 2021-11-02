@@ -8,12 +8,15 @@ import DateFnsUtils from '@date-io/date-fns';
 import Rating from '@material-ui/lab/Rating';
 import avatar from '../../../Images/68f55f7799df6c8078a874cfe0a61a5e6e9e1687.png';
 import { ProfileDetails } from '../../../interface/Profile';
+import { ProfileDetailApiDataSuccess } from '../../../interface/AuthApiData';
+import { ProfileDetailData } from '../../../helpers/APICalls/profileDetail';
+import { useSnackBar } from '../../../context/useSnackbarContext';
 
 import useStyles from './useStyles';
 
 const initialValues = {
   firstName: 'Andela',
-  lastname: 'Morales',
+  lastName: 'Morales',
   status: 'Lovely pet sitter',
   location: 'Toronto Ontario',
   description:
@@ -36,40 +39,66 @@ const initialValues = {
 };
 
 export default function ProfileDetail(): JSX.Element {
-  const [profileDetails, setProfileDetails] = React.useState<ProfileDetails[]>([]);
+  const [profileDetails, setProfileDetails] = React.useState<ProfileDetails | null | undefined>();
   const [value, setValue] = React.useState(3);
   const [dropIn, handleDropIn] = React.useState<any>(new Date());
   const [dropOff, handleDropOff] = React.useState<any>(new Date());
   const classes = useStyles();
+  const profile = new ProfileDetailData();
+  const { updateSnackBarMessage } = useSnackBar();
+
+  const updateProfileDetail = React.useCallback((data: ProfileDetailApiDataSuccess) => {
+    setProfileDetails(data.profile);
+  }, []);
 
   React.useEffect(() => {
-    const fetchData = () => {
-      const profileDataAPI = '/profiles';
-      const profileImgApi = '/upload/profile-pic';
-
-      // const getProfileData = fetch.get(profileDataAPI);
-      // const getProfilePic = fetch.get(profileImgApi);
+    const getProfileDetail = ({
+      firstName,
+      lastName,
+      address,
+      description,
+      price,
+      imgUrl,
+    }: {
+      firstName: string;
+      lastName: string;
+      address: string;
+      description: string;
+      price: number;
+      imgUrl: string;
+    }) => {
+      (profile.details(firstName, lastName, address, description, price), profile.image(imgUrl)).then((data) => {
+        if (data.error) {
+          updateSnackBarMessage(data.error.message);
+        } else if (data.success) {
+          updateProfileDetail(data.success);
+        } else {
+          updateSnackBarMessage('An unexpected error occurred. Please try again');
+        }
+      });
     };
+    getProfileDetail();
   }, []);
+
   return (
     <Container component="main" maxWidth="lg" className={classes.root}>
       <Grid item xs={12} sm={8} elevation={6} component={Paper} spacing={3} square className={classes.profile}>
         <Box className={classes.profileBgImage}>
-          <Avatar alt="Remy Sharp" src={avatar} className={classes.avatar} />
+          <Avatar alt={profileDetails.firstName} src={profileDetails.imgUrl} className={classes.avatar} />
         </Box>
         <Box className={classes.details}>
           <Typography className={classes.name}>
-            {initialValues.firstName} {initialValues.lastname}
+            {profileDetails.firstName} {profileDetails.lastName}
           </Typography>
           <Typography className={classes.status}>{initialValues.status}</Typography>
           <Typography className={classes.location}>
             <LocationOnIcon className={classes.locationLogo} />
-            {initialValues.location}
+            {profileDetails.address}
           </Typography>
         </Box>
         <Box className={classes.description}>
           <Typography className={classes.aboutTitle}>About Me</Typography>
-          <Typography className={classes.about}>{initialValues.description}</Typography>
+          <Typography className={classes.about}>{profileDetails.description}</Typography>
         </Box>
         <Box className={classes.petName}>
           {initialValues.dogs.map((item) => (
@@ -78,7 +107,7 @@ export default function ProfileDetail(): JSX.Element {
         </Box>
       </Grid>
       <Grid item xs={12} sm={3} elevation={6} component={Paper} spacing={3} className={classes.request}>
-        <Typography className={classes.price}>${initialValues.price}/hr</Typography>
+        <Typography className={classes.price}>${profileDetails.price}/hr</Typography>
         <Box component="fieldset" mb={1} className={classes.rating}>
           <Rating name="read-only" value={value} readOnly />
         </Box>

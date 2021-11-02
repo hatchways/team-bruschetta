@@ -7,7 +7,7 @@ export class ProfileDetailData {
     lastName: string,
     address: string,
     description: string,
-    price: string,
+    price: number,
   ): Promise<ProfileDetailApiData> {
     const fetchOptions: FetchOptions = {
       method: 'GET',
