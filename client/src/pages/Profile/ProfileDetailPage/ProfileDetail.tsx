@@ -38,7 +38,6 @@ export default function ProfileDetail(): JSX.Element {
   const [dropIn, handleDropIn] = React.useState<any>(new Date());
   const [dropOff, handleDropOff] = React.useState<any>(new Date());
   const classes = useStyles();
-  const profile = new ProfileDetailData();
   const { updateSnackBarMessage } = useSnackBar();
 
   const updateProfileDetail = React.useCallback((data: ProfileDetailApiDataSuccess) => {
@@ -46,6 +45,7 @@ export default function ProfileDetail(): JSX.Element {
   }, []);
 
   React.useEffect(() => {
+    const profile = new ProfileDetailData();
     const getProfileDetail = ({
       firstName,
       lastName,
@@ -71,8 +71,8 @@ export default function ProfileDetail(): JSX.Element {
         }
       });
     };
-    getProfileDetail();
-  }, []);
+    // getProfileDetail();
+  }, [updateSnackBarMessage, updateProfileDetail]);
 
   return (
     <Container component="main" maxWidth="lg" className={classes.root}>
