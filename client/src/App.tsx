@@ -8,6 +8,7 @@ import EditProfile from './pages/Profile/EditProfile';
 import SearchProfile from './pages/Profile/ProfileList/SearchProfile';
 import ProfileDetail from './pages/Profile/ProfileDetailPage/ProfileDetail';
 import ProfileSettings from './pages/ProfileSettings/ProfileSettings';
+import Bookings from './pages/Bookings/Bookings';
 import { AuthProvider } from './context/useAuthContext';
 import { SocketProvider } from './context/useSocketContext';
 import { SnackBarProvider } from './context/useSnackbarContext';
@@ -19,7 +20,7 @@ function App(): JSX.Element {
     <MuiThemeProvider theme={theme}>
       <BrowserRouter>
         <SnackBarProvider>
-          <AuthProvider>
+          {/* <AuthProvider>
             <SocketProvider>
               <Switch>
                 <Route exact path="/login" component={Login} />
@@ -27,6 +28,7 @@ function App(): JSX.Element {
                 <Route exact path="/edit-profile" component={EditProfile} />
                 <Route exact path="/profile-list" component={SearchProfile} />
                 <Route exact path="/profile-detail" component={ProfileDetail} />
+                <Route exact path="/manage-bookings" component={Bookings} />
                 <Route exact path="/dashboard">
                   <Dashboard />
                 </Route>
@@ -36,7 +38,8 @@ function App(): JSX.Element {
                 </Route>
               </Switch>
             </SocketProvider>
-          </AuthProvider>
+          </AuthProvider> */}
+          <Route exact path="/manage-bookings" component={Bookings} />
         </SnackBarProvider>
       </BrowserRouter>
     </MuiThemeProvider>
