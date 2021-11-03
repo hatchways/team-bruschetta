@@ -39,7 +39,6 @@ function App(): JSX.Element {
               </Switch>
             </SocketProvider>
           </AuthProvider>
-          <Route exact path="/manage-bookings" component={Bookings} />
         </SnackBarProvider>
       </BrowserRouter>
     </MuiThemeProvider>
