@@ -63,6 +63,12 @@ const useStyles = makeStyles((theme) => ({
   settingsIcon: {
     color: '#bbb',
   },
+  calendar: {
+    backgroundColor: '#bbb',
+    width: '20%',
+    height: '50vh',
+    padding: '3rem',
+  },
 }));
 
 export default useStyles;

@@ -1,13 +1,10 @@
 import * as React from 'react';
-import 'date-fns';
 import Paper from '@material-ui/core/Paper';
 import { Grid, Box, Typography, Container, Avatar } from '@material-ui/core';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
 import SettingsIcon from '@material-ui/icons/Settings';
-import { DateTimePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
-import DateFnsUtils from '@date-io/date-fns';
 import avatar from '../../Images/d9fc84a0d1d545d77e78aaad39c20c11d3355074.png';
 import BookingCard from './BookingCard';
+import BookingCalendar from './BookingCalendar';
 
 import useStyles from './useStyles';
 
@@ -41,7 +38,9 @@ export default function Bookings(): JSX.Element {
           <BookingCard />
         </Grid>
       </Grid>
-      <Grid item xs={12} sm={4} elevation={6} component={Paper} spacing={3}></Grid>
+      <Grid item xs={12} sm={4} elevation={6} component={Paper} spacing={3} className={classes.calendar}>
+        <BookingCalendar />
+      </Grid>
     </Container>
   );
 }

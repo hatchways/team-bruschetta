@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { useHistory } from 'react-router-dom';
 import Paper from '@material-ui/core/Paper';
 import { Grid, Box, Typography, Avatar } from '@material-ui/core';
 import SettingsIcon from '@material-ui/icons/Settings';
