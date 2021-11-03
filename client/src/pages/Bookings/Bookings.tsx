@@ -8,6 +8,12 @@ import BookingCalendar from './BookingCalendar';
 
 import useStyles from './useStyles';
 
+const initialValues = {
+  firstName: 'Seye',
+  lastName: 'Onigbinde',
+  startDate: '5 April 2020, 10-12AM',
+};
+
 export default function Bookings(): JSX.Element {
   const classes = useStyles();
 
@@ -19,10 +25,12 @@ export default function Bookings(): JSX.Element {
             <Typography className={classes.headers}>Your Next Booking:</Typography>
             <SettingsIcon className={classes.settingsIcon} />
           </Box>
-          <Typography className={classes.date}>5 April 2020, 10-12AM</Typography>
+          <Typography className={classes.date}>{initialValues.startDate}</Typography>
           <Box className={classes.nameBox}>
             <Avatar alt="image" src={avatar}></Avatar>
-            <Typography className={classes.name}>Seye Onigbinde</Typography>
+            <Typography className={classes.name}>
+              {initialValues.firstName} {initialValues.lastName}
+            </Typography>
           </Box>
         </Grid>
         <Grid elevation={6} component={Paper} spacing={3} square className={classes.bookings}>

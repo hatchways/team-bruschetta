@@ -6,6 +6,12 @@ import avatar from '../../Images/d9fc84a0d1d545d77e78aaad39c20c11d3355074.png';
 
 import useStyles from './useStyles';
 
+const initialValues = {
+  firstName: 'Seye',
+  lastName: 'Onigbinde',
+  startDate: '5 April 2020, 10-12AM',
+};
+
 export default function BookingCard(): JSX.Element {
   const [accept, setAccept] = React.useState(false);
 
@@ -18,13 +24,15 @@ export default function BookingCard(): JSX.Element {
   return (
     <Grid className={classes.bookingCard} component={Paper} spacing={3} square>
       <Box className={classes.cardHead}>
-        <Typography>5 April 2020, 10-12AM</Typography>
+        <Typography>{initialValues.startDate}</Typography>
         <SettingsIcon className={classes.settingsIcon} />
       </Box>
       <Box className={classes.mainBox}>
         <Box className={classes.nameBox2}>
           <Avatar alt="image" src={avatar}></Avatar>
-          <Typography className={classes.name}>Seye Onigbinde</Typography>
+          <Typography className={classes.name}>
+            {initialValues.firstName} {initialValues.lastName}
+          </Typography>
         </Box>
         <Box className={classes.accepted}>
           <Button onClick={handleToggle} className={classes.button}>
