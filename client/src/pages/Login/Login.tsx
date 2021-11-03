@@ -7,7 +7,6 @@ import Typography from '@material-ui/core/Typography';
 import useStyles from './useStyles';
 import login from '../../helpers/APICalls/login';
 import LoginForm from './LoginForm/LoginForm';
-import AuthHeader from '../../components/AuthHeader/AuthHeader';
 import { useAuth } from '../../context/useAuthContext';
 import { useSnackBar } from '../../context/useSnackbarContext';
 import { useHistory } from 'react-router-dom';
@@ -30,9 +29,6 @@ export default function Login(): JSX.Element {
         updateLoginContext(data.success);
         history.push('/dashboard');
       } else {
-        // should not get here from backend but this catch is for an unknown issue
-        console.error({ data });
-
         setSubmitting(false);
         updateSnackBarMessage('An unexpected error occurred. Please try again');
       }
@@ -43,20 +39,17 @@ export default function Login(): JSX.Element {
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
       <Grid item xs={12} sm={8} md={7} elevation={6} component={Paper} square>
-        <Box className={classes.authWrapper}>
-          <AuthHeader linkTo="/signup" asideText="Don't have an account?" btnText="Create account" />
-          <Box width="100%" maxWidth={450} p={3} alignSelf="center">
-            <Grid container>
-              <Grid item xs>
-                <Typography className={classes.welcome} component="h1" variant="h5">
-                  Welcome back!
-                </Typography>
-              </Grid>
+        <Box width="100%" maxWidth={650} p={3} alignSelf="center">
+          <Grid container>
+            <Grid item xs>
+              <Typography className={classes.welcome} component="h1" variant="h5">
+                Welcome back!
+              </Typography>
             </Grid>
-            <LoginForm handleSubmit={handleSubmit} />
-          </Box>
-          <Box p={1} alignSelf="center" />
+          </Grid>
+          <LoginForm handleSubmit={handleSubmit} />
         </Box>
+        <Box p={1} alignSelf="center" />
       </Grid>
     </Grid>
   );

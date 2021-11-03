@@ -9,8 +9,7 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: 'wrap',
   },
   accAside: {
-    fontSize: 14,
-    color: '#b0b0b0',
+    fontSize: 16,
     fontWeight: 400,
     textAlign: 'center',
     marginRight: 35,
@@ -25,8 +24,6 @@ const useStyles = makeStyles((theme) => ({
     height: 54,
     borderRadius: theme.shape.borderRadius,
     filter: 'drop-shadow(0px 2px 6px rgba(74,106,149,0.2))',
-    backgroundColor: '#ffffff',
-    color: '#3a8dff',
     boxShadow: 'none',
     marginRight: 35,
   },
