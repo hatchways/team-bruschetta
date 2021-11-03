@@ -43,15 +43,21 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 'bold',
     fontSize: '0.9rem',
   },
-  profile: {
+  bookings: {
     width: '65%',
     borderRadius: '10px',
+    paddingBottom: '2rem',
   },
   bookingCard: {
     width: '85%',
     borderRadius: '10px',
     marginLeft: '5%',
     marginBottom: '5%',
+  },
+  mainBox: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   nameBox2: {
     width: '50%',
@@ -63,8 +69,14 @@ const useStyles = makeStyles((theme) => ({
   settingsIcon: {
     color: '#bbb',
   },
+  accepted: {
+    paddingRight: '5%',
+  },
+  button: {
+    color: '#aaa',
+  },
   calendar: {
-    backgroundColor: '#bbb',
+    color: 'red',
     width: '20%',
     height: '50vh',
     padding: '3rem',
