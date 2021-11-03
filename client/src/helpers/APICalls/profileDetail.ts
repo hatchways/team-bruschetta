@@ -3,12 +3,11 @@ import { FetchOptions } from '../../interface/FetchOptions';
 
 const profileDetailData = {
   async details(_id: string): Promise<ProfileDetailApiData> {
-    const id = { userId: _id };
     const fetchOptions: FetchOptions = {
       method: 'GET',
       credentials: 'include',
     };
-    return await fetch(`/profiles/${id}`, fetchOptions)
+    return await fetch(`/profiles/${_id}`, fetchOptions)
       .then((res) => res.json())
       .catch(() => ({
         error: { message: 'Unable to connect to server. Please try again' },
@@ -16,12 +15,11 @@ const profileDetailData = {
   },
 
   async image(_id: string): Promise<ProfileDetailApiData> {
-    const id = { userId: _id };
     const fetchOptions: FetchOptions = {
       method: 'GET',
       credentials: 'include',
     };
-    return await fetch(`/upload/profile-pic/${id}`, fetchOptions)
+    return await fetch(`/upload/profile-pic/${_id}`, fetchOptions)
       .then((res) => res.json())
       .catch(() => ({
         error: { message: 'Unable to connect to server. Please try again' },
