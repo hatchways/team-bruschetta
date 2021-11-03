@@ -13,8 +13,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: '10%',
   },
   nextBooking: {
-    width: '65%',
-    borderRadius: '10px',
+    width: '75%',
     marginBottom: '5%',
   },
   cardHead: {
@@ -32,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '1.1rem',
   },
   nameBox: {
-    width: '42%',
+    width: '40%',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -44,8 +43,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '0.9rem',
   },
   bookings: {
-    width: '65%',
-    borderRadius: '10px',
+    width: '75%',
     paddingBottom: '2rem',
   },
   bookingCard: {
@@ -60,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
   nameBox2: {
-    width: '50%',
+    width: '45%',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',

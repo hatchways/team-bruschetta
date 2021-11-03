@@ -20,7 +20,7 @@ function App(): JSX.Element {
     <MuiThemeProvider theme={theme}>
       <BrowserRouter>
         <SnackBarProvider>
-          {/* <AuthProvider>
+          <AuthProvider>
             <SocketProvider>
               <Switch>
                 <Route exact path="/login" component={Login} />
@@ -38,7 +38,7 @@ function App(): JSX.Element {
                 </Route>
               </Switch>
             </SocketProvider>
-          </AuthProvider> */}
+          </AuthProvider>
           <Route exact path="/manage-bookings" component={Bookings} />
         </SnackBarProvider>
       </BrowserRouter>
