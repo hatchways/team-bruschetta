@@ -21,13 +21,9 @@ export const AuthProvider: FunctionComponent = ({ children }): JSX.Element => {
   const [loggedInUser, setLoggedInUser] = useState<User | null | undefined>();
   const history = useHistory();
 
-  const updateLoginContext = useCallback(
-    (data: AuthApiDataSuccess) => {
-      setLoggedInUser(data.user);
-      history.push('/dashboard');
-    },
-    [history],
-  );
+  const updateLoginContext = useCallback((data: AuthApiDataSuccess) => {
+    setLoggedInUser(data.user);
+  }, []);
 
   const logout = useCallback(async () => {
     await logoutAPI()
@@ -43,7 +39,6 @@ export const AuthProvider: FunctionComponent = ({ children }): JSX.Element => {
       await loginWithCookies().then((data: AuthApiData) => {
         if (data.success) {
           updateLoginContext(data.success);
-          history.push('/dashboard');
         } else {
           setLoggedInUser(null);
           history.push('/login');
