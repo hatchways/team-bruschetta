@@ -126,10 +126,10 @@ const SignUpForm = ({ handleSubmit }: Props): JSX.Element => {
             </Button>
           </Box>
           <Box p={1} alignSelf="center" fontWeight="700" fontSize=".8rem">
-            <p>
+            <Typography>
               Already a member?
               <Link to="/login">Login</Link>
-            </p>
+            </Typography>
           </Box>
         </form>
       )}

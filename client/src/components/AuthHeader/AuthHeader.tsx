@@ -22,7 +22,7 @@ const AuthHeader = ({ linkTo, linkTo2, asideText, btnText, btnText2 }: Props): J
         <Button color="secondary" className={classes.accBtn} variant="contained">
           {btnText}
         </Button>
-      </Link>{' '}
+      </Link>
       <Link to={linkTo2} className={classes.link}>
         <Button color="secondary" className={classes.accBtn} variant="contained">
           {btnText2}

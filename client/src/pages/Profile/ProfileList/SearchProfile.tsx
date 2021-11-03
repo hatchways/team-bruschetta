@@ -72,8 +72,8 @@ export default function SearchProfile(): JSX.Element {
           />
         </Grid>
       </Grid>
-      {filteredProfile.map((profile, i) => (
-        <ProfileList key={i} profile={profile} />
+      {filteredProfile.map((profile, _id) => (
+        <ProfileList key={_id} profile={profile} />
       ))}
     </Container>
   );
