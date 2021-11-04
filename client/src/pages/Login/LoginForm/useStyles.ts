@@ -8,6 +8,7 @@ const useStyles = makeStyles((theme) => ({
   },
   textField: {
     marginTop: '5%',
+    width: '70%',
   },
   label: {
     fontSize: 19,
@@ -37,6 +38,9 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 29,
     fontSize: 16,
     fontWeight: 'bold',
+  },
+  submitContainer: {
+    width: '70%',
   },
 }));
 
