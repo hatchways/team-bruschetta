@@ -2,11 +2,10 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
   root: {
-    minHeight: '30vh',
+    minHeight: '100vh',
     '& .MuiInput-underline:before': {
       borderBottom: '1.2px solid rgba(0, 0, 0, 0.2)',
     },
-    margin: '5% 22%',
   },
   authWrapper: {
     display: 'flex',
@@ -17,13 +16,11 @@ const useStyles = makeStyles(() => ({
     paddingTop: 23,
   },
   welcome: {
-    fontSize: 30,
-    paddingBottom: 10,
-    paddingTop: '3rem',
+    fontSize: 26,
+    paddingBottom: 20,
     color: '#000000',
-    fontWeight: 900,
+    fontWeight: 700,
     fontFamily: "'Open Sans'",
-    paddingLeft: '30%',
   },
 }));
 
