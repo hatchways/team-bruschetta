@@ -1,27 +1,21 @@
 import * as React from 'react';
-import { Box, Typography, Divider, Card, CardActionArea, CardMedia, CardContent, CardActions } from '@material-ui/core';
+import { Box, Typography, Divider, Card, CardActionArea, CardMedia, CardContent } from '@material-ui/core';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import Rating from '@material-ui/lab/Rating';
 import avatar from '../../../Images/68f55f7799df6c8078a874cfe0a61a5e6e9e1687.png';
 
 import useStyles from './useStyles';
 
-interface Props {
-  profile: {
-    firstName: string;
-    lastName: string;
-    address: string;
-    description: string;
-    availability: `{}`;
-    price: string;
-    role: string;
-  };
-}
-
 const initialValues = {
+  firstName: 'Seye',
+  lastName: 'Onigbinde',
   status: 'Lovely Dog Sitter',
+  description: 'Lorem ipsum dolor sit, amet consectetur',
+  address: 'Toronto Ontario',
+  price: '$14/hr',
 };
-export default function ProfileList({ profile }: Props): JSX.Element {
+
+export default function ProfileList(): JSX.Element {
   const [value, setValue] = React.useState(3);
   const classes = useStyles();
 
@@ -42,7 +36,7 @@ export default function ProfileList({ profile }: Props): JSX.Element {
           <CardMedia component="img" alt="Seye Onigbinde" src={avatar} style={styles.media} />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div" className={classes.name}>
-              {profile.firstName} {profile.lastName}
+              {initialValues.firstName} {initialValues.lastName}
               <Typography component="h6" className={classes.status}>
                 {initialValues.status}
               </Typography>
@@ -51,26 +45,22 @@ export default function ProfileList({ profile }: Props): JSX.Element {
               <Rating name="read-only" value={value} readOnly />
             </Box>
             <Typography variant="body2" color="textSecondary">
-              {profile.description}
+              {initialValues.description}
             </Typography>
           </CardContent>
           <Divider />
         </CardActionArea>
-        <CardActions>
-          <Box className={classes.footer}>
-            <Box>
-              <Typography component="h6" className={classes.footerText}>
-                <LocationOnIcon className={classes.locationLogo} />
-                {profile.address}
-              </Typography>
-            </Box>
-            <Box>
-              <Typography component="h6" className={classes.footerText2}>
-                {profile.price}
-              </Typography>
-            </Box>
+        <Box className={classes.footer}>
+          <Box>
+            <Typography component="h6" className={classes.footerText}>
+              <LocationOnIcon className={classes.locationLogo} />
+              {initialValues.address}
+            </Typography>
           </Box>
-        </CardActions>
+          <Typography component="h6" className={classes.footerText2}>
+            {initialValues.price}
+          </Typography>
+        </Box>
       </Card>
     </Box>
   );

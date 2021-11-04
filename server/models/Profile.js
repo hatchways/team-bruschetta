@@ -1,20 +1,23 @@
-const { Schema, model } = require('mongoose');
+const mongoose = require("mongoose");
+const { Schema } = require("mongoose");
 
 const profileSchema = new Schema({
-
-  user: {type: Schema.Types.ObjectId,
-    ref: "user"},
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: "user",
+    required: true,
+  },
   firstName: {
     type: String,
     required: true,
-    minlength : 3,
-    trim : true,
+    minlength: 3,
+    trim: true,
   },
   lastName: {
     type: String,
     required: true,
-    minlength : 3,
-    trim : true,
+    minlength: 3,
+    trim: true,
   },
   gender: {
     type: String,
@@ -24,27 +27,69 @@ const profileSchema = new Schema({
     type: Date,
     required: true,
   },
-  email: {type: Schema.Types.ObjectId, 
-    ref: "user"},
   phone: {
     type: Number,
     required: true,
     minlength: 10,
-    trim : true,
+    trim: true,
   },
   address: {
     type: String,
     required: true,
-    trim : true,
+    trim: true,
   },
   description: {
     type: String,
     required: true,
-    trim : true,
+    trim: true,
+  },
+  role: {
+    type: String,
+    enum: ["owner", "sitter"],
+    lowercase: true,
+    required: true,
+  },
+  price: {
+    type: Number,
+    required: true,
   },
   availability: {
-    type: String,
+    monday: {
+      type: Boolean,
+      required: true,
+      default: false,
+    },
+    tuesday: {
+      type: Boolean,
+      required: true,
+      default: false,
+    },
+    wednesday: {
+      type: Boolean,
+      required: true,
+      default: false,
+    },
+    thursday: {
+      type: Boolean,
+      required: true,
+      default: false,
+    },
+    friday: {
+      type: Boolean,
+      required: true,
+      default: false,
+    },
+    saturday: {
+      type: Boolean,
+      required: true,
+      default: false,
+    },
+    sunday: {
+      type: Boolean,
+      required: true,
+      default: false,
+    },
   },
 });
 
-module.exports = Profile = model("profile", profileSchema);
+module.exports = mongoose.model("Profile", profileSchema);

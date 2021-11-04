@@ -1,6 +1,10 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
+  container: {
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
   title: {
     margin: '1rem 30rem',
     fontWeight: 'bolder',
@@ -29,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
   status: {
     fontSize: '0.7rem',
     color: '#bbb',
+    marginLeft: '2rem',
   },
   avatar: {
     width: '45%',
@@ -36,21 +41,15 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: '0.5rem',
     marginLeft: '3rem',
   },
-  description: {
-    marginTop: '0.3rem',
-    marginBottom: '0.7rem',
-    textAlign: 'center',
-    fontSize: '0.7rem',
-  },
   rating: {
-    marginLeft: '1.8rem',
+    marginLeft: '2.7rem',
     borderColor: 'transparent',
   },
   footer: {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: '0.4rem',
+    width: '100%',
   },
   footerText: {
     fontSize: '0.7rem',

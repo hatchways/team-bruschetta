@@ -5,9 +5,10 @@ import { Formik, FormikHelpers } from 'formik';
 import * as Yup from 'yup';
 import Typography from '@material-ui/core/Typography';
 import InputLabel from '@material-ui/core/InputLabel';
-import useStyles from './useStyles';
 import { CircularProgress } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+
+import useStyles from './useStyles';
 
 interface Props {
   handleSubmit: (
@@ -57,7 +58,7 @@ const SignUpForm = ({ handleSubmit }: Props): JSX.Element => {
             <InputLabel className={classes.inputLabel}> Username </InputLabel>
             <TextField
               id="username"
-              label={<Typography className={classes.label}>Username</Typography>}
+              label={<Typography className={classes.label}>Create a username</Typography>}
               fullWidth
               margin="normal"
               InputLabelProps={{
@@ -80,7 +81,7 @@ const SignUpForm = ({ handleSubmit }: Props): JSX.Element => {
             <InputLabel className={classes.inputLabel}> Email Address </InputLabel>
             <TextField
               id="email"
-              label={<Typography className={classes.label}>E-mail address</Typography>}
+              label={<Typography className={classes.label}>Your email address</Typography>}
               fullWidth
               margin="normal"
               InputLabelProps={{
@@ -102,7 +103,7 @@ const SignUpForm = ({ handleSubmit }: Props): JSX.Element => {
             <InputLabel className={classes.inputLabel}> Password </InputLabel>
             <TextField
               id="password"
-              label={<Typography className={classes.label}>Password</Typography>}
+              label={<Typography className={classes.label}>Create a password</Typography>}
               fullWidth
               margin="normal"
               InputLabelProps={{
@@ -126,10 +127,10 @@ const SignUpForm = ({ handleSubmit }: Props): JSX.Element => {
             </Button>
           </Box>
           <Box p={1} alignSelf="center" fontWeight="700" fontSize=".8rem">
-            <p>
+            <Typography>
               Already a member?
-              <Link to="/login">Login</Link>
-            </p>
+              <Link to="/login"> Login </Link>
+            </Typography>
           </Box>
         </form>
       )}
