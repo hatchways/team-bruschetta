@@ -57,11 +57,9 @@ export default function ProfileList(): JSX.Element {
               {initialValues.address}
             </Typography>
           </Box>
-          <Box>
-            <Typography component="h6" className={classes.footerText2}>
-              {initialValues.price}
-            </Typography>
-          </Box>
+          <Typography component="h6" className={classes.footerText2}>
+            {initialValues.price}
+          </Typography>
         </Box>
       </Card>
     </Box>
