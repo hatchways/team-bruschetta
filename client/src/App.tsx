@@ -9,6 +9,7 @@ import { AuthProvider } from './context/useAuthContext';
 import { SocketProvider } from './context/useSocketContext';
 import { SnackBarProvider } from './context/useSnackbarContext';
 import EditProfile from './pages/Profile/EditProfile';
+import SearchProfile from './pages/Profile/ProfileList/SearchProfile';
 
 import './App.css';
 
@@ -27,6 +28,7 @@ function App(): JSX.Element {
                 </Route>
                 <Route exact path="/settings" component={ProfileSettings}></Route>
                 <Route exact path="/edit-profile" component={EditProfile}></Route>
+                <Route exact path="/profile-listings" component={SearchProfile}></Route>
                 <Route path="*">
                   <Redirect to="/login" />
                 </Route>
