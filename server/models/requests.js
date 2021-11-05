@@ -21,6 +21,10 @@ const RequestSchema = new Schema({
         type: Date,
         required: true,
     },
+    rating:{
+        type: Number,
+        required: true,
+    },
     accepted: {
         type: Boolean,
         required: true,

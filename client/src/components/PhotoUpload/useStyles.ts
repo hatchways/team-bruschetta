@@ -113,6 +113,9 @@ const useStyles = makeStyles((theme) =>
       top: '80%',
       left: '45%',
     },
+    inputFile: {
+      visibility: 'hidden',
+    },
   }),
 );
 

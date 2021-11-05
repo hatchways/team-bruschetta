@@ -35,9 +35,9 @@ const initialValues = {
 export default function ProfileDetail(): JSX.Element {
   const [profileDetails, setProfileDetails] = React.useState<ProfileDetails | null | undefined>();
   const [value, setValue] = React.useState(3);
-  const [dropIn, handleDropIn] = React.useState<any>(new Date());
-  const [dropOff, handleDropOff] = React.useState<any>(new Date());
 
+  const [dropIn, handleDropIn] = React.useState(new Date());
+  const [dropOff, handleDropOff] = React.useState(new Date());
   const classes = useStyles();
   const history = useHistory();
 

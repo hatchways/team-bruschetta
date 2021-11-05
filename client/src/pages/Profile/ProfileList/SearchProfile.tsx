@@ -38,7 +38,7 @@ export default function SearchProfile(): JSX.Element {
         Your search results
       </Typography>
       <Grid container className={classes.search}>
-        <Grid item xs={6} sm={3}>
+        <Grid item xs={8} sm={4}>
           <TextField
             InputProps={{
               endAdornment: (
@@ -56,25 +56,32 @@ export default function SearchProfile(): JSX.Element {
             autoComplete="address"
             className={classes.textField}
             variant="outlined"
-            onChange={handleProfileSearch}
           />
         </Grid>
-        <Grid item xs={6} sm={3}>
+        <Grid item xs={4} sm={2}>
           <TextField
             id="search"
-            label="Search By Availability"
             name="availability"
             type="date"
+            label="Drop in"
             autoComplete="availability"
             className={classes.textField}
             variant="outlined"
-            onChange={handleProfileSearch}
+          />
+        </Grid>
+        <Grid item xs={4} sm={2}>
+          <TextField
+            id="search"
+            name="availability"
+            type="date"
+            label="Drop off"
+            autoComplete="availability"
+            className={classes.textField}
+            variant="outlined"
           />
         </Grid>
       </Grid>
-      {filteredProfile.map((profile, i) => (
-        <ProfileList key={i} profile={profile} />
-      ))}
+      <ProfileList />
     </Container>
   );
 }
