@@ -19,3 +19,12 @@ export interface ProfileLists {
   role: string;
   price: number;
 }
+
+export interface ProfileDetails {
+  firstName: string;
+  lastName: string;
+  address: string;
+  description: string;
+  price: number;
+  imgUrl: string;
+}
