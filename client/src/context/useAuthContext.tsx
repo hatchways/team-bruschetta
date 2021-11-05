@@ -28,7 +28,7 @@ export const AuthProvider: FunctionComponent = ({ children }): JSX.Element => {
   const logout = useCallback(async () => {
     await logoutAPI()
       .then(() => {
-        history.push('/login');
+        history.push('/');
         setLoggedInUser(null);
       })
       .catch((error) => console.error(error));
@@ -41,7 +41,7 @@ export const AuthProvider: FunctionComponent = ({ children }): JSX.Element => {
           updateLoginContext(data.success);
         } else {
           setLoggedInUser(null);
-          history.push('/login');
+          history.push('/');
         }
       });
     };

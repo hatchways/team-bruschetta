@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import Paper from '@material-ui/core/Paper';
 import { Grid, Box, Typography, Container, InputLabel, TextField, Button } from '@material-ui/core';
 
 import useStyles from './useStyles';

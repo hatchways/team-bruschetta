@@ -1,4 +1,4 @@
-import { CssBaseline, MuiThemeProvider } from '@material-ui/core/';
+import { MuiThemeProvider } from '@material-ui/core/';
 import { theme } from './themes/theme';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import Login from './pages/Login/Login';
@@ -20,10 +20,10 @@ import './App.css';
 function App(): JSX.Element {
   return (
     <MuiThemeProvider theme={theme}>
-      <CssBaseline />
       <BrowserRouter>
         <SnackBarProvider>
-          {/* <AuthProvider>
+          <Route exact path="/" component={Homepage} />
+          <AuthProvider>
             <SocketProvider>
               <Switch>
                 <Route exact path="/login" component={Login} />
@@ -38,12 +38,11 @@ function App(): JSX.Element {
                 </Route>
                 <Route exact path="/settings" component={ProfileSettings} />
                 <Route path="*">
-                  <Redirect to="/login" />
+                  <Redirect to="/" />
                 </Route>
               </Switch>
             </SocketProvider>
-          </AuthProvider> */}
-          <Route exact path="/homepage" component={Homepage} />
+          </AuthProvider>
         </SnackBarProvider>
       </BrowserRouter>
     </MuiThemeProvider>
