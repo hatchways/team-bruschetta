@@ -15,7 +15,7 @@ export default function Homepage(): JSX.Element {
         <AuthHeader />
       </Box>
       <Box className={classes.root}>
-        <Grid item xs={12} sm={7} component={Paper} square className={classes.profile}>
+        <Box className={classes.profile}>
           <Typography className={classes.title}>Find the care your dog deserves</Typography>
           <InputLabel className={classes.inputLabel}>Where</InputLabel>
           <TextField
@@ -55,8 +55,8 @@ export default function Homepage(): JSX.Element {
           >
             Find My Dog Sitter
           </Button>
-        </Grid>
-        <Grid item xs={12} sm={6} component={Paper} square className={classes.homeBgImage}></Grid>
+        </Box>
+        <Box className={classes.homeBgImage}></Box>
       </Box>
     </Container>
   );

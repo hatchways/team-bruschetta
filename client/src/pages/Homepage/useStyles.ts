@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme) => ({
   navbar: {
     position: 'absolute',
     width: '95%',
+    color: '#fff',
   },
   title: {
     marginTop: '10rem',
@@ -24,9 +25,11 @@ const useStyles = makeStyles((theme) => ({
   },
   homeBgImage: {
     backgroundImage: `url(${homepageImage})`,
+    width: '65%',
     height: '100vh',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
+    paddingRight: '0rem',
   },
   location: {
     marginTop: '1rem',
