@@ -9,3 +9,13 @@ export interface Profile {
   address: string;
   description: string;
 }
+
+export interface ProfileLists {
+  firstName: string;
+  lastName: string;
+  address: string;
+  description: string;
+  availability: string;
+  role: string;
+  price: number;
+}

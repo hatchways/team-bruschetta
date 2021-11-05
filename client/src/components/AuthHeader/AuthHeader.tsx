@@ -24,5 +24,4 @@ const AuthHeader = (): JSX.Element => {
     </Box>
   );
 };
-
 export default AuthHeader;

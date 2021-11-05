@@ -6,6 +6,9 @@ import Signup from './pages/SignUp/SignUp';
 import Dashboard from './pages/Dashboard/Dashboard';
 import EditProfile from './pages/Profile/EditProfile';
 import DemoUser from './pages/DemoUser/DemoUser';
+import SearchProfile from './pages/Profile/ProfileList/SearchProfile';
+import ProfileDetail from './pages/Profile/ProfileDetailPage/ProfileDetail';
+import ProfileSettings from './pages/ProfileSettings/ProfileSettings';
 import { AuthProvider } from './context/useAuthContext';
 import { SocketProvider } from './context/useSocketContext';
 import { SnackBarProvider } from './context/useSnackbarContext';
@@ -22,11 +25,14 @@ function App(): JSX.Element {
               <Switch>
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/signup" component={Signup} />
-                <Route path="/edit-profile" component={EditProfile} />
                 <Route exact path="/demo-login" component={DemoUser} />
+                <Route exact path="/edit-profile" component={EditProfile} />
+                <Route exact path="/profile-list" component={SearchProfile} />
+                <Route exact path="/profile-detail" component={ProfileDetail} />
                 <Route exact path="/dashboard">
                   <Dashboard />
                 </Route>
+                <Route exact path="/settings" component={ProfileSettings}></Route>
                 <Route path="*">
                   <Redirect to="/login" />
                 </Route>

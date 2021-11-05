@@ -16,6 +16,7 @@ export const ProfileContext = createContext<IProfileContext>({
 
 export const ProfileProvider: FunctionComponent = ({ children }): JSX.Element => {
   const [profileEdit, setProfileEdit] = useState<Profile | undefined>();
+
   const history = useHistory();
 
   const updateProfileContext = useCallback(
