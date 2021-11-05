@@ -9,6 +9,10 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'space-between',
   },
+  navbar: {
+    position: 'absolute',
+    width: '95%',
+  },
   title: {
     marginTop: '10rem',
     fontSize: '3.5rem',
@@ -40,6 +44,17 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 'bold',
     marginTop: '2rem ',
     color: '#000',
+  },
+  accBtn: {
+    width: 210,
+    height: 54,
+    borderRadius: theme.shape.borderRadius,
+    filter: 'drop-shadow(0px 2px 6px rgba(74,106,149,0.2))',
+    boxShadow: 'none',
+    marginTop: '2rem',
+    marginLeft: '4rem',
+    textTransform: 'uppercase',
+    fontSize: 14,
   },
 }));
 
