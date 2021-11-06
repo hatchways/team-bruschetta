@@ -33,7 +33,7 @@ function App(): JSX.Element {
                 <Route exact path="/profile-list" component={SearchProfile} />
                 <Route exact path="/profile-detail" component={ProfileDetail} />
                 <Route exact path="/manage-bookings" component={Bookings} />
-                <Route exact path="/dashboard">
+                <Route path="/dashboard">
                   <Dashboard />
                 </Route>
                 <Route exact path="/settings" component={ProfileSettings} />

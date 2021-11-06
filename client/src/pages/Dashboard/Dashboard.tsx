@@ -12,7 +12,11 @@ import DashHeader from '../../components/DashHeader/DashHeader';
 import EditProfile from '../Profile/EditProfileForm/EditProfileForm';
 import ProfileSettings from '../ProfileSettings/ProfileSettings';
 
-export default function Dashboard(): JSX.Element {
+interface Props {
+  handleSubmit?: () => void;
+}
+
+export default function Dashboard({ handleSubmit }: Props): JSX.Element {
   const classes = useStyles();
 
   const { loggedInUser } = useAuth();
@@ -35,7 +39,11 @@ export default function Dashboard(): JSX.Element {
       <DashHeader loggedInUser={loggedInUser} />
       <Grid container component="main" className={`${classes.root} ${classes.dashboard}`}>
         <Grid xs={12} sm={3} item className={classes.sidebar}>
-          <NavLink to="/dashboard/edit-profile" className={classes.navlink}>
+          <NavLink
+            activeStyle={{ borderBottom: '4px solid #81b214', color: 'red', textDecoration: 'none' }}
+            to="/dashboard/edit-profile"
+            className={classes.navlink}
+          >
             <Typography className={classes.links}>Edit Profile</Typography>
           </NavLink>
           <NavLink to="/dashboard/settings" className={classes.navlink}>
@@ -55,11 +63,13 @@ export default function Dashboard(): JSX.Element {
           </NavLink>
         </Grid>
         <Grid xs={12} sm={9} component={Paper} spacing={3} square item className={classes.drawerWrapper}>
-          <ChatSideBanner loggedInUser={loggedInUser} />
+          {/* <ChatSideBanner loggedInUser={loggedInUser} /> */}
           <Switch>
             <Route path="/dashboard/edit-profile">
-              {/* <EditProfile loggedInUser={loggedInUser} /> */}
-              {/* <ProfileSettings loggedInUser={loggedInUser} /> */}
+              <EditProfile loggedInUser={loggedInUser} handleSubmit={handleSubmit} />
+            </Route>
+            <Route path="/dashboard/settings">
+              <ProfileSettings loggedInUser={loggedInUser} />
             </Route>
           </Switch>
         </Grid>

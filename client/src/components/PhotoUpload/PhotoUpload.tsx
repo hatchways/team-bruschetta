@@ -4,11 +4,13 @@ import { Card, Typography, Avatar, Button } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import avatarImage from '../../Images/b1f0e680702e811aa8ba333cb19c0e0ea95e8e31.png';
 import uploadImage from '../../helpers/APICalls/uploadImage';
-import { useAuth } from '../../context/useAuthContext';
+import { User } from '../../interface/User';
 
-const PhotoUpload = (): JSX.Element => {
+interface Props {
+  loggedInUser: User;
+}
+const PhotoUpload = ({ loggedInUser }: Props): JSX.Element => {
   const [imageString, setImageString] = useState<string>('');
-  const { loggedInUser } = useAuth();
 
   const inputFileRef = useRef<HTMLInputElement | null>(null);
 

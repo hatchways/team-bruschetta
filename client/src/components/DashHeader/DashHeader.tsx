@@ -7,6 +7,7 @@ import logo from '../../Images/logo.png';
 import AvatarDisplay from '../AvatarDisplay/AvatarDisplay';
 
 import useStyles from './useStyles';
+import AuthMenu from '../AuthMenu/AuthMenu';
 
 interface Props {
   loggedInUser: User;
@@ -25,6 +26,7 @@ const DashHeader = ({ loggedInUser }: Props): JSX.Element => {
         <Typography className={classes.accAside}>My Jobs </Typography>
         <Typography className={classes.accAside}>Messages </Typography>
         <AvatarDisplay loggedIn user={loggedInUser} />
+        <AuthMenu />
       </Box>
     </Grid>
   );
