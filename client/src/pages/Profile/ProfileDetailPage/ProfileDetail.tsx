@@ -45,23 +45,23 @@ export default function ProfileDetail(): JSX.Element {
     setProfileDetails(data.profile);
   }, []);
 
-  // React.useEffect(() => {
-  //   const getProfileDetail = async () => {
-  //     await profileDetailData().then((data: ProfileDetailApiData) => {
-  //       if (data.success) {
-  //         updateProfileDetail(data.success);
-  //       } else {
-  //         setProfileDetails(null);
-  //         history.push('/dashboard');
-  //       }
-  //     });
-  //   };
-  //   getProfileDetail();
-  // }, [updateProfileDetail, history]);
+  React.useEffect(() => {
+    const getProfileDetail = async () => {
+      await profileDetailData().then((data: ProfileDetailApiData) => {
+        if (data.success) {
+          updateProfileDetail(data.success);
+        } else {
+          setProfileDetails(null);
+          history.push('/dashboard');
+        }
+      });
+    };
+    getProfileDetail();
+  }, [updateProfileDetail, history]);
 
   return (
     <Container component="main" maxWidth="lg" className={classes.root}>
-      {/* <Grid item xs={12} sm={8} elevation={6} component={Paper} spacing={3} square className={classes.profile}>
+      <Grid item xs={12} sm={8} elevation={6} component={Paper} spacing={3} square className={classes.profile}>
         <Box className={classes.profileBgImage}>
           <Avatar alt={profileDetails.firstName} src={profileDetails.imgUrl} className={classes.avatar} />
         </Box>
@@ -113,7 +113,7 @@ export default function ProfileDetail(): JSX.Element {
         <Button type="submit" size="large" variant="contained" color="secondary" className={classes.button}>
           Send Request
         </Button>
-      </Grid> */}
+      </Grid>
     </Container>
   );
 }
