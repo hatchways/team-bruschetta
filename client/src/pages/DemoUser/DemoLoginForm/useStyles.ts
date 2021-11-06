@@ -2,9 +2,9 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: '90%', // Fix IE 11 issue.
     marginTop: theme.spacing(1),
-    paddingLeft: '29%',
+    paddingLeft: '9%',
   },
   textField: {
     marginTop: '5%',
