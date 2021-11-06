@@ -23,6 +23,12 @@ const useStyles = makeStyles((theme) => ({
     color: '#000',
     fontWeight: 'bold',
   },
+  links2: {
+    padding: '0.6rem 0',
+    textDecoration: 'none',
+    color: '#aaa',
+    fontWeight: 'bold',
+  },
   navlink: {
     textDecoration: 'none',
   },

@@ -6,6 +6,7 @@ const useStyles = makeStyles(() =>
       display: 'flex',
       flexDirection: 'column',
       position: 'relative',
+      marginTop: '8rem',
     },
   }),
 );

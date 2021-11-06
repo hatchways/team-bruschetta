@@ -5,8 +5,13 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import avatar from '../../Images/d9fc84a0d1d545d77e78aaad39c20c11d3355074.png';
 import BookingCard from './BookingCard';
 import BookingCalendar from './BookingCalendar';
+import { User } from '../../interface/User';
 
 import useStyles from './useStyles';
+
+interface Props {
+  loggedInUser: User;
+}
 
 const initialValues = {
   firstName: 'Seye',
@@ -14,7 +19,7 @@ const initialValues = {
   startDate: '5 April 2020, 10-12AM',
 };
 
-export default function Bookings(): JSX.Element {
+export default function Bookings({ loggedInUser }: Props): JSX.Element {
   const classes = useStyles();
 
   return (

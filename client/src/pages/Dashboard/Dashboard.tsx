@@ -1,16 +1,17 @@
+import { useEffect } from 'react';
 import { Grid, Box, Typography } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
-import { NavLink, Switch, Route } from 'react-router-dom';
+import { NavLink, Switch, Route, useHistory } from 'react-router-dom';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import useStyles from './useStyles';
 import { useAuth } from '../../context/useAuthContext';
 import { useSocket } from '../../context/useSocketContext';
-import { useHistory } from 'react-router-dom';
-import ChatSideBanner from '../../components/ChatSideBanner/ChatSideBanner';
-import { useEffect } from 'react';
 import DashHeader from '../../components/DashHeader/DashHeader';
 import EditProfile from '../Profile/EditProfileForm/EditProfileForm';
 import ProfileSettings from '../ProfileSettings/ProfileSettings';
+import Bookings from '../Bookings/Bookings';
+import SearchProfile from '../Profile/ProfileList/SearchProfile';
+
+import useStyles from './useStyles';
 
 interface Props {
   handleSubmit?: () => void;
@@ -61,15 +62,26 @@ export default function Dashboard({ handleSubmit }: Props): JSX.Element {
           <NavLink to="/dashboard/#" className={classes.navlink}>
             <Typography className={classes.links}>Settings</Typography>
           </NavLink>
+          <NavLink to="/dashboard/manage-bookings" className={classes.navlink}>
+            <Typography className={classes.links2}>Bookings</Typography>
+          </NavLink>
+          <NavLink to="/dashboard/profile-list" className={classes.navlink}>
+            <Typography className={classes.links2}>Profile Listings</Typography>
+          </NavLink>
         </Grid>
         <Grid xs={12} sm={9} component={Paper} spacing={3} square item className={classes.drawerWrapper}>
-          {/* <ChatSideBanner loggedInUser={loggedInUser} /> */}
           <Switch>
             <Route path="/dashboard/edit-profile">
               <EditProfile loggedInUser={loggedInUser} handleSubmit={handleSubmit} />
             </Route>
             <Route path="/dashboard/settings">
               <ProfileSettings loggedInUser={loggedInUser} />
+            </Route>
+            <Route path="/dashboard/manage-bookings">
+              <Bookings loggedInUser={loggedInUser} />
+            </Route>
+            <Route path="/dashboard/profile-list">
+              <SearchProfile loggedInUser={loggedInUser} />
             </Route>
           </Switch>
         </Grid>

@@ -11,7 +11,6 @@ import { User } from '../../interface/User';
 
 interface Props {
   loggedInUser: User;
-  handleDrawerToggle?: () => void;
 }
 
 export default function EditProfile({ loggedInUser }: Props): JSX.Element {

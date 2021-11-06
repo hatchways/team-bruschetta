@@ -5,8 +5,12 @@ import useStyles from './useStyles';
 import ProfileList from './ProfileList';
 import profileListing from '../../../helpers/APICalls/profileListing';
 import { ProfileLists } from '../../../interface/Profile';
+import { User } from '../../../interface/User';
 
-export default function SearchProfile(): JSX.Element {
+interface Props {
+  loggedInUser: User;
+}
+export default function SearchProfile({ loggedInUser }: Props): JSX.Element {
   const [profiles, setProfiles] = React.useState<any[]>([]);
   const [searchProfile, setSearchProfile] = React.useState('');
   const classes = useStyles();
