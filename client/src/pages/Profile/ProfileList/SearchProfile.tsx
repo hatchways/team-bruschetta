@@ -10,6 +10,7 @@ import { User } from '../../../interface/User';
 interface Props {
   loggedInUser: User;
 }
+
 export default function SearchProfile({ loggedInUser }: Props): JSX.Element {
   const [profiles, setProfiles] = React.useState<any[]>([]);
   const [searchProfile, setSearchProfile] = React.useState('');

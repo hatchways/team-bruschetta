@@ -8,8 +8,13 @@ import DateFnsUtils from '@date-io/date-fns';
 import Rating from '@material-ui/lab/Rating';
 import avatar from '../../../Images/68f55f7799df6c8078a874cfe0a61a5e6e9e1687.png';
 import { ProfileDetails } from '../../../interface/Profile';
+import { User } from '../../../interface/User';
 
 import useStyles from './useStyles';
+
+interface Props {
+  loggedInUser: User;
+}
 
 const initialValues = {
   firstName: 'Seye',
@@ -34,7 +39,7 @@ const initialValues = {
   ],
 };
 
-export default function ProfileDetail(): JSX.Element {
+export default function ProfileDetail({ loggedInUser }: Props): JSX.Element {
   const [profileDetails, setProfileDetails] = React.useState<ProfileDetails | null | undefined>();
   const [value, setValue] = React.useState(3);
 

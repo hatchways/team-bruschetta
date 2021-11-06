@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
     margin: '2rem',
   },
   container: {
-    marginLeft: '10%',
+    marginLeft: '5%',
   },
   nextBooking: {
     width: '75%',

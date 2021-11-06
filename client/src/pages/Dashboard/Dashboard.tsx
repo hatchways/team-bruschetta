@@ -10,6 +10,7 @@ import EditProfile from '../Profile/EditProfileForm/EditProfileForm';
 import ProfileSettings from '../ProfileSettings/ProfileSettings';
 import Bookings from '../Bookings/Bookings';
 import SearchProfile from '../Profile/ProfileList/SearchProfile';
+import ProfileDetail from '../Profile/ProfileDetailPage/ProfileDetail';
 
 import useStyles from './useStyles';
 
@@ -40,11 +41,7 @@ export default function Dashboard({ handleSubmit }: Props): JSX.Element {
       <DashHeader loggedInUser={loggedInUser} />
       <Grid container component="main" className={`${classes.root} ${classes.dashboard}`}>
         <Grid xs={12} sm={3} item className={classes.sidebar}>
-          <NavLink
-            activeStyle={{ borderBottom: '4px solid #81b214', color: 'red', textDecoration: 'none' }}
-            to="/dashboard/edit-profile"
-            className={classes.navlink}
-          >
+          <NavLink to="/dashboard/edit-profile" className={classes.navlink}>
             <Typography className={classes.links}>Edit Profile</Typography>
           </NavLink>
           <NavLink to="/dashboard/settings" className={classes.navlink}>
@@ -68,6 +65,9 @@ export default function Dashboard({ handleSubmit }: Props): JSX.Element {
           <NavLink to="/dashboard/profile-list" className={classes.navlink}>
             <Typography className={classes.links2}>Profile Listings</Typography>
           </NavLink>
+          <NavLink to="/dashboard/profile-detail" className={classes.navlink}>
+            <Typography className={classes.links2}>Profile Details</Typography>
+          </NavLink>
         </Grid>
         <Grid xs={12} sm={9} component={Paper} spacing={3} square item className={classes.drawerWrapper}>
           <Switch>
@@ -82,6 +82,9 @@ export default function Dashboard({ handleSubmit }: Props): JSX.Element {
             </Route>
             <Route path="/dashboard/profile-list">
               <SearchProfile loggedInUser={loggedInUser} />
+            </Route>
+            <Route path="/dashboard/profile-detail">
+              <ProfileDetail loggedInUser={loggedInUser} />
             </Route>
           </Switch>
         </Grid>
