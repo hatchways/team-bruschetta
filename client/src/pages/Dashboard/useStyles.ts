@@ -9,7 +9,14 @@ const useStyles = makeStyles((theme) => ({
       borderBottom: '1.2px solid rgba(0, 0, 0, 0.2)',
     },
   },
-  dashboard: { backgroundColor: '#FFFFFF' },
+  dashboard: {
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
+  sidebar: {
+    paddingLeft: '8rem',
+    paddingTop: '3rem',
+  },
   drawerWrapper: {
     width: drawerWidth,
     [theme.breakpoints.up('md')]: {
