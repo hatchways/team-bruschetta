@@ -43,7 +43,7 @@ export default function SearchProfile({ loggedInUser }: Props): JSX.Element {
         Your search results
       </Typography>
       <Grid container className={classes.search}>
-        <Grid item xs={8} sm={4}>
+        <Grid item xs={12} sm={5} spacing={3}>
           <TextField
             InputProps={{
               endAdornment: (
@@ -63,7 +63,7 @@ export default function SearchProfile({ loggedInUser }: Props): JSX.Element {
             variant="outlined"
           />
         </Grid>
-        <Grid item xs={4} sm={2}>
+        <Grid item xs={6} sm={3}>
           <TextField
             id="search"
             name="availability"
@@ -74,7 +74,7 @@ export default function SearchProfile({ loggedInUser }: Props): JSX.Element {
             variant="outlined"
           />
         </Grid>
-        <Grid item xs={4} sm={2}>
+        <Grid item xs={6} sm={3}>
           <TextField
             id="search"
             name="availability"

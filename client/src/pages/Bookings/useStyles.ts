@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme) => ({
     },
     display: 'flex',
     justifyContent: 'space-between',
-    margin: '2rem',
+    marginTop: '1rem',
   },
   container: {
     marginLeft: '5%',
@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '1.1rem',
   },
   nameBox: {
-    width: '40%',
+    width: '45%',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: '2rem',
   },
   bookingCard: {
-    width: '85%',
+    width: '90%',
     borderRadius: '10px',
     marginLeft: '5%',
     marginBottom: '5%',
@@ -58,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
   nameBox2: {
-    width: '45%',
+    width: '50%',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',

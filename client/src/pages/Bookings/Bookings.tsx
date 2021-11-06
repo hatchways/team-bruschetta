@@ -24,7 +24,7 @@ export default function Bookings({ loggedInUser }: Props): JSX.Element {
 
   return (
     <Container component="main" maxWidth="lg" className={classes.root}>
-      <Grid item xs={11} sm={6} className={classes.container}>
+      <Grid item xs={12} sm={6} className={classes.container}>
         <Grid className={classes.nextBooking} elevation={6} component={Paper} spacing={1} square>
           <Box className={classes.cardHead}>
             <Typography className={classes.headers}>Your Next Booking:</Typography>
@@ -51,7 +51,7 @@ export default function Bookings({ loggedInUser }: Props): JSX.Element {
           <BookingCard />
         </Grid>
       </Grid>
-      <Grid item xs={11} sm={4} elevation={6} component={Paper} spacing={1} className={classes.calendar}>
+      <Grid item xs={12} sm={4} elevation={6} component={Paper} spacing={1} className={classes.calendar}>
         <BookingCalendar />
       </Grid>
     </Container>

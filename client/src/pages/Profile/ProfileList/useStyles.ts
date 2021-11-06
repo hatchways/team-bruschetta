@@ -6,7 +6,8 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
   },
   title: {
-    margin: '1rem 30rem',
+    paddingTop: '1rem',
+    paddingLeft: '20rem',
     fontWeight: 'bolder',
     fontSize: '2rem',
     width: '40%',
@@ -24,25 +25,25 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
   },
   search: {
-    marginLeft: '18rem',
+    paddingLeft: '10rem',
   },
   name: {
-    marginLeft: '2.7rem',
+    marginLeft: '1rem',
     fontWeight: 'bolder',
   },
   status: {
     fontSize: '0.7rem',
     color: '#bbb',
-    marginLeft: '2rem',
+    marginLeft: '1rem',
   },
   avatar: {
     width: '45%',
     height: '11vh',
     marginBottom: '0.5rem',
-    marginLeft: '3rem',
+    marginLeft: '1rem',
   },
   rating: {
-    marginLeft: '2.7rem',
+    marginLeft: '1.8rem',
     borderColor: 'transparent',
   },
   footer: {

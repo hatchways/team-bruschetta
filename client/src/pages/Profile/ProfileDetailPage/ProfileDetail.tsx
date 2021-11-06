@@ -20,7 +20,8 @@ const initialValues = {
   firstName: 'Seye',
   lastName: 'Onigbinde',
   address: 'Toronto Ontario',
-  description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+  description:
+    'Lorem ipsum dolor sit amet, consectetur adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
   price: 14,
   status: 'Lovely pet sitter',
   dogs: [
