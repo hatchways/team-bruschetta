@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { useHistory } from 'react-router-dom';
 import 'date-fns';
 import Paper from '@material-ui/core/Paper';
 import { Button, Grid, Box, Typography, Container, Avatar, InputLabel } from '@material-ui/core';
@@ -9,12 +8,15 @@ import DateFnsUtils from '@date-io/date-fns';
 import Rating from '@material-ui/lab/Rating';
 import avatar from '../../../Images/68f55f7799df6c8078a874cfe0a61a5e6e9e1687.png';
 import { ProfileDetails } from '../../../interface/Profile';
-import { ProfileDetailApiData, ProfileDetailApiDataSuccess } from '../../../interface/AuthApiData';
-import profileDetailData from '../../../helpers/APICalls/profileDetail';
 
 import useStyles from './useStyles';
 
 const initialValues = {
+  firstName: 'Seye',
+  lastName: 'Onigbinde',
+  address: 'Toronto Ontario',
+  description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+  price: 14,
   status: 'Lovely pet sitter',
   dogs: [
     {
@@ -39,45 +41,26 @@ export default function ProfileDetail(): JSX.Element {
   const [dropIn, handleDropIn] = React.useState(new Date());
   const [dropOff, handleDropOff] = React.useState(new Date());
   const classes = useStyles();
-  const history = useHistory();
-
-  const updateProfileDetail = React.useCallback((data: ProfileDetailApiDataSuccess) => {
-    setProfileDetails(data.profile);
-  }, []);
-
-  // React.useEffect(() => {
-  //   const getProfileDetail = async () => {
-  //     await profileDetailData().then((data: ProfileDetailApiData) => {
-  //       if (data.success) {
-  //         updateProfileDetail(data.success);
-  //       } else {
-  //         setProfileDetails(null);
-  //         history.push('/dashboard');
-  //       }
-  //     });
-  //   };
-  //   getProfileDetail();
-  // }, [updateProfileDetail, history]);
 
   return (
     <Container component="main" maxWidth="lg" className={classes.root}>
-      {/* <Grid item xs={12} sm={8} elevation={6} component={Paper} spacing={3} square className={classes.profile}>
+      <Grid item xs={12} sm={8} elevation={6} component={Paper} spacing={3} square className={classes.profile}>
         <Box className={classes.profileBgImage}>
-          <Avatar alt={profileDetails.firstName} src={profileDetails.imgUrl} className={classes.avatar} />
+          <Avatar alt={initialValues.firstName} src={avatar} className={classes.avatar} />
         </Box>
         <Box className={classes.details}>
           <Typography className={classes.name}>
-            {profileDetails.firstName} {profileDetails.lastName}
+            {initialValues.firstName} {initialValues.lastName}
           </Typography>
           <Typography className={classes.status}>{initialValues.status}</Typography>
           <Typography className={classes.location}>
             <LocationOnIcon className={classes.locationLogo} />
-            {profileDetails.address}
+            {initialValues.address}
           </Typography>
         </Box>
         <Box className={classes.description}>
           <Typography className={classes.aboutTitle}>About Me</Typography>
-          <Typography className={classes.about}>{profileDetails.description}</Typography>
+          <Typography className={classes.about}>{initialValues.description}</Typography>
         </Box>
         <Box className={classes.petName}>
           {initialValues.dogs.map((item) => (
@@ -86,7 +69,7 @@ export default function ProfileDetail(): JSX.Element {
         </Box>
       </Grid>
       <Grid item xs={12} sm={3} elevation={6} component={Paper} spacing={3} className={classes.request}>
-        <Typography className={classes.price}>${profileDetails.price}/hr</Typography>
+        <Typography className={classes.price}>${initialValues.price}/hr</Typography>
         <Box component="fieldset" mb={1} className={classes.rating}>
           <Rating name="read-only" value={value} readOnly />
         </Box>
@@ -113,7 +96,7 @@ export default function ProfileDetail(): JSX.Element {
         <Button type="submit" size="large" variant="contained" color="secondary" className={classes.button}>
           Send Request
         </Button>
-      </Grid> */}
+      </Grid>
     </Container>
   );
 }
