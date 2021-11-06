@@ -15,13 +15,23 @@ const useStyles = makeStyles((theme) => ({
   },
   sidebar: {
     paddingLeft: '8rem',
-    paddingTop: '3rem',
+    paddingTop: '6rem',
+  },
+  links: {
+    padding: '0.6rem 0',
+    textDecoration: 'none',
+    color: '#000',
+    fontWeight: 'bold',
+  },
+  navlink: {
+    textDecoration: 'none',
   },
   drawerWrapper: {
     width: drawerWidth,
     [theme.breakpoints.up('md')]: {
       width: '300px',
     },
+    marginTop: '2rem',
   },
 }));
 
