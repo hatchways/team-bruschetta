@@ -61,6 +61,7 @@ export default function SearchProfile({ loggedInUser }: Props): JSX.Element {
             autoComplete="address"
             className={classes.textField}
             variant="outlined"
+            color="secondary"
           />
         </Grid>
         <Grid item xs={6} sm={3}>
@@ -72,6 +73,7 @@ export default function SearchProfile({ loggedInUser }: Props): JSX.Element {
             autoComplete="availability"
             className={classes.textField}
             variant="outlined"
+            color="secondary"
           />
         </Grid>
         <Grid item xs={6} sm={3}>
@@ -83,6 +85,7 @@ export default function SearchProfile({ loggedInUser }: Props): JSX.Element {
             autoComplete="availability"
             className={classes.textField}
             variant="outlined"
+            color="secondary"
           />
         </Grid>
       </Grid>
