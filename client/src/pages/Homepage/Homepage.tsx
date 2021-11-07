@@ -45,13 +45,7 @@ export default function Homepage(): JSX.Element {
               variant="outlined"
             />
           </Grid>
-          <Button
-            component={Link}
-            to="/manage-bookings"
-            color="secondary"
-            className={classes.accBtn}
-            variant="contained"
-          >
+          <Button component={Link} to="/profile-list" color="secondary" className={classes.accBtn} variant="contained">
             Find My Dog Sitter
           </Button>
         </Box>
