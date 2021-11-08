@@ -12,8 +12,11 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '2rem',
     width: '40%',
   },
+  link: {
+    textDecoration: 'none',
+  },
   card: {
-    width: '20%',
+    width: '100%',
     height: '38vh',
     margin: '2rem 0',
     boxShadow: '5px 5px 5px 5px #ddd',
@@ -28,13 +31,13 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: '10rem',
   },
   name: {
-    marginLeft: '1rem',
+    marginLeft: '2.5rem',
     fontWeight: 'bolder',
   },
   status: {
     fontSize: '0.7rem',
     color: '#bbb',
-    marginLeft: '1rem',
+    marginLeft: '2rem',
   },
   avatar: {
     width: '45%',

@@ -9,7 +9,6 @@ import DashHeader from '../../components/DashHeader/DashHeader';
 import EditProfile from '../Profile/EditProfileForm/EditProfileForm';
 import ProfileSettings from '../ProfileSettings/ProfileSettings';
 import SearchProfile from '../Profile/ProfileList/SearchProfile';
-import ProfileDetail from '../Profile/ProfileDetailPage/ProfileDetail';
 import Sidebar from './Sidebar';
 
 import useStyles from './useStyles';
@@ -51,9 +50,6 @@ export default function Dashboard({ handleSubmit }: Props): JSX.Element {
             </Route>
             <Route path="/dashboard/profile-list">
               <SearchProfile loggedInUser={loggedInUser} />
-            </Route>
-            <Route path="/dashboard/profile-detail">
-              <ProfileDetail loggedInUser={loggedInUser} />
             </Route>
           </Switch>
         </Grid>

@@ -29,11 +29,10 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     padding: '1rem 0',
-    textTransform: 'uppercase',
     cursor: 'pointer',
   },
   sittersLink: {
-    color: 'red',
+    color: '#000',
     textDecoration: 'none',
   },
 }));
