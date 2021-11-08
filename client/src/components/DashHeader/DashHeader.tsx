@@ -26,7 +26,9 @@ const DashHeader = ({ loggedInUser }: Props): JSX.Element => {
           <Typography className={classes.accAside}>My Sitters </Typography>
         </Link>
         <Typography className={classes.accAside}>Messages </Typography>
-        <AvatarDisplay loggedIn user={loggedInUser} />
+        <Link to="/dashboard/settings">
+          <AvatarDisplay loggedIn user={loggedInUser} />
+        </Link>
         <AuthMenu />
       </Box>
     </Grid>
