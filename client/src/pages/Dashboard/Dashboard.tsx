@@ -8,7 +8,6 @@ import { useSocket } from '../../context/useSocketContext';
 import DashHeader from '../../components/DashHeader/DashHeader';
 import EditProfile from '../Profile/EditProfileForm/EditProfileForm';
 import ProfileSettings from '../ProfileSettings/ProfileSettings';
-import Bookings from '../Bookings/Bookings';
 import SearchProfile from '../Profile/ProfileList/SearchProfile';
 import ProfileDetail from '../Profile/ProfileDetailPage/ProfileDetail';
 import Sidebar from './Sidebar';
@@ -49,9 +48,6 @@ export default function Dashboard({ handleSubmit }: Props): JSX.Element {
             </Route>
             <Route path="/dashboard/settings">
               <ProfileSettings loggedInUser={loggedInUser} />
-            </Route>
-            <Route path="/dashboard/manage-bookings">
-              <Bookings loggedInUser={loggedInUser} />
             </Route>
             <Route path="/dashboard/profile-list">
               <SearchProfile loggedInUser={loggedInUser} />

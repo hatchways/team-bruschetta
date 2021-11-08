@@ -5,7 +5,6 @@ import { Grid, Typography } from '@material-ui/core';
 import { User } from '../../interface/User';
 import logo from '../../Images/logo.png';
 import AvatarDisplay from '../AvatarDisplay/AvatarDisplay';
-
 import useStyles from './useStyles';
 import AuthMenu from '../AuthMenu/AuthMenu';
 
@@ -23,7 +22,9 @@ const DashHeader = ({ loggedInUser }: Props): JSX.Element => {
         <img src={logo} alt="logo" className={classes.logo} />
       </Link>
       <Box className={classes.links}>
-        <Typography className={classes.accAside}>My Jobs </Typography>
+        <Link to="/manage-bookings" className={classes.sittersLink}>
+          <Typography className={classes.accAside}>My Sitters </Typography>
+        </Link>
         <Typography className={classes.accAside}>Messages </Typography>
         <AvatarDisplay loggedIn user={loggedInUser} />
         <AuthMenu />

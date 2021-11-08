@@ -32,6 +32,10 @@ const useStyles = makeStyles((theme) => ({
     textTransform: 'uppercase',
     cursor: 'pointer',
   },
+  sittersLink: {
+    color: 'red',
+    textDecoration: 'none',
+  },
 }));
 
 export default useStyles;

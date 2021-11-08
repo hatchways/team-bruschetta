@@ -27,9 +27,6 @@ export default function Sidebar(): JSX.Element {
       <NavLink to="/dashboard/#" className={classes.navlink}>
         <Typography className={classes.links}>Settings</Typography>
       </NavLink>
-      <NavLink to="/dashboard/manage-bookings" className={classes.navlink}>
-        <Typography className={classes.links2}>Bookings</Typography>
-      </NavLink>
       <NavLink to="/dashboard/profile-list" className={classes.navlink}>
         <Typography className={classes.links2}>Profile Listings</Typography>
       </NavLink>
