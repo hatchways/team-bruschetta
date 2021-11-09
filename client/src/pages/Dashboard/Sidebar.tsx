@@ -30,9 +30,6 @@ export default function Sidebar(): JSX.Element {
       <NavLink to="/dashboard/profile-list" className={classes.navlink}>
         <Typography className={classes.links2}>Profile Listings</Typography>
       </NavLink>
-      <NavLink to="/dashboard/profile-detail" className={classes.navlink}>
-        <Typography className={classes.links2}>Profile Details</Typography>
-      </NavLink>
     </Grid>
   );
 }

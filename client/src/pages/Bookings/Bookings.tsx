@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Paper from '@material-ui/core/Paper';
-import { Grid, Box, Typography, Container, Avatar, Toolbar } from '@material-ui/core';
+import { Grid, Box, Typography, Container, Avatar } from '@material-ui/core';
 import SettingsIcon from '@material-ui/icons/Settings';
 import avatar from '../../Images/d9fc84a0d1d545d77e78aaad39c20c11d3355074.png';
 import BookingCard from './BookingCard';
