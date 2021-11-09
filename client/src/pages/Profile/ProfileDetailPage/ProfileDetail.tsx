@@ -44,8 +44,8 @@ export default function ProfileDetail({ loggedInUser }: Props): JSX.Element {
   const [profileDetails, setProfileDetails] = React.useState<ProfileDetails | null | undefined>();
   const [value, setValue] = React.useState(3);
 
-  const [dropIn, handleDropIn] = React.useState(new Date());
-  const [dropOff, handleDropOff] = React.useState(new Date());
+  const [dropIn, handleDropIn] = React.useState<Date | null>(new Date());
+  const [dropOff, handleDropOff] = React.useState<Date | null>(new Date());
   const classes = useStyles();
 
   return (
@@ -87,6 +87,7 @@ export default function ProfileDetail({ loggedInUser }: Props): JSX.Element {
             value={dropIn}
             onChange={handleDropIn}
             className={classes.datePicker}
+            color="secondary"
           />
         </MuiPickersUtilsProvider>
         <InputLabel className={classes.label}>Drop Off</InputLabel>
@@ -97,6 +98,7 @@ export default function ProfileDetail({ loggedInUser }: Props): JSX.Element {
             value={dropOff}
             onChange={handleDropOff}
             className={classes.datePicker}
+            color="secondary"
           />
         </MuiPickersUtilsProvider>
         <Button type="submit" size="large" variant="contained" color="secondary" className={classes.button}>

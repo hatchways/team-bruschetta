@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     width: '15%',
     height: '30vh',
     position: 'absolute',
-    left: '40rem',
+    left: '32rem',
     top: '22rem',
     border: '10px solid #fff',
   },
@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '4rem',
   },
   aboutTitle: {
-    fontWeight: 'bolder',
+    fontWeight: 'bold',
     paddingLeft: '2rem',
   },
   about: {
@@ -98,6 +98,7 @@ const useStyles = makeStyles((theme) => ({
   },
   datePicker: {
     width: '100%',
+    color: 'blue',
   },
   button: {
     margin: '1.5rem 1rem',

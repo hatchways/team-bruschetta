@@ -8,7 +8,7 @@ export default function Sidebar(): JSX.Element {
   const classes = useStyles();
 
   return (
-    <Grid xs={12} sm={3} item className={classes.sidebar}>
+    <Grid xs={12} sm={2} item className={classes.sidebar}>
       <NavLink to="/dashboard/edit-profile" className={classes.navlink}>
         <Typography className={classes.links}>Edit Profile</Typography>
       </NavLink>

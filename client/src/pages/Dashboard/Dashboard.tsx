@@ -10,6 +10,7 @@ import EditProfile from '../Profile/EditProfileForm/EditProfileForm';
 import ProfileSettings from '../ProfileSettings/ProfileSettings';
 import SearchProfile from '../Profile/ProfileList/SearchProfile';
 import Sidebar from './Sidebar';
+import ProfileDetail from '../Profile/ProfileDetailPage/ProfileDetail';
 
 import useStyles from './useStyles';
 
@@ -40,7 +41,7 @@ export default function Dashboard({ handleSubmit }: Props): JSX.Element {
       <DashHeader loggedInUser={loggedInUser} />
       <Grid container component="main" className={`${classes.root} ${classes.dashboard}`}>
         <Sidebar />
-        <Grid xs={12} sm={9} component={Paper} spacing={3} square item className={classes.drawerWrapper}>
+        <Grid xs={12} sm={10} component={Paper} spacing={3} square item className={classes.drawerWrapper}>
           <Switch>
             <Route path="/dashboard/edit-profile">
               <EditProfile loggedInUser={loggedInUser} handleSubmit={handleSubmit} />
@@ -50,6 +51,9 @@ export default function Dashboard({ handleSubmit }: Props): JSX.Element {
             </Route>
             <Route path="/dashboard/profile-list">
               <SearchProfile loggedInUser={loggedInUser} />
+            </Route>
+            <Route path="/dashboard/profile-detail">
+              <ProfileDetail loggedInUser={loggedInUser} />
             </Route>
           </Switch>
         </Grid>

@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
   },
   sidebar: {
-    paddingLeft: '8rem',
+    paddingLeft: '4rem',
     paddingTop: '6rem',
   },
   links: {
