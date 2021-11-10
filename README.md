@@ -41,7 +41,7 @@ LovingSitter is a web application that makes it easier for dog owners to find a 
 
 ![Homepage](demo/images/homepage.png)
 
-2. Registration. Users will be able to create a new account using their username, email and password
+2. Registration. Users will be able to create a new account using their username, email and password. Snackbars helps the users to know whether the registration was successful or not.
 
 ![Signup](demo/images/signup.png)
 
@@ -60,3 +60,7 @@ LovingSitter is a web application that makes it easier for dog owners to find a 
 6. Manage Bookings. Users will be able to view the number of bookings that they have both past and current.
 
 ![Manage Bookings](demo/images/bookings.png)
+
+7. Profile Image. Users will be able to upload their profile image. Cloudinary was used to transform and optimize the profile image.
+
+![Profile Image](demo/images/profileimage.png)
