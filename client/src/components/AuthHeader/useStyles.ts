@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: 'wrap',
   },
   logo: {
-    width: '15%',
+    width: '100%',
   },
   buttons: {
     width: '40%',

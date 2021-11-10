@@ -11,7 +11,9 @@ const AuthHeader = (): JSX.Element => {
 
   return (
     <Box p={1} className={classes.authHeader}>
-      <img src={logo} alt="logo" className={classes.logo} />
+      <Link to="/">
+        <img src={logo} alt="logo" className={classes.logo} />
+      </Link>
       <Box className={classes.buttons}>
         <Typography className={classes.accAside}>Become a sitter </Typography>
         <Button component={Link} to="/login" color="secondary" className={classes.accBtn} variant="contained">

@@ -4,7 +4,7 @@ const useStyles = makeStyles((theme) => ({
   form: {
     width: '70%', // Fix IE 11 issue.
     marginTop: theme.spacing(1),
-    paddingLeft: '29%',
+    paddingLeft: '9%',
   },
   textField: {
     marginTop: '5%',
