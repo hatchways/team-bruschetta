@@ -10,7 +10,7 @@ const logger = require("morgan");
 const colors = require("colors");
 
 
-const requestsRouter = require('./controllers/requestsController');
+const requestRouter = require('./routes/request');
 const authRouter = require("./routes/auth");
 const userRouter = require("./routes/user");
 
@@ -49,7 +49,7 @@ app.use((req, res, next) => {
 });
 
 
-app.use("/requests", requestsRouter);
+app.use("/requests", requestRouter);
 app.use("/auth", authRouter);
 app.use("/users", userRouter);
 
