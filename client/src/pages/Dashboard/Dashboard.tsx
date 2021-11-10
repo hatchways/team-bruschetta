@@ -1,14 +1,24 @@
-import Grid from '@material-ui/core/Grid';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import { useEffect } from 'react';
+import { Grid, Box } from '@material-ui/core';
+import Paper from '@material-ui/core/Paper';
+import { Switch, Route, useHistory } from 'react-router-dom';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import useStyles from './useStyles';
 import { useAuth } from '../../context/useAuthContext';
 import { useSocket } from '../../context/useSocketContext';
-import { useHistory } from 'react-router-dom';
-import ChatSideBanner from '../../components/ChatSideBanner/ChatSideBanner';
-import { useEffect } from 'react';
+import DashHeader from '../../components/DashHeader/DashHeader';
+import EditProfile from '../Profile/EditProfileForm/EditProfileForm';
+import ProfileSettings from '../ProfileSettings/ProfileSettings';
+import SearchProfile from '../Profile/ProfileList/SearchProfile';
+import Sidebar from './Sidebar';
+import ProfileDetail from '../Profile/ProfileDetailPage/ProfileDetail';
 
-export default function Dashboard(): JSX.Element {
+import useStyles from './useStyles';
+
+interface Props {
+  handleSubmit?: () => void;
+}
+
+export default function Dashboard({ handleSubmit }: Props): JSX.Element {
   const classes = useStyles();
 
   const { loggedInUser } = useAuth();
@@ -23,16 +33,31 @@ export default function Dashboard(): JSX.Element {
   if (loggedInUser === undefined) return <CircularProgress />;
   if (!loggedInUser) {
     history.push('/login');
-    // loading for a split seconds until history.push works
     return <CircularProgress />;
   }
 
   return (
-    <Grid container component="main" className={`${classes.root} ${classes.dashboard}`}>
-      <CssBaseline />
-      <Grid item className={classes.drawerWrapper}>
-        <ChatSideBanner loggedInUser={loggedInUser} />
+    <Box>
+      <DashHeader loggedInUser={loggedInUser} />
+      <Grid container component="main" className={`${classes.root} ${classes.dashboard}`}>
+        <Sidebar />
+        <Grid xs={12} sm={10} component={Paper} spacing={3} square item className={classes.drawerWrapper}>
+          <Switch>
+            <Route path="/dashboard/edit-profile">
+              <EditProfile loggedInUser={loggedInUser} handleSubmit={handleSubmit} />
+            </Route>
+            <Route path="/dashboard/settings">
+              <ProfileSettings loggedInUser={loggedInUser} />
+            </Route>
+            <Route path="/dashboard/profile-list">
+              <SearchProfile loggedInUser={loggedInUser} />
+            </Route>
+            <Route path="/dashboard/profile-detail">
+              <ProfileDetail loggedInUser={loggedInUser} />
+            </Route>
+          </Switch>
+        </Grid>
       </Grid>
-    </Grid>
+    </Box>
   );
 }

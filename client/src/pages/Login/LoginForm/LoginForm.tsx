@@ -70,6 +70,7 @@ export default function Login({ handleSubmit }: Props): JSX.Element {
               value={values.email}
               onChange={handleChange}
               variant="outlined"
+              color="secondary"
             />
           </Box>
           <Box className={classes.textField}>
@@ -93,6 +94,7 @@ export default function Login({ handleSubmit }: Props): JSX.Element {
               value={values.password}
               onChange={handleChange}
               variant="outlined"
+              color="secondary"
             />
           </Box>
           <Box textAlign="center" className={classes.submitContainer}>

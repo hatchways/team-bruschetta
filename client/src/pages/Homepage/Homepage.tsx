@@ -25,6 +25,7 @@ export default function Homepage(): JSX.Element {
             autoComplete="location"
             className={classes.location}
             variant="outlined"
+            color="secondary"
           />
           <InputLabel className={classes.inputLabel}>Drop In/Drop Off</InputLabel>
           <Grid item xs={4} sm={7} className={classes.availability}>
@@ -35,6 +36,7 @@ export default function Homepage(): JSX.Element {
               autoComplete="availability"
               className={classes.textField}
               variant="outlined"
+              color="secondary"
             />
             <TextField
               id="search"
@@ -43,6 +45,7 @@ export default function Homepage(): JSX.Element {
               autoComplete="availability"
               className={classes.textField}
               variant="outlined"
+              color="secondary"
             />
           </Grid>
           <Button component={Link} to="/profile-list" color="secondary" className={classes.accBtn} variant="contained">

@@ -5,8 +5,13 @@ import useStyles from './useStyles';
 import ProfileList from './ProfileList';
 import profileListing from '../../../helpers/APICalls/profileListing';
 import { ProfileLists } from '../../../interface/Profile';
+import { User } from '../../../interface/User';
 
-export default function SearchProfile(): JSX.Element {
+interface Props {
+  loggedInUser: User;
+}
+
+export default function SearchProfile({ loggedInUser }: Props): JSX.Element {
   const [profiles, setProfiles] = React.useState<any[]>([]);
   const [searchProfile, setSearchProfile] = React.useState('');
   const classes = useStyles();
@@ -38,7 +43,7 @@ export default function SearchProfile(): JSX.Element {
         Your search results
       </Typography>
       <Grid container className={classes.search}>
-        <Grid item xs={8} sm={4}>
+        <Grid item xs={12} sm={5} spacing={3}>
           <TextField
             InputProps={{
               endAdornment: (
@@ -56,9 +61,10 @@ export default function SearchProfile(): JSX.Element {
             autoComplete="address"
             className={classes.textField}
             variant="outlined"
+            color="secondary"
           />
         </Grid>
-        <Grid item xs={4} sm={2}>
+        <Grid item xs={6} sm={3}>
           <TextField
             id="search"
             name="availability"
@@ -67,9 +73,10 @@ export default function SearchProfile(): JSX.Element {
             autoComplete="availability"
             className={classes.textField}
             variant="outlined"
+            color="secondary"
           />
         </Grid>
-        <Grid item xs={4} sm={2}>
+        <Grid item xs={6} sm={3}>
           <TextField
             id="search"
             name="availability"
@@ -78,6 +85,7 @@ export default function SearchProfile(): JSX.Element {
             autoComplete="availability"
             className={classes.textField}
             variant="outlined"
+            color="secondary"
           />
         </Grid>
       </Grid>

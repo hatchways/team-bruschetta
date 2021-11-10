@@ -75,6 +75,7 @@ const SignUpForm = ({ handleSubmit }: Props): JSX.Element => {
               value={values.username}
               onChange={handleChange}
               variant="outlined"
+              color="secondary"
             />
           </Box>
           <Box className={classes.textField}>
@@ -97,6 +98,7 @@ const SignUpForm = ({ handleSubmit }: Props): JSX.Element => {
               value={values.email}
               onChange={handleChange}
               variant="outlined"
+              color="secondary"
             />
           </Box>
           <Box className={classes.textField}>
@@ -119,6 +121,7 @@ const SignUpForm = ({ handleSubmit }: Props): JSX.Element => {
               value={values.password}
               onChange={handleChange}
               variant="outlined"
+              color="secondary"
             />
           </Box>
           <Box textAlign="center">

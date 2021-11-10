@@ -19,6 +19,7 @@ import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
 import { CircularProgress } from '@material-ui/core';
+import { User } from '../../../interface/User';
 import useStyles from './useStyles';
 
 interface Props {
@@ -59,11 +60,12 @@ interface Props {
       description: string;
     }>,
   ) => void;
+  loggedInUser: User;
 }
 
 const theme = createMuiTheme();
 
-export default function EditProfile({ handleSubmit }: Props): JSX.Element {
+export default function EditProfile({ handleSubmit, loggedInUser }: Props): JSX.Element {
   const [phoneNumber, setPhoneNumber] = React.useState(false);
 
   const classes = useStyles();
@@ -80,7 +82,7 @@ export default function EditProfile({ handleSubmit }: Props): JSX.Element {
         lastName: '',
         gender: '',
         dateOfBirth: new Date(),
-        email: '',
+        email: `${loggedInUser.email}`,
         phone: 0,
         address: '',
         description: '',
@@ -191,7 +193,7 @@ export default function EditProfile({ handleSubmit }: Props): JSX.Element {
                     variant="outlined"
                     helperText={touched.email ? errors.email : ''}
                     error={touched.email && Boolean(errors.email)}
-                    value={values.email}
+                    value={loggedInUser.email}
                     onChange={handleChange}
                   />
                 </Grid>

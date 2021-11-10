@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
     },
     display: 'flex',
     justifyContent: 'space-between',
-    margin: '2rem',
+    marginTop: '2rem',
   },
   profile: {
     width: '65%',
@@ -25,13 +25,13 @@ const useStyles = makeStyles((theme) => ({
     width: '15%',
     height: '30vh',
     position: 'absolute',
-    left: '23rem',
-    top: '13rem',
+    left: '32rem',
+    top: '22rem',
     border: '10px solid #fff',
   },
   details: {
     marginTop: '8rem',
-    marginLeft: '20rem',
+    marginLeft: '15rem',
   },
   name: {
     marginLeft: '1rem',
@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
   status: {
     fontSize: '0.8rem',
     color: 'grey',
-    marginLeft: '4rem',
+    marginLeft: '5rem',
   },
   locationLogo: {
     color: 'Red',
@@ -50,13 +50,13 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '0.8rem',
     color: '#aaa',
     marginTop: '0.5rem',
-    marginLeft: '3rem',
+    marginLeft: '4rem',
   },
   description: {
     marginTop: '4rem',
   },
   aboutTitle: {
-    fontWeight: 'bolder',
+    fontWeight: 'bold',
     paddingLeft: '2rem',
   },
   about: {
@@ -98,6 +98,7 @@ const useStyles = makeStyles((theme) => ({
   },
   datePicker: {
     width: '100%',
+    color: 'blue',
   },
   button: {
     margin: '1.5rem 1rem',

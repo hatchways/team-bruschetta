@@ -7,8 +7,13 @@ import editProfile from '../../helpers/APICalls/editProfile';
 import { useProfile } from '../../context/useProfileContext';
 import { useSnackBar } from '../../context/useSnackbarContext';
 import EditProfileForm from './EditProfileForm/EditProfileForm';
+import { User } from '../../interface/User';
 
-export default function EditProfile(): JSX.Element {
+interface Props {
+  loggedInUser: User;
+}
+
+export default function EditProfile({ loggedInUser }: Props): JSX.Element {
   const classes = useStyles();
   const { updateProfileContext } = useProfile();
   const { updateSnackBarMessage } = useSnackBar();
@@ -69,7 +74,7 @@ export default function EditProfile(): JSX.Element {
         <Grid container>
           <Grid item xs></Grid>
         </Grid>
-        <EditProfileForm handleSubmit={handleSubmit} />
+        <EditProfileForm handleSubmit={handleSubmit} loggedInUser={loggedInUser} />
       </Box>
       <Box p={1} alignSelf="center" />
     </Grid>

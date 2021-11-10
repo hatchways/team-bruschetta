@@ -6,13 +6,17 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
   },
   title: {
-    margin: '1rem 30rem',
+    paddingTop: '1rem',
+    paddingLeft: '20rem',
     fontWeight: 'bolder',
     fontSize: '2rem',
     width: '40%',
   },
+  link: {
+    textDecoration: 'none',
+  },
   card: {
-    width: '20%',
+    width: '100%',
     height: '38vh',
     margin: '2rem 0',
     boxShadow: '5px 5px 5px 5px #ddd',
@@ -24,10 +28,10 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
   },
   search: {
-    marginLeft: '18rem',
+    paddingLeft: '10rem',
   },
   name: {
-    marginLeft: '2.7rem',
+    marginLeft: '2.5rem',
     fontWeight: 'bolder',
   },
   status: {
@@ -39,10 +43,10 @@ const useStyles = makeStyles((theme) => ({
     width: '45%',
     height: '11vh',
     marginBottom: '0.5rem',
-    marginLeft: '3rem',
+    marginLeft: '1rem',
   },
   rating: {
-    marginLeft: '2.7rem',
+    marginLeft: '1.8rem',
     borderColor: 'transparent',
   },
   footer: {
